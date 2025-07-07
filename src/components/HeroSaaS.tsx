@@ -86,14 +86,14 @@ const HeroSaaS = () => {
               animate={floatingAnimation}
               style={{ display: 'inline-block' }}
             >
-              Automação Inteligente{' '}
+              Inteligência Digital{' '}
             </motion.span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
               <motion.span
                 animate={floatingAnimation}
                 style={{ display: 'inline-block', animationDelay: '0.5s' }}
               >
-                Agentic
+                para um Futuro Regenerativo
               </motion.span>
             </span>
           </motion.h1>
@@ -104,9 +104,10 @@ const HeroSaaS = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Estamos construindo a primeira plataforma brasileira de agentes de IA autônomos com 
-            <strong className="text-primary-600"> acesso a 100+ LLMs globais</strong>. 
-            Junte-se ao nosso programa de Early Access e seja pioneiro na automação agentic.
+            Bem-vindo à CalangoFlux. Somos uma iniciativa dedicada a criar e entregar soluções digitais inteligentes, 
+            impulsionadas por inteligência artificial e automação avançada. Nosso propósito é simples: 
+            <strong className="text-primary-600"> tornar a tecnologia acessível e aplicável</strong>, 
+            gerando impacto positivo e promovendo a inclusão em um mundo cada vez mais conectado.
           </motion.p>
 
           <motion.div 
