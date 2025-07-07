@@ -6,6 +6,7 @@ import calangoicone from '../assets/imagens/calangoicone.png';
 
 const FeaturesSection = () => {
   const [activeSegment, setActiveSegment] = useState<number | null>(null);
+  const [hoveredSegment, setHoveredSegment] = useState<number | null>(null);
 
   const automationSteps = [
     {
@@ -115,6 +116,13 @@ const FeaturesSection = () => {
     ].join(" ");
   };
 
+  // Função para calcular posição do texto no segmento
+  const getTextPosition = (step: typeof automationSteps[0]) => {
+    const middleAngle = (step.angle.start + step.angle.end) / 2;
+    const textRadius = 120; // Raio para posicionar o texto
+    return polarToCartesian(200, 200, textRadius, middleAngle);
+  };
+
   return (
     <section id="features" className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -136,12 +144,12 @@ const FeaturesSection = () => {
             </span>
           </h2>
           <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
-            Nossa arquitetura circular integrada. Clique em cada segmento para explorar 
+            Nossa arquitetura circular integrada. Clique em cada segmento colorido para explorar 
             os componentes do nosso ecossistema de automação inteligente.
           </p>
         </motion.div>
 
-        {/* Circular Diagram - Responsivo */}
+        {/* Circular Diagram - Segmentos como Botões */}
         <div className="relative max-w-3xl lg:max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -150,7 +158,7 @@ const FeaturesSection = () => {
             transition={{ duration: 0.8 }}
             className="relative bg-white rounded-full shadow-2xl p-4 md:p-6 lg:p-8"
           >
-            {/* SVG Circle - Responsivo */}
+            {/* SVG Circle - Segmentos Interativos */}
             <div className="relative w-full max-w-lg lg:max-w-2xl mx-auto aspect-square">
               <svg 
                 viewBox="0 0 400 400" 
@@ -168,33 +176,50 @@ const FeaturesSection = () => {
                   opacity="0.3"
                 />
                 
-                {/* Segments */}
+                {/* Segmentos Interativos */}
                 {automationSteps.map((step, index) => (
-                  <motion.path
-                    key={step.id}
-                    d={describeArc(200, 200, 160, step.angle.start, step.angle.end)}
-                    fill={step.color}
-                    stroke="#ffffff"
-                    strokeWidth="3"
-                    className="cursor-pointer transition-all duration-300"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ 
-                      opacity: 0.8,
-                      scale: 1
-                    }}
-                    whileHover={{ 
-                      opacity: 1,
-                      scale: 1.02,
-                      transition: { duration: 0.2 }
-                    }}
-                    transition={{ 
-                      duration: 0.6, 
-                      delay: index * 0.1,
-                      type: "spring",
-                      stiffness: 100
-                    }}
-                    onClick={() => setActiveSegment(activeSegment === step.id ? null : step.id)}
-                  />
+                  <motion.g key={step.id}>
+                    {/* Segmento Principal */}
+                    <motion.path
+                      d={describeArc(200, 200, 160, step.angle.start, step.angle.end)}
+                      fill={step.color}
+                      stroke="#ffffff"
+                      strokeWidth="3"
+                      className="cursor-pointer transition-all duration-300"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ 
+                        opacity: hoveredSegment === step.id ? 1 : 0.8,
+                        scale: hoveredSegment === step.id ? 1.02 : 1
+                      }}
+                      transition={{ 
+                        duration: 0.6, 
+                        delay: index * 0.1,
+                        type: "spring",
+                        stiffness: 100
+                      }}
+                      onMouseEnter={() => setHoveredSegment(step.id)}
+                      onMouseLeave={() => setHoveredSegment(null)}
+                      onClick={() => setActiveSegment(activeSegment === step.id ? null : step.id)}
+                      style={{
+                        filter: hoveredSegment === step.id ? 'drop-shadow(0 8px 16px rgba(0,0,0,0.2))' : 'none'
+                      }}
+                    />
+                    
+                    {/* Efeito de Hover - Anel Externo */}
+                    <motion.path
+                      d={describeArc(200, 200, 170, step.angle.start, step.angle.end)}
+                      fill="none"
+                      stroke={step.color}
+                      strokeWidth="4"
+                      opacity="0"
+                      className="pointer-events-none"
+                      animate={{
+                        opacity: hoveredSegment === step.id ? 0.6 : 0,
+                        scale: hoveredSegment === step.id ? 1.01 : 1
+                      }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  </motion.g>
                 ))}
                 
                 {/* Inner Circle for Logo */}
@@ -214,7 +239,7 @@ const FeaturesSection = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.5, type: "spring" }}
-                className="absolute inset-0 flex items-center justify-center"
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
               >
                 <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center">
                   <img 
@@ -225,36 +250,37 @@ const FeaturesSection = () => {
                 </div>
               </motion.div>
               
-              {/* Cards Transparentes Posicionados sobre as Cores */}
+              {/* Labels dos Segmentos */}
               {automationSteps.map((step, index) => {
-                const middleAngle = (step.angle.start + step.angle.end) / 2;
-                const cardRadius = 120; // Ajustado para o novo tamanho
-                const cardPos = polarToCartesian(200, 200, cardRadius, middleAngle);
+                const textPos = getTextPosition(step);
                 
                 return (
                   <motion.div
-                    key={`card-${step.id}`}
+                    key={`label-${step.id}`}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: index * 0.1 + 0.8 }}
-                    className="absolute text-center cursor-pointer w-[100px] md:w-[120px]"
+                    className="absolute text-center pointer-events-none"
                     style={{
-                      left: `${((cardPos.x / 400) * 100)}%`,
-                      top: `${((cardPos.y / 400) * 100)}%`,
+                      left: `${((textPos.x / 400) * 100)}%`,
+                      top: `${((textPos.y / 400) * 100)}%`,
                       transform: 'translate(-50%, -50%)'
                     }}
-                    onClick={() => setActiveSegment(activeSegment === step.id ? null : step.id)}
                   >
                     <motion.div
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      className="bg-white/25 backdrop-blur-sm rounded-lg md:rounded-xl px-2 md:px-3 py-2 md:py-3 shadow-lg border border-white/30 transition-all duration-300 hover:bg-white/35"
+                      className="bg-white/90 backdrop-blur-sm rounded-lg px-2 md:px-3 py-1.5 md:py-2 shadow-lg border border-white/30"
+                      animate={{
+                        scale: hoveredSegment === step.id ? 1.05 : 1,
+                        y: hoveredSegment === step.id ? -2 : 0
+                      }}
+                      transition={{ duration: 0.2 }}
                     >
-                      <h4 className="text-xs md:text-sm font-bold text-white leading-tight mb-1 md:mb-2 drop-shadow-lg">
+                      <h4 className="text-xs md:text-sm font-bold text-gray-800 leading-tight mb-1">
                         {step.title}
                       </h4>
-                      <div className={`text-xs px-1.5 md:px-2 py-0.5 md:py-1 rounded-full border bg-white/90 ${getStatusColor(step.status).replace('bg-', '').replace('text-', 'text-').replace('border-', 'border-')}`}>
-                        <span className="hidden md:inline">{step.status}</span>
-                        <span className="md:hidden">
+                      <div className={`text-xs px-1.5 md:px-2 py-0.5 rounded-full border ${getStatusColor(step.status)}`}>
+                        <span className="hidden sm:inline">{step.status}</span>
+                        <span className="sm:hidden">
                           {step.status === "Funcional" ? "✓" : 
                            step.status === "MVP" ? "M" :
                            step.status === "Protótipo" ? "P" :
@@ -396,7 +422,7 @@ const FeaturesSection = () => {
               Arquitetura Circular Integrada
             </h3>
             <p className="text-base md:text-lg mb-6 opacity-90">
-              Cada componente trabalha em harmonia para criar um ecossistema agentic completo e eficiente.
+              Cada segmento colorido é um componente interativo. Clique para explorar nossa arquitetura agentic.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-white text-primary-600 hover:bg-gray-100 px-6 md:px-8 py-3 rounded-lg font-medium transition-all duration-200">
