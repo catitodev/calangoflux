@@ -22,7 +22,8 @@ const FloatingChatbot = () => {
       }}
       onClick={() => {
         // Abrir chat do Abacus ou WhatsApp como fallback
-        window.open('https://wa.me/5511999999999?text=Olá! Vim do site da CalangoFlux e gostaria de saber mais sobre os serviços.', '_blank')
+        // TROCAR pelo número real da CalangoFlux (formato: 5511999999999)
+        window.open('https://wa.me/SEU_NUMERO_AQUI?text=Olá! Vim do site da CalangoFlux e gostaria de saber mais sobre os serviços.', '_blank')
       }}
       onMouseEnter={(e) => {
         e.target.style.transform = 'scale(1.1)'
