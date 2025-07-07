@@ -12,6 +12,7 @@ const FeaturesSection = () => {
     {
       id: 1,
       title: "Input Trigger",
+      titleLines: ["Input", "Trigger"],
       subtitle: "Entrada de Dados",
       description: "Recebe inputs de múltiplas fontes: WhatsApp, Telegram, APIs, webhooks. Sistema de parsing inteligente identifica contexto e intenção do usuário.",
       color: "#10b981", // emerald-500
@@ -20,6 +21,7 @@ const FeaturesSection = () => {
     {
       id: 2,
       title: "IA Processing",
+      titleLines: ["IA", "Processing"],
       subtitle: "Processamento Inteligente",
       description: "Engine de IA analisa contexto, classifica intenções e determina fluxo de automação apropriado. Integração com múltiplos LLMs para máxima precisão.",
       color: "#3b82f6", // blue-500
@@ -28,6 +30,7 @@ const FeaturesSection = () => {
     {
       id: 3,
       title: "Decision Engine",
+      titleLines: ["Decision", "Engine"],
       subtitle: "Motor de Decisão",
       description: "Algoritmos de decisão baseados em regras e ML. Roteamento inteligente para diferentes workflows baseado no contexto e histórico.",
       color: "#8b5cf6", // violet-500
@@ -36,6 +39,7 @@ const FeaturesSection = () => {
     {
       id: 4,
       title: "Knowledge Base",
+      titleLines: ["Knowledge", "Base"],
       subtitle: "Base de Conhecimento",
       description: "Integração com Tana para armazenamento dinâmico. Contexto persistente e aprendizado contínuo dos padrões de uso e preferências.",
       color: "#06b6d4", // cyan-500
@@ -44,6 +48,7 @@ const FeaturesSection = () => {
     {
       id: 5,
       title: "Workflow Engine",
+      titleLines: ["Workflow", "Engine"],
       subtitle: "Motor de Automação",
       description: "Execução de workflows complexos com Abacus. Orquestração de múltiplos agentes e sistemas externos com monitoramento em tempo real.",
       color: "#f59e0b", // amber-500
@@ -52,6 +57,7 @@ const FeaturesSection = () => {
     {
       id: 6,
       title: "API Gateway",
+      titleLines: ["API", "Gateway"],
       subtitle: "Gateway de Integração",
       description: "Hub central para integrações externas. Conecta com CRMs, ERPs, plataformas de comunicação e serviços de terceiros de forma segura.",
       color: "#ef4444", // red-500
@@ -60,6 +66,7 @@ const FeaturesSection = () => {
     {
       id: 7,
       title: "Analytics Engine",
+      titleLines: ["Analytics", "Engine"],
       subtitle: "Motor de Análise",
       description: "Coleta métricas em tempo real, gera insights e alimenta loops de feedback para otimização contínua dos workflows e performance.",
       color: "#ec4899", // pink-500
@@ -68,6 +75,7 @@ const FeaturesSection = () => {
     {
       id: 8,
       title: "Response Delivery",
+      titleLines: ["Response", "Delivery"],
       subtitle: "Entrega de Resposta",
       description: "Sistema de entrega multi-canal com formatação inteligente. Adapta resposta ao canal e contexto do usuário para máxima efetividade.",
       color: "#22c55e", // green-500
@@ -102,20 +110,20 @@ const FeaturesSection = () => {
     return polarToCartesian(200, 200, textRadius, middleAngle);
   };
 
-  // Função para calcular posição específica por segmento (ajuste fino)
+  // Função para calcular posição específica por segmento (ajuste fino para duas linhas)
   const getAdjustedTextPosition = (step: typeof automationSteps[0]) => {
     const basePos = getTextPosition(step);
     
-    // Ajustes específicos para cada segmento baseado no ID
+    // Ajustes específicos para cada segmento baseado no ID (otimizado para duas linhas)
     const adjustments: { [key: number]: { x: number; y: number } } = {
-      1: { x: -8, y: 0 },   // Input Trigger - mover para esquerda
-      2: { x: -12, y: -5 }, // IA Processing - mover para esquerda e um pouco para cima
-      3: { x: -8, y: 0 },   // Decision Engine - mover para esquerda
-      4: { x: -8, y: 5 },   // Knowledge Base - mover para esquerda e um pouco para baixo
-      5: { x: -8, y: 0 },   // Workflow Engine - mover para esquerda
-      6: { x: -8, y: -5 },  // API Gateway - mover para esquerda e um pouco para cima
-      7: { x: -8, y: 0 },   // Analytics Engine - mover para esquerda
-      8: { x: -8, y: 5 }    // Response Delivery - mover para esquerda e um pouco para baixo
+      1: { x: -5, y: 0 },   // Input Trigger
+      2: { x: -8, y: 0 },   // IA Processing 
+      3: { x: -5, y: 0 },   // Decision Engine
+      4: { x: -5, y: 0 },   // Knowledge Base
+      5: { x: -5, y: 0 },   // Workflow Engine
+      6: { x: -5, y: 0 },   // API Gateway
+      7: { x: -5, y: 0 },   // Analytics Engine
+      8: { x: -5, y: 0 }    // Response Delivery
     };
     
     const adjustment = adjustments[step.id] || { x: 0, y: 0 };
@@ -270,17 +278,19 @@ const FeaturesSection = () => {
                       transform: 'translate(-50%, -50%)'
                     }}
                   >
-                    <motion.div
-                      animate={{
-                        scale: hoveredSegment === step.id ? 1.05 : 1,
-                        y: hoveredSegment === step.id ? -2 : 0
-                      }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <h4 className="text-sm md:text-base font-bold text-white leading-tight drop-shadow-lg">
-                        {step.title}
-                      </h4>
-                    </motion.div>
+                                          <motion.div
+                        animate={{
+                          scale: hoveredSegment === step.id ? 1.05 : 1,
+                          y: hoveredSegment === step.id ? -2 : 0
+                        }}
+                        transition={{ duration: 0.2 }}
+                        className="text-center"
+                      >
+                        <div className="text-sm md:text-base font-bold text-white leading-tight drop-shadow-lg">
+                          <div>{step.titleLines[0]}</div>
+                          <div>{step.titleLines[1]}</div>
+                        </div>
+                      </motion.div>
                   </motion.div>
                 );
               })}
