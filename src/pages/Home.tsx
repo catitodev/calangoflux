@@ -1,6 +1,11 @@
-import Hero from '../components/Hero';
+import HeroSaaS from '../components/HeroSaaS';
+import FeaturesSection from '../components/FeaturesSection';
+import DashboardPreview from '../components/DashboardPreview';
 import About from '../components/About';
 import Services from '../components/Services';
+import TestimonialsSection from '../components/TestimonialsSection';
+import PricingSection from '../components/PricingSection';
+import FAQSection from '../components/FAQSection';
 import Impact from '../components/Impact';
 import Contact from '../components/Contact';
 import { useEffect } from 'react';
@@ -11,14 +16,19 @@ const Home = () => {
     window.scrollTo(0, 0);
     
     // Set page title
-    document.title = 'CalangoFlux | Inteligência aplicada para impacto real';
+    document.title = 'CalangoFlux | Plataforma SaaS Agentic - Automação Inteligente';
   }, []);
 
   return (
     <>
-      <Hero />
+      <HeroSaaS />
+      <FeaturesSection />
+      <DashboardPreview />
       <About />
       <Services />
+      <TestimonialsSection />
+      <PricingSection />
+      <FAQSection />
       <Impact />
       <Contact />
     </>

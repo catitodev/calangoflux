@@ -2,6 +2,7 @@ import calangoicone from '../assets/imagens/calangoicone.png';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { Button } from './ui/button';
 
 interface NavbarProps {
   isScrolled: boolean;
@@ -18,7 +19,7 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white shadow-md py-2' 
+          ? 'bg-white/90 backdrop-blur-sm shadow-md py-2' 
           : 'bg-transparent py-4'
       }`}
     >
@@ -33,7 +34,7 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-6">
           <NavLink 
             to="/" 
             className={({ isActive }) => 
@@ -47,12 +48,12 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
             Início
           </NavLink>
           <a 
-            href="#sobre" 
+            href="#features" 
             className={`text-sm font-medium transition ${
               isScrolled ? 'text-gray-800 hover:text-primary-500' : 'text-gray-800 hover:text-primary-500'
             }`}
           >
-            Sobre
+            Recursos
           </a>
           <a 
             href="#servicos" 
@@ -63,30 +64,38 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
             Serviços
           </a>
           <a 
-            href="#impacto" 
-            
+            href="#pricing" 
             className={`text-sm font-medium transition ${
               isScrolled ? 'text-gray-800 hover:text-primary-500' : 'text-gray-800 hover:text-primary-500'
             }`}
           >
-            Impacto
+            Preços
           </a>
           <a 
-            href="#contato" 
+            href="#sobre" 
             className={`text-sm font-medium transition ${
               isScrolled ? 'text-gray-800 hover:text-primary-500' : 'text-gray-800 hover:text-primary-500'
             }`}
           >
-            Contato
+            Sobre
           </a>
         </nav>
 
-        <a 
-          href="#contato"
-          className="hidden md:flex btn btn-primary"
-        >
-          Fale Conosco
-        </a>
+        <div className="hidden md:flex items-center space-x-4">
+          <a 
+            href="#contato"
+            className="text-sm font-medium text-gray-800 hover:text-primary-500 transition"
+          >
+            Contato
+          </a>
+          <Button 
+            variant="default" 
+            size="sm"
+            className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600"
+          >
+            Teste Gratuito
+          </Button>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -100,7 +109,7 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white">
+        <div className="md:hidden bg-white/95 backdrop-blur-sm border-t">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             <NavLink 
               to="/" 
@@ -112,11 +121,11 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
               Início
             </NavLink>
             <a 
-              href="#sobre" 
+              href="#features" 
               className="text-base font-medium py-2 text-gray-800"
               onClick={toggleMenu}
             >
-              Sobre
+              Recursos
             </a>
             <a 
               href="#servicos" 
@@ -126,28 +135,33 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
               Serviços
             </a>
             <a 
-              href="/#impacto" 
+              href="#pricing" 
               className="text-base font-medium py-2 text-gray-800"
               onClick={toggleMenu}
             >
-              Impacto
+              Preços
             </a>
             <a 
-              href="/#contato" 
+              href="#sobre" 
+              className="text-base font-medium py-2 text-gray-800"
+              onClick={toggleMenu}
+            >
+              Sobre
+            </a>
+            <a 
+              href="#contato" 
               className="text-base font-medium py-2 text-gray-800"
               onClick={toggleMenu}
             >
               Contato
             </a>
-            <a 
-              href="https://wa.me/5522999999999" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="btn btn-primary"
+            <Button 
+              variant="default" 
+              className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600"
               onClick={toggleMenu}
             >
-              Fale Conosco
-            </a>
+              Teste Gratuito
+            </Button>
           </div>
         </div>
       )}
