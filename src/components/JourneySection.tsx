@@ -27,7 +27,7 @@ export default function JourneySection() {
     },
     {
       id: 3,
-      title: "Colocamos no Ar",
+      title: "Lançamos a Solução",
       icon: Rocket,
       color: "from-emerald-400 to-teal-500",
       description: "Sua solução vai ao ar funcionando perfeitamente. Cuidamos de toda a parte técnica, configurações e testes para que você possa focar no que realmente importa: seus resultados.",
@@ -90,7 +90,7 @@ export default function JourneySection() {
                 >
                   {/* Card */}
                   <motion.div
-                    className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                    className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer group min-h-[200px] flex flex-col"
                     whileHover={{ y: -5, scale: 1.02 }}
                     onClick={() => setActiveStep(activeStep === step.id ? null : step.id)}
                   >
@@ -115,12 +115,12 @@ export default function JourneySection() {
                     </h3>
 
                     {/* Descrição simples */}
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-1">
                       {step.simple}
                     </p>
 
                     {/* CTA */}
-                    <div className="text-emerald-600 text-sm font-medium group-hover:text-emerald-700">
+                    <div className="text-emerald-600 text-sm font-medium group-hover:text-emerald-700 mt-auto">
                       Clique para saber mais →
                     </div>
                   </motion.div>
