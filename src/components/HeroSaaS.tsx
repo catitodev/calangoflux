@@ -210,7 +210,7 @@ const HeroSaaS = () => {
                 className="text-lg font-bold text-primary-600"
                 whileHover={{ scale: 1.1, color: "#32b890" }}
               >
-                Abacus
+                                  CalangoFlux
               </motion.div>
               <motion.div 
                 className="text-lg font-bold text-secondary-600"

@@ -13,8 +13,8 @@ const FAQSection = () => {
       answer: "Um sistema Agentic é uma forma avançada de IA que vai além da simples automação. Nossos agentes são capazes de aprender, tomar decisões autônomas e executar ações complexas com base em objetivos definidos. Eles se adaptam ao contexto e melhoram continuamente sua performance."
     },
     {
-      question: "Como funciona a integração com Abacus e Tana?",
-      answer: "O Abacus serve como o core de dados e automação agentic, fornecendo a infraestrutura necessária para processamento inteligente. O Tana funciona como um banco de conhecimento dinâmico que alimenta nossos agentes com informações contextuais. Ambas as integrações são nativas e funcionam em tempo real."
+      question: "Como funcionam nossas integrações e automações?",
+      answer: "Utilizamos as melhores ferramentas do mercado para criar automações inteligentes, fornecendo a infraestrutura necessária para processamento avançado. Nossos sistemas funcionam como um banco de conhecimento dinâmico que alimenta nossos agentes com informações contextuais. Ambas as integrações são nativas e funcionam em tempo real."
     },
     {
       question: "Posso começar com um teste gratuito?",

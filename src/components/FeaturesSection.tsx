@@ -50,7 +50,7 @@ const FeaturesSection = () => {
       title: "Workflow Engine",
       titleLines: ["Workflow", "Engine"],
       subtitle: "Motor de Automação",
-      description: "Execução de workflows complexos com Abacus. Orquestração de múltiplos agentes e sistemas externos com monitoramento em tempo real.",
+      description: "Execução de workflows complexos e inteligentes. Orquestração de múltiplos agentes e sistemas externos com monitoramento em tempo real.",
       color: "#f59e0b", // amber-500
       angle: { start: 180, end: 225 }
     },

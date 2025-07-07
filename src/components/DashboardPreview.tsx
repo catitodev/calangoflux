@@ -72,7 +72,7 @@ const DashboardPreview = () => {
   ];
 
   const integrations = [
-    { name: "Abacus", status: "connected", color: "bg-primary-500" },
+    { name: "CalangoFlux AI", status: "connected", color: "bg-primary-500" },
     { name: "Tana", status: "connected", color: "bg-secondary-500" },
     { name: "WhatsApp", status: "connected", color: "bg-green-500" },
     { name: "Telegram", status: "connected", color: "bg-blue-500" },

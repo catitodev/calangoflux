@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import FooterSection from './FooterSection';
-import FloatingChatbot from './FloatingChatbot';
+import FloatingChatbot from './sections/FloatingChatbot';
 
 const Layout = () => {
   const [isScrolled, setIsScrolled] = useState(false);
