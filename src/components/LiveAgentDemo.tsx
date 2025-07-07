@@ -4,6 +4,7 @@ import { Bot, Send, User, Zap, Code, MessageSquare, Brain, Sparkles, Cpu } from 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
+import { LLM_CONFIG, SYSTEM_PROMPT } from '../config/llm-config';
 
 const LiveAgentDemo = () => {
   const [messages, setMessages] = useState([
@@ -51,30 +52,100 @@ const LiveAgentDemo = () => {
   // Função para enviar mensagem para a API
   const sendMessageToAPI = async (message: string, llmModel: string) => {
     try {
-      const response = await fetch('https://calangoflux-ai.typingcloud.com/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer demo-token', // Token demo para demonstração
-        },
-        body: JSON.stringify({
-          message: message,
-          model: llmModel,
-          stream: false,
-          context: messages.slice(-5) // Últimas 5 mensagens para contexto
-        })
-      });
+      let response;
+      
+      if (llmModel === 'gpt-4') {
+        // Integração direta com OpenAI
+        response = await fetch(LLM_CONFIG.openai.endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${LLM_CONFIG.openai.apiKey}`
+          },
+          body: JSON.stringify({
+            model: LLM_CONFIG.openai.model,
+            messages: [
+              {
+                role: 'system',
+                content: SYSTEM_PROMPT
+              },
+              ...messages.slice(-4).map(msg => ({
+                role: msg.type === 'user' ? 'user' : 'assistant',
+                content: msg.content
+              })),
+              {
+                role: 'user',
+                content: message
+              }
+            ],
+            max_tokens: LLM_CONFIG.openai.maxTokens,
+            temperature: LLM_CONFIG.openai.temperature
+          })
+        });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        if (!response.ok) {
+          throw new Error(`OpenAI API error: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.choices[0]?.message?.content || 'Desculpe, não consegui processar sua mensagem.';
+        
+      } else if (llmModel === 'claude-3') {
+        // Para Claude, usaremos uma simulação mais avançada até ter acesso à API da Anthropic
+        const claudeResponses = {
+          'calango': 'Como especialista em análise, posso dizer que a CalangoFlux tem uma abordagem única com foco em regeneração. O modelo de subsídio cruzado (10:1) é inovador no mercado de tecnologia.',
+          'preço': 'Analisando os planos: Pioneer Access (R$147) oferece presença digital completa, Beta Tester (R$297) adiciona agente personalizado, e Impact Founder (R$347) inclui automação de redes sociais. Estrutura bem escalonada.',
+          'automação': 'A automação agentic da CalangoFlux integra múltiplas LLMs com Abacus e Tana. Isso permite workflows complexos e personalizados para cada cliente.',
+          'default': 'Como Claude 3, posso analisar profundamente sua questão. A CalangoFlux se destaca pela transparência e foco regenerativo. Que aspecto específico gostaria que eu analise?'
+        };
+        
+        const lowerMessage = message.toLowerCase();
+        let claudeResponse = claudeResponses.default;
+        
+        for (const [keyword, reply] of Object.entries(claudeResponses)) {
+          if (lowerMessage.includes(keyword)) {
+            claudeResponse = reply;
+            break;
+          }
+        }
+        
+        return `[Claude 3 - Anthropic] ${claudeResponse}`;
+        
+      } else if (llmModel === 'gemini-pro') {
+        // Para Gemini, também usaremos simulação até ter acesso à API do Google
+        const geminiResponses = {
+          'multimodal': 'Como Gemini Pro, posso processar múltiplos tipos de dados. A CalangoFlux poderia integrar análise de imagens, vídeos e textos em seus agentes.',
+          'rápido': 'Velocidade é minha especialidade! A CalangoFlux pode implementar respostas ultra-rápidas com minha arquitetura otimizada.',
+          'web3': 'Excelente pergunta! A CalangoFlux tem expertise em Web3 com projetos como letramento digital e integração com NFT marketplaces.',
+          'default': 'Como Gemini Pro do Google, posso processar sua solicitação rapidamente. A CalangoFlux oferece soluções inovadoras em tecnologia agentic. O que mais posso esclarecer?'
+        };
+        
+        const lowerMessage = message.toLowerCase();
+        let geminiResponse = geminiResponses.default;
+        
+        for (const [keyword, reply] of Object.entries(geminiResponses)) {
+          if (lowerMessage.includes(keyword)) {
+            geminiResponse = reply;
+            break;
+          }
+        }
+        
+        return `[Gemini Pro - Google] ${geminiResponse}`;
       }
 
-      const data = await response.json();
-      return data.response || data.message || 'Desculpe, não consegui processar sua mensagem.';
+      return 'Modelo não reconhecido.';
+      
     } catch (error) {
       console.error('Erro na API:', error);
-      // Fallback para demonstração quando a API não está disponível
-      return `[Modo Demo] Resposta simulada da ${currentLLM?.name}: Esta é uma demonstração. A integração real com ${currentLLM?.provider} estará disponível em breve! 🚀`;
+      
+      // Fallback específico por LLM
+      if (llmModel === 'gpt-4') {
+        return '[GPT-4 Demo] Olá! Sou o GPT-4 da OpenAI. Esta é uma demonstração da integração da CalangoFlux. A API real está configurada e funcionará perfeitamente quando ativada! 🚀';
+      } else if (llmModel === 'claude-3') {
+        return '[Claude 3 Demo] Sou Claude 3 da Anthropic, focado em análise precisa. A CalangoFlux está preparando a integração completa com minha API. Em breve estarei totalmente funcional! 🧠';
+      } else {
+        return '[Gemini Pro Demo] Sou Gemini Pro do Google, especialista em processamento multimodal e velocidade. A CalangoFlux implementará minha API em breve para máxima performance! ⚡';
+      }
     }
   };
 
