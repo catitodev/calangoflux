@@ -7,7 +7,7 @@
 - **Anon Key**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3Zmlha3RoZmVpcmdvYnd2Znh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE4OTg5ODIsImV4cCI6MjA2NzQ3NDk4Mn0.v-VXxPgCtS34O1sjgGYpMIoF5lQXY9T0IpuORhB1ii0`
 
 ### 🤖 **OpenAI:**
-- **API Key**: `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`
+- **API Key**: `sua-nova-chave-openai`
 
 ### 📧 **EmailJS:**
 - **Service ID**: `service_xf9f757`
@@ -27,7 +27,7 @@ VITE_SUPABASE_URL=https://twfiakthfeirgobwvfxy.supabase.co
 VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3Zmlha3RoZmVpcmdvYnd2Znh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE4OTg5ODIsImV4cCI6MjA2NzQ3NDk4Mn0.v-VXxPgCtS34O1sjgGYpMIoF5lQXY9T0IpuORhB1ii0
 
 # OpenAI (✅ FUNCIONANDO)
-OPENAI_API_KEY=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
+OPENAI_API_KEY=sua-nova-chave-openai
 
 # EmailJS (✅ FUNCIONANDO)
 VITE_EMAILJS_SERVICE_ID=service_xf9f757

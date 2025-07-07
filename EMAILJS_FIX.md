@@ -103,7 +103,7 @@ Enviado automaticamente pelo site CalangoFlux
 
 ```bash
 # OpenAI (✅ NOVA CHAVE)
-OPENAI_API_KEY=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
+OPENAI_API_KEY=sua-nova-chave-openai
 
 # EmailJS (⏳ COMPLETAR)
 VITE_EMAILJS_SERVICE_ID=service_xf9f757
