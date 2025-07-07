@@ -211,7 +211,7 @@ const PortfolioSection = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="text-3xl font-bold text-secondary-900 mb-2">2</div>
+              <div className="text-3xl font-bold text-secondary-900 mb-2">4</div>
               <div className="text-primary-600 font-medium">Apps Funcionando</div>
             </motion.div>
             <motion.div 
@@ -219,7 +219,7 @@ const PortfolioSection = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="text-3xl font-bold text-secondary-900 mb-2">2</div>
+              <div className="text-3xl font-bold text-secondary-900 mb-2">5</div>
               <div className="text-secondary-600 font-medium">Sites Ativos</div>
             </motion.div>
             <motion.div 
@@ -227,7 +227,7 @@ const PortfolioSection = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="text-3xl font-bold text-secondary-900 mb-2">1</div>
+              <div className="text-3xl font-bold text-secondary-900 mb-2">3</div>
               <div className="text-accent-600 font-medium">Plataforma Core</div>
             </motion.div>
             <motion.div 

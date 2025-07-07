@@ -110,27 +110,50 @@ const HeroSaaS = () => {
           </motion.p>
 
           <motion.div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div>
-              <div className="text-3xl font-bold text-white mb-2">4</div>
-              <div className="text-gray-300 text-sm">Apps Funcionando</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white mb-2">5</div>
-              <div className="text-gray-300 text-sm">Sites Ativos</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white mb-2">3</div>
-              <div className="text-gray-300 text-sm">Plataforma Core</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white mb-2">100%</div>
-              <div className="text-gray-300 text-sm">Transparência</div>
-            </div>
+            <motion.div 
+              className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft"
+              whileHover={{ scale: 1.05, y: -2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <Zap className="w-5 h-5 text-primary-500 mr-2" />
+              </motion.div>
+              <span className="text-sm font-medium">MVP em Desenvolvimento</span>
+            </motion.div>
+            <motion.div 
+              className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft"
+              whileHover={{ scale: 1.05, y: -2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+              >
+                <Target className="w-5 h-5 text-secondary-500 mr-2" />
+              </motion.div>
+              <span className="text-sm font-medium">Early Access Limitado</span>
+            </motion.div>
+            <motion.div 
+              className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft"
+              whileHover={{ scale: 1.05, y: -2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+              >
+                <Bot className="w-5 h-5 text-accent-500 mr-2" />
+              </motion.div>
+              <span className="text-sm font-medium">Tecnologia Própria</span>
+            </motion.div>
           </motion.div>
           
           <motion.div 
