@@ -90,33 +90,19 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-6">Nossos Projetos</h3>
             <ul className="space-y-3">
               <li>
-                <a 
-                  href="https://agrofamiliapp.dedyn.io" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-primary-400 transition-colors flex items-center"
-                >
-                  AgroFamiliApp
-                  <ExternalLink className="w-3 h-3 ml-1" />
-                </a>
+                <span className="text-gray-300">AgroFamiliApp</span>
+                <span className="text-gray-500 text-sm ml-2">(Portfolio)</span>
               </li>
               <li>
-                <a 
-                  href="https://www.bayanativa.dedyn.io" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-primary-400 transition-colors flex items-center"
-                >
-                  Baya Nativa
-                  <ExternalLink className="w-3 h-3 ml-1" />
-                </a>
+                <span className="text-gray-300">Baya Nativa</span>
+                <span className="text-gray-500 text-sm ml-2">(Portfolio)</span>
               </li>
               <li>
                 <a 
                   href="https://www.aideaflux.xyz" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-primary-400 transition-colors flex items-center"
+                  className="text-primary-400 hover:text-primary-300 transition-colors flex items-center font-medium"
                 >
                   AideaFlux Platform
                   <ExternalLink className="w-3 h-3 ml-1" />

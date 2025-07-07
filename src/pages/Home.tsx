@@ -11,6 +11,7 @@ import PricingSection from '../components/PricingSection';
 import FAQSection from '../components/FAQSection';
 import Impact from '../components/Impact';
 import Contact from '../components/Contact';
+import FloatingChatbot from '../components/FloatingChatbot';
 import { useEffect } from 'react';
 
 const Home = () => {
@@ -37,6 +38,7 @@ const Home = () => {
       <FAQSection />
       <Impact />
       <Contact />
+      <FloatingChatbot />
     </>
   );
 };

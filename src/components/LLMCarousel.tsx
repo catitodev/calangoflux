@@ -7,50 +7,82 @@ const LLMCarousel = () => {
     {
       name: "GPT-4",
       company: "OpenAI",
-      color: "bg-green-500",
-      logo: "🤖"
+      color: "bg-gradient-to-br from-green-400 to-green-600",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+      )
     },
     {
       name: "Claude 3.5",
       company: "Anthropic", 
-      color: "bg-orange-500",
-      logo: "🧠"
+      color: "bg-gradient-to-br from-orange-400 to-orange-600",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      )
     },
     {
       name: "Gemini Pro",
       company: "Google",
-      color: "bg-blue-500",
-      logo: "💎"
+      color: "bg-gradient-to-br from-blue-400 to-blue-600",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      )
     },
     {
       name: "Llama 3",
       company: "Meta",
-      color: "bg-purple-500",
-      logo: "🦙"
+      color: "bg-gradient-to-br from-purple-400 to-purple-600",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      )
     },
     {
       name: "Mixtral 8x7B",
       company: "Mistral AI",
-      color: "bg-red-500",
-      logo: "⚡"
+      color: "bg-gradient-to-br from-red-400 to-red-600",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+      )
     },
     {
       name: "Command R+",
       company: "Cohere",
-      color: "bg-teal-500",
-      logo: "🎯"
+      color: "bg-gradient-to-br from-teal-400 to-teal-600",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      )
     },
     {
       name: "PaLM 2",
       company: "Google",
-      color: "bg-indigo-500",
-      logo: "🌴"
+      color: "bg-gradient-to-br from-indigo-400 to-indigo-600",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      )
     },
     {
       name: "GPT-4 Turbo",
       company: "OpenAI",
-      color: "bg-emerald-500",
-      logo: "🚀"
+      color: "bg-gradient-to-br from-emerald-400 to-emerald-600",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+      )
     }
   ];
 
@@ -108,7 +140,7 @@ const LLMCarousel = () => {
                 <div className="bg-white rounded-xl p-6 shadow-soft border hover:shadow-md transition-shadow duration-300 min-w-[200px]">
                   <div className="flex items-center space-x-4">
                     <div className={`w-12 h-12 ${llm.color} rounded-lg flex items-center justify-center text-white text-2xl`}>
-                      {llm.logo}
+                      {llm.icon}
                     </div>
                     <div>
                       <h3 className="font-bold text-secondary-900">{llm.name}</h3>

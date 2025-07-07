@@ -113,8 +113,8 @@ const PricingSection = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Nosso modelo permite que projetos com propósito social tenham acesso subsidiado, 
-            financiado por empresas que querem gerar impacto positivo.
+            Nosso modelo inovador: <strong>a cada 10 clientes pagantes, 1 serviço é fornecido por subsídio cruzado</strong>. 
+            Assim, projetos sociais têm acesso à tecnologia financiados por quem pode pagar.
           </p>
         </motion.div>
 
@@ -204,8 +204,8 @@ const PricingSection = () => {
               Como Funciona o Subsídio Cruzado?
             </h3>
             <p className="text-lg text-gray-700 mb-6">
-              Empresas e pessoas com recursos financiam projetos sociais através dos nossos planos pagos. 
-              Assim, organizações com propósito social têm acesso subsidiado à tecnologia.
+              <strong>Modelo 10:1</strong> - A cada 10 clientes que pagam nossos serviços, conseguimos financiar 
+              1 projeto social com acesso completo e gratuito. É sustentável e gera impacto real!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="default" className="px-8 py-3 bg-primary-500 hover:bg-primary-600">
@@ -275,10 +275,10 @@ const PricingSection = () => {
         >
           <div className="bg-gradient-to-r from-primary-100 to-secondary-100 rounded-xl p-6 max-w-2xl mx-auto">
             <h3 className="text-lg font-semibold text-secondary-900 mb-2">
-              🎯 Meta: 50 Usuários Pioneer + 10 Subsidiadores
+              🎯 Meta: 100 Clientes Pagantes = 10 Projetos Subsidiados
             </h3>
             <p className="text-gray-700 text-sm">
-              Estamos construindo uma comunidade equilibrada entre quem recebe subsídio e quem financia o impacto social.
+              Nosso modelo 10:1 permite crescimento sustentável enquanto financiamos projetos de impacto social.
             </p>
           </div>
         </motion.div>

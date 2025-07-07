@@ -9,7 +9,7 @@ const PortfolioSection = () => {
     {
       title: "AgroFamiliApp",
       description: "Aplicativo completo para gestão de agricultura familiar com automações inteligentes",
-      url: "https://agrofamiliapp.dedyn.io",
+      url: "#",
       icon: <Smartphone className="w-6 h-6" />,
       status: "Funcionando",
       badge: "Agricultura",
@@ -19,7 +19,7 @@ const PortfolioSection = () => {
     {
       title: "Baya Nativa",
       description: "Plataforma web para conservação e valorização da biodiversidade nativa",
-      url: "https://www.bayanativa.dedyn.io",
+      url: "#",
       icon: <Globe className="w-6 h-6" />,
       status: "Funcionando", 
       badge: "Sustentabilidade",
