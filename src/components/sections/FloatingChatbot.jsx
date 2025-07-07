@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle, X, Send, Bot, User, Sparkles } from 'lucide-react'
-import { openaiService, mockOpenAI, formatChatResponse } from '../../lib/openai'
+import { mockOpenAI, formatChatResponse } from '../../lib/openai'
 import { leadService } from '../../lib/supabase'
 import { emailService } from '../../lib/emailjs'
 
@@ -45,10 +45,8 @@ const FloatingChatbot = () => {
     setIsTyping(true)
 
     try {
-      // Usar mock OpenAI para desenvolvimento, OpenAI real em produção
-      const aiService = import.meta.env.PROD ? openaiService : mockOpenAI
-      
-      const response = await aiService.chat([
+      // Usar mock OpenAI temporariamente para garantir funcionamento
+      const response = await mockOpenAI.chat([
         {
           role: 'system',
           content: `Você é um assistente especializado da CalangoFlux, empresa de tecnologia regenerativa.
