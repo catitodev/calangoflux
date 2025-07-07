@@ -1,9 +1,9 @@
-import { ArrowLeft, Waypoints, Key, Users, BookOpen, Orbit } from 'lucide-react';
+import { ArrowLeft, Network, Key, Users, BookOpen, Orbit } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 
-const DaosWeb3 = () => {
+const LetramentoWeb3 = () => {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
@@ -11,6 +11,34 @@ const DaosWeb3 = () => {
     // Set page title
     document.title = 'Letramento Web3 | CalangoFlux';
   }, []);
+
+  const features = [
+    {
+      icon: <Network className="w-8 h-8 text-emerald-500" />,
+      title: "Blockchain Fundamentals",
+      description: "Compreenda os conceitos básicos da tecnologia blockchain e suas aplicações."
+    },
+    {
+      icon: <Key className="w-8 h-8 text-emerald-500" />,
+      title: "Carteiras Digitais",
+      description: "Aprenda a criar, gerenciar e proteger suas carteiras de criptomoedas."
+    },
+    {
+      icon: <Users className="w-8 h-8 text-emerald-500" />,
+      title: "ReFi (Finanças Regenerativas)",
+      description: "Explore como as finanças descentralizadas podem gerar impacto positivo."
+    },
+    {
+      icon: <BookOpen className="w-8 h-8 text-emerald-500" />,
+      title: "NFTs & Smart Contracts",
+      description: "Entenda tokens não-fungíveis e contratos inteligentes na prática."
+    },
+    {
+      icon: <Orbit className="w-8 h-8 text-emerald-500" />,
+      title: "Empoderamento Digital",
+      description: "Desenvolva autonomia e confiança no mundo digital descentralizado."
+    }
+  ]
 
   return (
     <div className="pt-16">
@@ -92,7 +120,7 @@ const DaosWeb3 = () => {
                 </li>
                 <li className="flex items-start">
                   <div className="bg-secondary-100 w-8 h-8 rounded-full flex items-center justify-center text-secondary-600 mr-3 mt-1">
-                    <Waypoints size={16} />
+                    <Network size={16} />
                   </div>
                   <div>
                     • Como isso se conecta com justiça social e soberania digital?
@@ -239,4 +267,4 @@ const DaosWeb3 = () => {
   );
 };
 
-export default DaosWeb3;
+export default LetramentoWeb3;
