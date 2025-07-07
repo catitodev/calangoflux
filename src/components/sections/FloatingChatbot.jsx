@@ -10,7 +10,7 @@ const FloatingChatbot = () => {
     {
       id: 1,
       role: 'assistant',
-      content: 'Olá! Sou o assistente da CalangoFlux 🦎✨\n\nSou especialista em todos os nossos serviços e posso te ajudar com:\n\n🤖 **Agentes de IA** - Assistentes virtuais personalizados\n⚙️ **Automações** - Fluxos inteligentes\n🧠 **Agentics** - Sistemas complexos\n🎨 **Web Design** - Sites modernos\n📚 **Letramento Web3** - ReFi e blockchain\n🚀 **AideaFlux** - 100+ LLMs gratuitos\n\nComo posso ajudar você hoje?',
+      content: 'Olá! Sou o CalangoBot 🦎\n\nSou especialista em todos os serviços da CalangoFlux e estou aqui para tornar sua experiência única.\n\nPosso te ajudar com informações sobre nossos serviços, preços, processos ou conectar você diretamente com nossa equipe.\n\nComo posso ajudar você hoje?',
       timestamp: new Date()
     }
   ])
@@ -133,7 +133,7 @@ const FloatingChatbot = () => {
     
     // Saudações
     if (input.match(/^(oi|olá|ola|hey|hi|hello|bom dia|boa tarde|boa noite)/)) {
-      return `Olá! 😊 Que bom ter você aqui! Sou o assistente da CalangoFlux e estou aqui para te ajudar.\n\nPosso te apresentar nossos serviços, explicar como funcionam, falar sobre preços ou te conectar diretamente com nossa equipe.\n\nO que você gostaria de saber?`
+      return `Olá! 😊 Que bom ter você aqui!\n\nSou o CalangoBot, especialista em todos os serviços da CalangoFlux. Estou aqui para tornar sua jornada conosco excepcional.\n\nPosso te apresentar nossos serviços, explicar processos, falar sobre investimentos ou conectar você com nossa equipe.\n\nO que você gostaria de descobrir?`
     }
 
     // Serviços específicos
@@ -197,7 +197,7 @@ const FloatingChatbot = () => {
     }
 
     // Resposta padrão inteligente
-    return `Entendo sua pergunta! 🤔\n\nSou especialista em todos os serviços da CalangoFlux e posso te ajudar com:\n\n🤖 **Agentes de IA e Chatbots**\n⚙️ **Automações e Processos**\n🧠 **Sistemas Agentics**\n🎨 **Web Design Moderno**\n📚 **Letramento Web3**\n🚀 **AideaFlux (100+ LLMs grátis)**\n💰 **Preços e Planos**\n📞 **Contato e Orçamentos**\n\nSobre qual desses você gostaria de saber mais? Ou tem alguma necessidade específica que posso ajudar? 😊`
+    return `Entendo sua pergunta! 🤔\n\nComo CalangoBot, posso te ajudar com:\n\n🤖 **Agentes de IA e Chatbots**\n⚙️ **Automações e Processos**\n🧠 **Sistemas Agentics**\n🎨 **Web Design Moderno**\n📚 **Letramento Web3**\n🚀 **AideaFlux (100+ LLMs grátis)**\n💰 **Investimentos e Planos**\n📞 **Contato Direto**\n\nSobre qual desses você gostaria de descobrir mais? Ou tem alguma necessidade específica que posso ajudar? 😊`
   }
 
   const handleSendMessage = async (e) => {
@@ -381,8 +381,8 @@ const FloatingChatbot = () => {
                     <Bot size={20} />
                   </div>
                   <div>
-                    <h3 className="font-bold">CalangoFlux Assistant</h3>
-                    <p className="text-sm opacity-90">Especialista em todos os serviços</p>
+                    <h3 className="font-bold">CalangoBot</h3>
+                    <p className="text-sm opacity-90">Seu assistente inteligente</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
