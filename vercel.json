@@ -1,5 +1,4 @@
 {
-  "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm ci",
@@ -13,6 +12,10 @@
     {
       "source": "/api/openai",
       "destination": "/api/openai.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
@@ -32,13 +35,6 @@
           "value": "Content-Type, Authorization"
         }
       ]
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/dashboard",
-      "destination": "/",
-      "permanent": false
     }
   ],
   "cleanUrls": true,
