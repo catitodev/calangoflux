@@ -5,6 +5,7 @@ import LiveAgentDemo from './components/LiveAgentDemo';
 import PricingSection from './components/PricingSection';
 import LLMCarousel from './components/LLMCarousel';
 import FAQSection from './components/FAQSection';
+import FooterSection from './components/FooterSection';
 import PortfolioSection from './components/PortfolioSection';
 import SocialIntegrationsSection from './components/SocialIntegrationsSection';
 import PoeAgentsSection from './components/PoeAgentsSection';
@@ -13,18 +14,44 @@ import FloatingChatbot from './components/FloatingChatbot';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Navbar isScrolled={false} />
-      <HeroSaaS />
-      <FeaturesSection />
-      <LiveAgentDemo />
-      <PortfolioSection />
-      <SocialIntegrationsSection />
-      <PoeAgentsSection />
-      <LLMCarousel />
-      <PricingSection />
-      <LLMsDisruptiveSection />
-      <FAQSection />
+      
+      <main className="relative">
+        <section id="inicio">
+          <HeroSaaS />
+        </section>
+        
+        <section id="features">
+          <FeaturesSection />
+        </section>
+        
+        <section id="servicos">
+          <LiveAgentDemo />
+        </section>
+        
+        <section id="portfolio">
+          <PortfolioSection />
+        </section>
+        
+        <SocialIntegrationsSection />
+        
+        <PoeAgentsSection />
+        
+        <LLMCarousel />
+        
+        <section id="pricing">
+          <PricingSection />
+        </section>
+        
+        <LLMsDisruptiveSection />
+        
+        <section id="sobre">
+          <FAQSection />
+        </section>
+      </main>
+      
+      <FooterSection />
       <FloatingChatbot />
     </div>
   );
