@@ -10,19 +10,19 @@ const PricingSection = () => {
       name: "Pioneer Access",
       price: "R$ 47",
       period: "/mês",
-      description: "Acesso subsidiado por projetos com propósito e impacto social",
+      description: "Acesso inicial ao MVP com compromisso de 3 meses para ciclo completo",
       icon: <Rocket className="w-6 h-6" />,
-      badge: "Impacto Social",
+      badge: "Regenerativo",
       badgeColor: "bg-primary-500",
       features: [
         "Acesso completo ao MVP",
-        "Subsídio de 100% por 6 meses",
+        "Contrato mínimo: 3 meses",
         "Feedback direto com a equipe",
         "Atualizações semanais",
         "Suporte prioritário",
         "Dados preservados na migração"
       ],
-      buttonText: "Solicitar Subsídio",
+      buttonText: "Cultivar Mudança",
       buttonVariant: "default" as const,
       popular: true,
       available: true
@@ -31,19 +31,19 @@ const PricingSection = () => {
       name: "Beta Tester",
       price: "R$ 97",
       period: "/mês",
-      description: "Para quem quer testar recursos avançados e subsidiar o desenvolvimento",
+      description: "Para inovadores que querem co-criar o futuro regenerativo da tecnologia",
       icon: <TestTube className="w-6 h-6" />,
-      badge: "Subsidiador",
+      badge: "Co-criador",
       badgeColor: "bg-secondary-500",
       features: [
         "Tudo do Pioneer Access",
+        "Contrato mínimo: 3 meses",
         "Recursos experimentais",
         "Testes A/B exclusivos",
-        "Sessões de feedback",
-        "Subsídio cruzado para projetos sociais",
+        "Sessões de co-criação",
         "Desconto de 50% no lançamento"
       ],
-      buttonText: "Subsidiar & Testar",
+      buttonText: "Co-criar Futuro",
       buttonVariant: "secondary" as const,
       popular: false,
       available: true
@@ -52,19 +52,19 @@ const PricingSection = () => {
       name: "Impact Founder",
       price: "R$ 197",
       period: "/mês",
-      description: "Para empresas que querem apoiar ativamente o desenvolvimento social",
+      description: "Para líderes regenerativos que querem impacto sistêmico duradouro",
       icon: <Crown className="w-6 h-6" />,
-      badge: "Mecenas",
+      badge: "Sistêmico",
       badgeColor: "bg-accent-500",
       features: [
         "Tudo do Beta Tester",
+        "Contrato mínimo: 6 meses",
         "Influência no roadmap",
-        "Consultoria personalizada",
-        "Implementação assistida",
-        "Patrocínio de projetos sociais",
+        "Consultoria regenerativa",
+        "Implementação sistêmica",
         "Reconhecimento como fundador"
       ],
-      buttonText: "Ser Mecenas",
+      buttonText: "Liderar Regeneração",
       buttonVariant: "outline" as const,
       popular: false,
       available: true
@@ -73,19 +73,19 @@ const PricingSection = () => {
       name: "Enterprise",
       price: "Conversar",
       period: "",
-      description: "Para grandes empresas com orçamento específico para impacto social",
+      description: "Para organizações que querem transformação regenerativa em escala",
       icon: <Building2 className="w-6 h-6" />,
-      badge: "Corporativo",
+      badge: "Transformacional",
       badgeColor: "bg-gray-600",
       features: [
         "Desenvolvimento dedicado",
+        "Contrato personalizado",
         "Equipe técnica exclusiva",
-        "Programa de responsabilidade social",
+        "Transformação organizacional",
         "SLA garantido",
-        "Infraestrutura dedicada",
-        "Relatórios de impacto social"
+        "Relatórios de impacto regenerativo"
       ],
-      buttonText: "Agendar Conversa",
+      buttonText: "Transformar Organização",
       buttonVariant: "ghost" as const,
       popular: false,
       available: true
@@ -104,17 +104,17 @@ const PricingSection = () => {
         >
           <Badge variant="outline" className="mb-4">
             <DollarSign className="w-3 h-3 mr-1" />
-            Modelo Sustentável
+            Economia Regenerativa
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
-            Subsídio{' '}
+            Planos{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
-              Cruzado
+              Regenerativos
             </span>
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Nosso modelo inovador: <strong>a cada 10 clientes pagantes, 1 serviço é fornecido por subsídio cruzado</strong>. 
-            Assim, projetos sociais têm acesso à tecnologia financiados por quem pode pagar.
+            Escolha o plano que melhor se alinha com sua jornada regenerativa. 
+            <strong> Contratos mínimos garantem ciclos completos de transformação.</strong>
           </p>
         </motion.div>
 
@@ -201,11 +201,11 @@ const PricingSection = () => {
         >
           <div className="bg-gradient-to-r from-gray-50 to-white border rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-secondary-900 mb-4">
-              Como Funciona o Subsídio Cruzado?
+              Precisa de Subsídio?
             </h3>
             <p className="text-lg text-gray-700 mb-6">
-              <strong>Modelo 10:1</strong> - A cada 10 clientes que pagam nossos serviços, conseguimos financiar 
-              1 projeto social com acesso completo e gratuito. É sustentável e gera impacto real!
+              Projetos com <strong>impacto social comprovado</strong> podem solicitar subsídio. 
+              Avaliamos cada caso individualmente considerando propósito, alcance e sustentabilidade.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="default" className="px-8 py-3 bg-primary-500 hover:bg-primary-600">
@@ -215,7 +215,7 @@ const PricingSection = () => {
               </Button>
               <Button asChild variant="outline" className="px-8 py-3 border-primary-500 text-primary-500 hover:bg-primary-50">
                 <a href="#contato">
-                  Saber Mais
+                  Critérios de Elegibilidade
                 </a>
               </Button>
             </div>
@@ -238,8 +238,8 @@ const PricingSection = () => {
               <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Rocket className="w-8 h-8 text-primary-600" />
               </div>
-              <h4 className="font-semibold text-secondary-900 mb-2">Acesso Justo</h4>
-              <p className="text-gray-600 text-sm">Tecnologia de ponta para quem precisa, financiada por quem pode</p>
+              <h4 className="font-semibold text-secondary-900 mb-2">Ciclos Completos</h4>
+              <p className="text-gray-600 text-sm">Contratos mínimos garantem tempo suficiente para transformação real</p>
             </motion.div>
             <motion.div 
               className="text-center"
@@ -249,8 +249,8 @@ const PricingSection = () => {
               <div className="bg-secondary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="w-8 h-8 text-secondary-600" />
               </div>
-              <h4 className="font-semibold text-secondary-900 mb-2">Impacto Multiplicado</h4>
-              <p className="text-gray-600 text-sm">Cada pagamento gera acesso para projetos sociais</p>
+              <h4 className="font-semibold text-secondary-900 mb-2">Foco Regenerativo</h4>
+              <p className="text-gray-600 text-sm">Cada plano é desenhado para gerar impacto positivo duradouro</p>
             </motion.div>
             <motion.div 
               className="text-center"
@@ -260,8 +260,8 @@ const PricingSection = () => {
               <div className="bg-accent-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Crown className="w-8 h-8 text-accent-600" />
               </div>
-              <h4 className="font-semibold text-secondary-900 mb-2">Sustentabilidade</h4>
-              <p className="text-gray-600 text-sm">Modelo que permite crescimento e impacto duradouro</p>
+              <h4 className="font-semibold text-secondary-900 mb-2">Co-criação</h4>
+              <p className="text-gray-600 text-sm">Construímos juntos soluções que regeneram sistemas</p>
             </motion.div>
           </div>
         </motion.div>
@@ -275,10 +275,10 @@ const PricingSection = () => {
         >
           <div className="bg-gradient-to-r from-primary-100 to-secondary-100 rounded-xl p-6 max-w-2xl mx-auto">
             <h3 className="text-lg font-semibold text-secondary-900 mb-2">
-              🎯 Meta: 100 Clientes Pagantes = 10 Projetos Subsidiados
+              � Economia Regenerativa em Ação
             </h3>
             <p className="text-gray-700 text-sm">
-              Nosso modelo 10:1 permite crescimento sustentável enquanto financiamos projetos de impacto social.
+              Nossos planos são desenhados para criar valor compartilhado, regenerar sistemas e promover transformação duradoura.
             </p>
           </div>
         </motion.div>
