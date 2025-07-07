@@ -14,7 +14,6 @@ const FeaturesSection = () => {
       title: "Input Trigger",
       subtitle: "Entrada de Dados",
       description: "Recebe inputs de múltiplas fontes: WhatsApp, Telegram, APIs, webhooks. Sistema de parsing inteligente identifica contexto e intenção do usuário.",
-      status: "Funcional",
       color: "#10b981", // emerald-500
       angle: { start: 0, end: 45 }
     },
@@ -23,7 +22,6 @@ const FeaturesSection = () => {
       title: "IA Processing",
       subtitle: "Processamento Inteligente",
       description: "Engine de IA analisa contexto, classifica intenções e determina fluxo de automação apropriado. Integração com múltiplos LLMs para máxima precisão.",
-      status: "Em Desenvolvimento",
       color: "#3b82f6", // blue-500
       angle: { start: 45, end: 90 }
     },
@@ -32,7 +30,6 @@ const FeaturesSection = () => {
       title: "Decision Engine",
       subtitle: "Motor de Decisão",
       description: "Algoritmos de decisão baseados em regras e ML. Roteamento inteligente para diferentes workflows baseado no contexto e histórico.",
-      status: "Protótipo",
       color: "#8b5cf6", // violet-500
       angle: { start: 90, end: 135 }
     },
@@ -41,7 +38,6 @@ const FeaturesSection = () => {
       title: "Knowledge Base",
       subtitle: "Base de Conhecimento",
       description: "Integração com Tana para armazenamento dinâmico. Contexto persistente e aprendizado contínuo dos padrões de uso e preferências.",
-      status: "Roadmap",
       color: "#06b6d4", // cyan-500
       angle: { start: 135, end: 180 }
     },
@@ -50,7 +46,6 @@ const FeaturesSection = () => {
       title: "Workflow Engine",
       subtitle: "Motor de Automação",
       description: "Execução de workflows complexos com Abacus. Orquestração de múltiplos agentes e sistemas externos com monitoramento em tempo real.",
-      status: "MVP",
       color: "#f59e0b", // amber-500
       angle: { start: 180, end: 225 }
     },
@@ -59,7 +54,6 @@ const FeaturesSection = () => {
       title: "API Gateway",
       subtitle: "Gateway de Integração",
       description: "Hub central para integrações externas. Conecta com CRMs, ERPs, plataformas de comunicação e serviços de terceiros de forma segura.",
-      status: "Básico",
       color: "#ef4444", // red-500
       angle: { start: 225, end: 270 }
     },
@@ -68,7 +62,6 @@ const FeaturesSection = () => {
       title: "Analytics Engine",
       subtitle: "Motor de Análise",
       description: "Coleta métricas em tempo real, gera insights e alimenta loops de feedback para otimização contínua dos workflows e performance.",
-      status: "Parcial",
       color: "#ec4899", // pink-500
       angle: { start: 270, end: 315 }
     },
@@ -77,24 +70,10 @@ const FeaturesSection = () => {
       title: "Response Delivery",
       subtitle: "Entrega de Resposta",
       description: "Sistema de entrega multi-canal com formatação inteligente. Adapta resposta ao canal e contexto do usuário para máxima efetividade.",
-      status: "Funcional",
       color: "#22c55e", // green-500
       angle: { start: 315, end: 360 }
     }
   ];
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "Funcional": return "bg-green-100 text-green-800 border-green-200";
-      case "MVP": return "bg-blue-100 text-blue-800 border-blue-200";
-      case "Protótipo": return "bg-purple-100 text-purple-800 border-purple-200";
-      case "Em Desenvolvimento": return "bg-yellow-100 text-yellow-800 border-yellow-200";
-      case "Parcial": return "bg-orange-100 text-orange-800 border-orange-200";
-      case "Básico": return "bg-gray-100 text-gray-800 border-gray-200";
-      case "Roadmap": return "bg-red-100 text-red-800 border-red-200";
-      default: return "bg-gray-100 text-gray-800 border-gray-200";
-    }
-  };
 
   const polarToCartesian = (centerX: number, centerY: number, radius: number, angleInDegrees: number) => {
     const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
@@ -149,7 +128,7 @@ const FeaturesSection = () => {
           </p>
         </motion.div>
 
-        {/* Circular Diagram - Segmentos como Botões */}
+        {/* Circular Diagram - Simplificado */}
         <div className="relative max-w-3xl lg:max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -158,7 +137,7 @@ const FeaturesSection = () => {
             transition={{ duration: 0.8 }}
             className="relative bg-white rounded-full shadow-2xl p-4 md:p-6 lg:p-8"
           >
-            {/* SVG Circle - Segmentos Interativos */}
+            {/* SVG Circle - Limpo e Elegante */}
             <div className="relative w-full max-w-lg lg:max-w-2xl mx-auto aspect-square">
               <svg 
                 viewBox="0 0 400 400" 
@@ -176,7 +155,7 @@ const FeaturesSection = () => {
                   opacity="0.3"
                 />
                 
-                {/* Segmentos Interativos */}
+                {/* Segmentos Interativos Limpos */}
                 {automationSteps.map((step, index) => (
                   <motion.g key={step.id}>
                     {/* Segmento Principal */}
@@ -188,7 +167,7 @@ const FeaturesSection = () => {
                       className="cursor-pointer transition-all duration-300"
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ 
-                        opacity: hoveredSegment === step.id ? 1 : 0.8,
+                        opacity: hoveredSegment === step.id ? 1 : 0.85,
                         scale: hoveredSegment === step.id ? 1.02 : 1
                       }}
                       transition={{ 
@@ -250,7 +229,7 @@ const FeaturesSection = () => {
                 </div>
               </motion.div>
               
-              {/* Labels dos Segmentos */}
+              {/* Títulos Incorporados nos Segmentos */}
               {automationSteps.map((step, index) => {
                 const textPos = getTextPosition(step);
                 
@@ -268,27 +247,15 @@ const FeaturesSection = () => {
                     }}
                   >
                     <motion.div
-                      className="bg-white/90 backdrop-blur-sm rounded-lg px-2 md:px-3 py-1.5 md:py-2 shadow-lg border border-white/30"
                       animate={{
                         scale: hoveredSegment === step.id ? 1.05 : 1,
                         y: hoveredSegment === step.id ? -2 : 0
                       }}
                       transition={{ duration: 0.2 }}
                     >
-                      <h4 className="text-xs md:text-sm font-bold text-gray-800 leading-tight mb-1">
+                      <h4 className="text-sm md:text-base font-bold text-white leading-tight drop-shadow-lg">
                         {step.title}
                       </h4>
-                      <div className={`text-xs px-1.5 md:px-2 py-0.5 rounded-full border ${getStatusColor(step.status)}`}>
-                        <span className="hidden sm:inline">{step.status}</span>
-                        <span className="sm:hidden">
-                          {step.status === "Funcional" ? "✓" : 
-                           step.status === "MVP" ? "M" :
-                           step.status === "Protótipo" ? "P" :
-                           step.status === "Em Desenvolvimento" ? "D" :
-                           step.status === "Parcial" ? "~" :
-                           step.status === "Básico" ? "B" : "R"}
-                        </span>
-                      </div>
                     </motion.div>
                   </motion.div>
                 );
@@ -348,10 +315,6 @@ const FeaturesSection = () => {
                         </div>
                       </div>
                       
-                      <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium border mb-4 ${getStatusColor(step.status)}`}>
-                        {step.status}
-                      </div>
-                      
                       <p className="text-gray-700 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
                         {step.description}
                       </p>
@@ -372,42 +335,6 @@ const FeaturesSection = () => {
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* Status Legend - Melhorado para mobile */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-12 md:mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4 max-w-5xl mx-auto"
-        >
-          {[
-            { status: "Funcional", count: 2 },
-            { status: "MVP", count: 1 },
-            { status: "Protótipo", count: 1 },
-            { status: "Em Desenvolvimento", count: 1 },
-            { status: "Parcial", count: 1 },
-            { status: "Básico", count: 1 },
-            { status: "Roadmap", count: 1 }
-          ].map((item, index) => (
-            <div key={index} className="text-center">
-              <div className={`inline-block px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium border mb-2 ${getStatusColor(item.status)}`}>
-                <span className="hidden sm:inline">{item.status}</span>
-                <span className="sm:hidden">
-                  {item.status === "Funcional" ? "Func" : 
-                   item.status === "MVP" ? "MVP" :
-                   item.status === "Protótipo" ? "Proto" :
-                   item.status === "Em Desenvolvimento" ? "Dev" :
-                   item.status === "Parcial" ? "Parc" :
-                   item.status === "Básico" ? "Bás" : "Road"}
-                </span>
-              </div>
-              <div className="text-xs text-gray-600">
-                {item.count} comp{item.count > 1 ? 's' : ''}
-              </div>
-            </div>
-          ))}
-        </motion.div>
 
         {/* CTA Section */}
         <motion.div
