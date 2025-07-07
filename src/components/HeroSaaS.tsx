@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChevronDown, Sparkles, Zap, Target, Bot, Play } from 'lucide-react';
+import { ChevronDown, Sparkles, Zap, Target, Bot, Play, Rocket } from 'lucide-react';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 
@@ -29,8 +29,8 @@ const HeroSaaS = () => {
             transition={{ duration: 0.6 }}
           >
             <Badge variant="default" className="mb-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white">
-              <Sparkles className="w-3 h-3 mr-1" />
-              Plataforma SaaS Agentic
+              <Rocket className="w-3 h-3 mr-1" />
+              Early Access MVP
             </Badge>
           </motion.div>
 
@@ -52,8 +52,8 @@ const HeroSaaS = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Transforme seu negócio com agentes de IA autônomos que aprendem, 
-            decidem e executam. Conecte-se ao Abacus e Tana para uma experiência completa.
+            Estamos construindo a primeira plataforma brasileira de agentes de IA autônomos. 
+            Junte-se ao nosso programa de Early Access e seja pioneiro na automação agentic.
           </motion.p>
 
           <motion.div 
@@ -64,15 +64,15 @@ const HeroSaaS = () => {
           >
             <div className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft">
               <Zap className="w-5 h-5 text-primary-500 mr-2" />
-              <span className="text-sm font-medium">Automação Inteligente</span>
+              <span className="text-sm font-medium">MVP em Desenvolvimento</span>
             </div>
             <div className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft">
               <Target className="w-5 h-5 text-secondary-500 mr-2" />
-              <span className="text-sm font-medium">Decisões Autônomas</span>
+              <span className="text-sm font-medium">Early Access Limitado</span>
             </div>
             <div className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft">
               <Bot className="w-5 h-5 text-accent-500 mr-2" />
-              <span className="text-sm font-medium">Aprendizado Contínuo</span>
+              <span className="text-sm font-medium">Tecnologia Própria</span>
             </div>
           </motion.div>
           
@@ -87,7 +87,7 @@ const HeroSaaS = () => {
               size="lg" 
               className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white px-8 py-3 text-lg"
             >
-              Começar Agora
+              Solicitar Early Access
             </Button>
             
             <Button 
@@ -96,7 +96,7 @@ const HeroSaaS = () => {
               className="border-2 border-primary-500 text-primary-500 hover:bg-primary-50 px-8 py-3 text-lg"
             >
               <Play className="w-4 h-4 mr-2" />
-              Ver Demo
+              Ver Roadmap
             </Button>
           </motion.div>
 
@@ -106,13 +106,31 @@ const HeroSaaS = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <p className="text-sm text-gray-600 mb-4">Integração nativa com:</p>
+            <p className="text-sm text-gray-600 mb-4">Integrações planejadas:</p>
             <div className="flex justify-center items-center gap-8 opacity-60">
               <div className="text-2xl font-bold text-primary-600">Abacus</div>
               <div className="text-2xl font-bold text-secondary-600">Tana</div>
               <div className="text-2xl font-bold text-accent-600">WhatsApp</div>
               <div className="text-2xl font-bold text-primary-600">Telegram</div>
             </div>
+          </motion.div>
+
+          <motion.div 
+            className="mt-12 bg-gradient-to-r from-primary-100 to-secondary-100 rounded-xl p-6 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1 }}
+          >
+            <div className="flex items-center justify-center mb-4">
+              <Sparkles className="w-6 h-6 text-primary-600 mr-2" />
+              <h3 className="text-lg font-semibold text-secondary-900">
+                Transparência é nosso DNA
+              </h3>
+            </div>
+            <p className="text-gray-700 text-center">
+              Estamos em fase MVP com 2 apps e 2 sites desenvolvidos. 
+              Nosso compromisso é com a transparência total em cada etapa desta jornada.
+            </p>
           </motion.div>
         </div>
       </div>
@@ -123,9 +141,9 @@ const HeroSaaS = () => {
           className="inline-flex flex-col items-center text-gray-600 hover:text-primary-600 transition-colors duration-300 group"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
         >
-          <span className="text-sm font-medium mb-2">Descobrir recursos</span>
+          <span className="text-sm font-medium mb-2">Conhecer a visão</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
