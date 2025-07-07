@@ -53,37 +53,6 @@ const LLMsDisruptiveSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          {/* Logo AideaFlux */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-8"
-          >
-            <div className="flex items-center justify-center mb-6">
-              <motion.div
-                animate={{ 
-                  y: [0, -10, 0],
-                  rotateY: [0, 5, -5, 0]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20"
-              >
-                <div className="w-20 h-20 bg-gradient-to-br from-cyan-400 via-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white shadow-2xl">
-                  <span className="text-2xl font-black">A</span>
-                </div>
-              </motion.div>
-            </div>
-            <motion.p 
-              className="text-cyan-400 font-semibold text-lg"
-              animate={{ opacity: [0.7, 1, 0.7] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              Powered by AideaFlux
-            </motion.p>
-          </motion.div>
-
           <motion.h2 
             className="text-5xl md:text-7xl font-black mb-6 leading-tight"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -109,8 +78,10 @@ const LLMsDisruptiveSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Conheça nossa plataforma AideaFlux e 
-            <strong className="text-primary-400"> acesse 100+ LLMs de todo o mundo!</strong>
+            Conheça nossa plataforma 
+            <strong className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500"> AideaFlux </strong>
+            e acesse 
+            <strong className="text-primary-400"> 100+ LLMs de todo o mundo!</strong>
           </motion.p>
 
           {/* Botão Experiencie Centralizado */}

@@ -115,19 +115,43 @@ const FloatingChatbot = () => {
         {!isOpen && (
           <motion.button
             onClick={() => setIsOpen(true)}
-            className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            className="relative bg-gradient-to-r from-primary-500 to-secondary-500 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             animate={{
               boxShadow: [
                 "0 0 0 0 rgba(50, 184, 144, 0.7)",
-                "0 0 0 10px rgba(50, 184, 144, 0)",
+                "0 0 0 15px rgba(50, 184, 144, 0)",
                 "0 0 0 0 rgba(50, 184, 144, 0)"
               ]
             }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <MessageCircle className="w-6 h-6" />
+            {/* Face simpática do agente */}
+            <div className="relative w-8 h-8 flex items-center justify-center">
+              {/* Rosto */}
+              <div className="absolute inset-0 bg-white/20 rounded-full"></div>
+              {/* Olhos */}
+              <div className="absolute top-2 left-2 w-1 h-1 bg-white rounded-full animate-pulse"></div>
+              <div className="absolute top-2 right-2 w-1 h-1 bg-white rounded-full animate-pulse"></div>
+              {/* Sorriso */}
+              <motion.div 
+                className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-1 border-b-2 border-white rounded-full"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              ></motion.div>
+              {/* Ícone de chat */}
+              <MessageCircle className="w-4 h-4 opacity-80" />
+            </div>
+            
+            {/* Tooltip */}
+            <motion.div
+              className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-white/90 backdrop-blur-sm text-gray-800 text-xs rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+              initial={{ opacity: 0, y: 10 }}
+              whileHover={{ opacity: 1, y: 0 }}
+            >
+              🤖 Oi! Eu sou seu agente CalangoFlux
+            </motion.div>
           </motion.button>
         )}
       </motion.div>

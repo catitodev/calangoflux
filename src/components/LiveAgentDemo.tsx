@@ -107,14 +107,15 @@ const LiveAgentDemo = () => {
             </Badge>
           </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
-            Teste Nosso{' '}
+            Criamos Sua{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
-              Agente MVP
+              Presença Digital
             </span>
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Conheça uma versão simplificada da nossa tecnologia agentic. 
-            Este agente funciona de verdade e responde em tempo real!
+            Branding • Rebranding • Domínios • Landing Pages • Sites • Plataformas • Apps
+            <br />
+            <strong className="text-primary-600">Criação completa da sua identidade digital!</strong>
           </p>
         </motion.div>
 
@@ -299,7 +300,7 @@ const LiveAgentDemo = () => {
                     >
                       <Code className="w-5 h-5 mr-2 text-primary-600" />
                     </motion.div>
-                    Como Este Agente Funciona
+                    Nossos Serviços Digitais
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -309,21 +310,21 @@ const LiveAgentDemo = () => {
                       whileHover={{ x: 5 }}
                     >
                       <Zap className="w-4 h-4 text-primary-500 mr-2 mt-0.5" />
-                      <span><strong>Simples mas Real:</strong> Responde baseado em palavras-chave</span>
+                      <span><strong>Branding Completo:</strong> Logo, identidade visual e guidelines</span>
                     </motion.li>
                     <motion.li 
                       className="flex items-start"
                       whileHover={{ x: 5 }}
                     >
                       <Zap className="w-4 h-4 text-secondary-500 mr-2 mt-0.5" />
-                      <span><strong>Tempo Real:</strong> Processamento instantâneo de mensagens</span>
+                      <span><strong>Desenvolvimento Web:</strong> Sites, plataformas e aplicativos</span>
                     </motion.li>
                     <motion.li 
                       className="flex items-start"
                       whileHover={{ x: 5 }}
                     >
                       <Zap className="w-4 h-4 text-accent-500 mr-2 mt-0.5" />
-                      <span><strong>MVP Honesto:</strong> Mostra nossas capacidades atuais</span>
+                      <span><strong>Domínios & Hosting:</strong> Configuração completa e otimizada</span>
                     </motion.li>
                   </ul>
                 </CardContent>
@@ -338,18 +339,18 @@ const LiveAgentDemo = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center text-lg">
                     <MessageSquare className="w-5 h-5 mr-2 text-secondary-600" />
-                    Na Versão Completa
+                    Integrações Sociais
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 text-sm text-gray-700">
                     {[
-                      "🧠 IA avançada com processamento de linguagem natural",
-                      "🔗 Integração com Abacus e Tana",
-                      "📊 Aprendizado contínuo a partir das conversas",
-                      "⚡ Decisões autônomas e execução de ações",
-                      "🔄 Automação de tarefas complexas",
-                      "📱 Multi-channel (WhatsApp, Telegram, Discord)"
+                      "🌐 Redes Sociais (Instagram, LinkedIn, Twitter)",
+                      "� WhatsApp Business & Telegram",
+                      "� Web3: Discord, NFT marketplaces",
+                      "⚡ Automações e chatbots integrados",
+                      "� Analytics e métricas unificadas",
+                      "🎯 Campanhas cross-platform otimizadas"
                     ].map((item, index) => (
                       <motion.li
                         key={index}
@@ -374,19 +375,19 @@ const LiveAgentDemo = () => {
             >
               <h3 className="font-semibold text-secondary-900 mb-2 flex items-center">
                 <Bot className="w-5 h-5 mr-2" />
-                Este é o Início
+                Presença Digital Completa
               </h3>
               <p className="text-gray-700 text-sm mb-4">
-                Este agente simples é prova de que nossa tecnologia funciona. 
-                Estamos construindo algo muito maior - quer fazer parte desta jornada?
+                Da criação da marca até a implementação técnica, cuidamos de toda sua presença digital 
+                com integrações Web2 e Web3. Tudo conectado e funcionando perfeitamente!
               </p>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Button asChild className="w-full bg-primary-500 hover:bg-primary-600">
-                  <a href="https://www.aideaflux.xyz" target="_blank" rel="noopener noreferrer">
-                    Solicitar Early Access
+                  <a href="#contato">
+                    💬 Falar sobre meu Projeto
                   </a>
                 </Button>
               </motion.div>

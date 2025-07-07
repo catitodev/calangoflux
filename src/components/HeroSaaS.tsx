@@ -201,35 +201,54 @@ const HeroSaaS = () => {
           >
             <p className="text-sm text-gray-600 mb-4">Integrações planejadas:</p>
             <motion.div 
-              className="flex justify-center items-center gap-8 opacity-60"
+              className="flex justify-center items-center gap-8 opacity-60 flex-wrap"
               animate={{ y: [0, -5, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
               <motion.div 
-                className="text-2xl font-bold text-primary-600"
+                className="text-lg font-bold text-primary-600"
                 whileHover={{ scale: 1.1, color: "#32b890" }}
               >
                 Abacus
               </motion.div>
               <motion.div 
-                className="text-2xl font-bold text-secondary-600"
+                className="text-lg font-bold text-secondary-600"
                 whileHover={{ scale: 1.1, color: "#0066c8" }}
               >
                 Tana
               </motion.div>
               <motion.div 
-                className="text-2xl font-bold text-accent-600"
+                className="text-lg font-bold text-accent-600"
                 whileHover={{ scale: 1.1, color: "#ff9800" }}
               >
                 WhatsApp
               </motion.div>
               <motion.div 
-                className="text-2xl font-bold text-primary-600"
+                className="text-lg font-bold text-primary-600"
                 whileHover={{ scale: 1.1, color: "#32b890" }}
+              >
+                Instagram
+              </motion.div>
+              <motion.div 
+                className="text-lg font-bold text-secondary-600"
+                whileHover={{ scale: 1.1, color: "#0066c8" }}
+              >
+                Discord
+              </motion.div>
+              <motion.div 
+                className="text-lg font-bold text-accent-600"
+                whileHover={{ scale: 1.1, color: "#ff9800" }}
               >
                 Telegram
               </motion.div>
             </motion.div>
+            <motion.p 
+              className="text-xs text-gray-500 mt-3"
+              animate={{ opacity: [0.6, 1, 0.6] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              🌐 Web2 & Web3 • 📱 Social Media • 🤖 Automação Total
+            </motion.p>
           </motion.div>
 
           <motion.div 
