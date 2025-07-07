@@ -7,7 +7,7 @@ const LetramentoWeb3 = () => {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
-
+    
     // Set page title
     document.title = 'Letramento Web3 | CalangoFlux';
   }, []);
@@ -43,30 +43,40 @@ const LetramentoWeb3 = () => {
   return (
     <div className="pt-16">
       <section className="bg-secondary-500 text-white py-20">
-        <div className="container">
-          <Link to="/" className="inline-flex items-center text-white/80 hover:text-white mb-8 transition">
-            <ArrowLeft size={16} className="mr-2" />
-            Voltar para início
-          </Link>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Letramento Web3</h1>
-            <p className="text-xl max-w-3xl mb-8">
-              Estamos atravessando uma virada histórica: da internet centralizada para redes descentralizadas, onde pessoas e tecnologias se conectam com mais autonomia, ética e impacto real.
-            </p>
-            <a
-              href="https://discord.gg/NjJeB285"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn bg-white text-secondary-600 hover:bg-white/90"
+        <div className="container mx-auto px-6">
+          <div className="flex items-center mb-8">
+            <Link 
+              to="/" 
+              className="flex items-center text-white hover:text-primary-300 transition-colors mr-6"
             >
-              Inicie sua jornada
-            </a>
-          </motion.div>
+              <ArrowLeft className="w-6 h-6 mr-2" />
+              Voltar
+            </Link>
+            <h1 className="text-4xl font-bold">Letramento Web3</h1>
+          </div>
+          
+          <div className="max-w-4xl">
+            <p className="text-xl text-secondary-100 mb-8">
+              Desenvolva fluência digital no mundo descentralizado. Nosso programa de letramento Web3 
+              capacita você a navegar com confiança no universo blockchain, ReFi e tecnologias regenerativas.
+            </p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors"
+                >
+                  <div className="mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-secondary-100">{feature.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
