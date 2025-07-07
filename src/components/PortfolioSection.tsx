@@ -44,7 +44,7 @@ const PortfolioSection = () => {
       status: "Em Breve",
       badge: "Educação",
       color: "text-accent-600",
-      features: ["Blockchain", "Educação", "DeFi", "NFTs"]
+      features: ["Blockchain", "Educação", "ReFi", "NFTs", "Empoderamento Digital"]
     }
   ];
 
