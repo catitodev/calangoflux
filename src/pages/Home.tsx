@@ -4,6 +4,7 @@ import LLMCarousel from '../components/LLMCarousel';
 import LiveAgentDemo from '../components/LiveAgentDemo';
 import DashboardPreview from '../components/DashboardPreview';
 import PortfolioSection from '../components/PortfolioSection';
+import PoeAgentsSection from '../components/PoeAgentsSection';
 import About from '../components/About';
 import Services from '../components/Services';
 import TeamAndVisionSection from '../components/TestimonialsSection';
@@ -31,6 +32,7 @@ const Home = () => {
       <LiveAgentDemo />
       <DashboardPreview />
       <PortfolioSection />
+      <PoeAgentsSection />
       <About />
       <Services />
       <TeamAndVisionSection />

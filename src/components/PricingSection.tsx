@@ -8,8 +8,8 @@ const PricingSection = () => {
   const plans = [
     {
       name: "Pioneer Access",
-      price: "Subsidiado",
-      period: "por 6 meses",
+      price: "R$ 47",
+      period: "/mês",
       description: "Acesso subsidiado por projetos com propósito e impacto social",
       icon: <Rocket className="w-6 h-6" />,
       badge: "Impacto Social",
@@ -29,7 +29,7 @@ const PricingSection = () => {
     },
     {
       name: "Beta Tester",
-      price: "R$ 47",
+      price: "R$ 97",
       period: "/mês",
       description: "Para quem quer testar recursos avançados e subsidiar o desenvolvimento",
       icon: <TestTube className="w-6 h-6" />,

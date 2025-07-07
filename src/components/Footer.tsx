@@ -109,6 +109,17 @@ const Footer = () => {
                 </a>
               </li>
               <li>
+                <a 
+                  href="https://poe.com/@calangoflux" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-secondary-400 hover:text-secondary-300 transition-colors flex items-center font-medium"
+                >
+                  11 Agentes no Poe
+                  <ExternalLink className="w-3 h-3 ml-1" />
+                </a>
+              </li>
+              <li>
                 <span className="text-gray-500 text-sm">Letramento Web3 (em breve)</span>
               </li>
             </ul>
