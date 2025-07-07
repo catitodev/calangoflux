@@ -192,6 +192,75 @@ const PricingSection = () => {
           ))}
         </div>
 
+        {/* Seção Subsídio Cruzado Original */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-20 text-center"
+        >
+          <Badge variant="outline" className="mb-4">
+            <Star className="w-3 h-3 mr-1" />
+            Modelo Inovador
+          </Badge>
+          <h3 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
+            Subsídio{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
+              Cruzado
+            </span>
+          </h3>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-12">
+            Nosso modelo inovador: <strong>a cada 10 clientes pagantes, 1 serviço é fornecido por subsídio cruzado</strong>. 
+            Assim, projetos sociais têm acesso à tecnologia financiados por quem pode pagar.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
+            <motion.div 
+              className="text-center"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Rocket className="w-8 h-8 text-primary-600" />
+              </div>
+              <h4 className="font-semibold text-secondary-900 mb-2">Acesso Justo</h4>
+              <p className="text-gray-600 text-sm">Tecnologia de ponta para quem precisa, financiada por quem pode</p>
+            </motion.div>
+            <motion.div 
+              className="text-center"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <div className="bg-secondary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="w-8 h-8 text-secondary-600" />
+              </div>
+              <h4 className="font-semibold text-secondary-900 mb-2">Impacto Multiplicado</h4>
+              <p className="text-gray-600 text-sm">Cada pagamento gera acesso para projetos sociais</p>
+            </motion.div>
+            <motion.div 
+              className="text-center"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <div className="bg-accent-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Crown className="w-8 h-8 text-accent-600" />
+              </div>
+              <h4 className="font-semibold text-secondary-900 mb-2">Sustentabilidade</h4>
+              <p className="text-gray-600 text-sm">Modelo que permite crescimento e impacto duradouro</p>
+            </motion.div>
+          </div>
+
+          <div className="bg-gradient-to-r from-primary-100 to-secondary-100 rounded-xl p-6 max-w-2xl mx-auto">
+            <h4 className="text-lg font-semibold text-secondary-900 mb-2">
+              🎯 Meta: 100 Clientes Pagantes = 10 Projetos Subsidiados
+            </h4>
+            <p className="text-gray-700 text-sm">
+              Nosso modelo 10:1 permite crescimento sustentável enquanto financiamos projetos de impacto social.
+            </p>
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
