@@ -116,51 +116,52 @@ const FeaturesSection = () => {
   };
 
   return (
-    <section id="features" className="section bg-gradient-to-br from-gray-50 to-white">
-      <div className="container">
+    <section id="features" className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <Badge variant="outline" className="mb-4">
             <Cpu className="w-3 h-3 mr-1" />
             Arquitetura de Automação
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 mb-4 md:mb-6">
             Ecossistema{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
               Agentic
             </span>
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
             Nossa arquitetura circular integrada. Clique em cada segmento para explorar 
             os componentes do nosso ecossistema de automação inteligente.
           </p>
         </motion.div>
 
-        {/* Circular Diagram */}
-        <div className="relative max-w-4xl mx-auto">
+        {/* Circular Diagram - Responsivo */}
+        <div className="relative max-w-3xl lg:max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative bg-white rounded-full shadow-2xl p-8 md:p-12"
+            className="relative bg-white rounded-full shadow-2xl p-4 md:p-6 lg:p-8"
           >
-            {/* SVG Circle */}
-            <div className="relative w-full max-w-2xl mx-auto aspect-square">
+            {/* SVG Circle - Responsivo */}
+            <div className="relative w-full max-w-lg lg:max-w-2xl mx-auto aspect-square">
               <svg 
                 viewBox="0 0 400 400" 
                 className="w-full h-full transform -rotate-90"
+                style={{ minHeight: '300px' }}
               >
                 {/* Background Circle */}
                 <circle
                   cx="200"
                   cy="200"
-                  r="180"
+                  r="160"
                   fill="none"
                   stroke="#f3f4f6"
                   strokeWidth="2"
@@ -171,18 +172,18 @@ const FeaturesSection = () => {
                 {automationSteps.map((step, index) => (
                   <motion.path
                     key={step.id}
-                    d={describeArc(200, 200, 180, step.angle.start, step.angle.end)}
+                    d={describeArc(200, 200, 160, step.angle.start, step.angle.end)}
                     fill={step.color}
                     stroke="#ffffff"
                     strokeWidth="3"
                     className="cursor-pointer transition-all duration-300"
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ 
-                      opacity: 0.7,
+                      opacity: 0.8,
                       scale: 1
                     }}
                     whileHover={{ 
-                      opacity: 0.9,
+                      opacity: 1,
                       scale: 1.02,
                       transition: { duration: 0.2 }
                     }}
@@ -200,7 +201,7 @@ const FeaturesSection = () => {
                 <circle
                   cx="200"
                   cy="200"
-                  r="80"
+                  r="70"
                   fill="white"
                   stroke="#e5e7eb"
                   strokeWidth="2"
@@ -208,14 +209,14 @@ const FeaturesSection = () => {
                 />
               </svg>
               
-              {/* Logo Central - Corrigido e Simplificado */}
+              {/* Logo Central */}
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.5, type: "spring" }}
                 className="absolute inset-0 flex items-center justify-center"
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
+                <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center">
                   <img 
                     src={calangoicone} 
                     alt="CalangoFlux" 
@@ -224,11 +225,11 @@ const FeaturesSection = () => {
                 </div>
               </motion.div>
               
-                             {/* Cards Transparentes Posicionados sobre as Cores */}
-               {automationSteps.map((step, index) => {
-                 const middleAngle = (step.angle.start + step.angle.end) / 2;
-                 const cardRadius = 140; // Centralizado no meio de cada segmento colorido
-                 const cardPos = polarToCartesian(200, 200, cardRadius, middleAngle);
+              {/* Cards Transparentes Posicionados sobre as Cores */}
+              {automationSteps.map((step, index) => {
+                const middleAngle = (step.angle.start + step.angle.end) / 2;
+                const cardRadius = 120; // Ajustado para o novo tamanho
+                const cardPos = polarToCartesian(200, 200, cardRadius, middleAngle);
                 
                 return (
                   <motion.div
@@ -236,24 +237,31 @@ const FeaturesSection = () => {
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: index * 0.1 + 0.8 }}
-                    className="absolute text-center cursor-pointer"
+                    className="absolute text-center cursor-pointer w-[100px] md:w-[120px]"
                     style={{
                       left: `${((cardPos.x / 400) * 100)}%`,
                       top: `${((cardPos.y / 400) * 100)}%`,
-                      transform: 'translate(-50%, -50%)',
-                      maxWidth: '140px'
+                      transform: 'translate(-50%, -50%)'
                     }}
                     onClick={() => setActiveSegment(activeSegment === step.id ? null : step.id)}
                   >
                     <motion.div
                       whileHover={{ scale: 1.05, y: -2 }}
-                      className="bg-white/20 backdrop-blur-sm rounded-xl px-3 py-3 shadow-lg border border-white/30 transition-all duration-300 hover:bg-white/30"
+                      className="bg-white/25 backdrop-blur-sm rounded-lg md:rounded-xl px-2 md:px-3 py-2 md:py-3 shadow-lg border border-white/30 transition-all duration-300 hover:bg-white/35"
                     >
-                      <h4 className="text-sm font-bold text-white leading-tight mb-2 drop-shadow-lg">
+                      <h4 className="text-xs md:text-sm font-bold text-white leading-tight mb-1 md:mb-2 drop-shadow-lg">
                         {step.title}
                       </h4>
-                      <div className={`text-xs px-2 py-1 rounded-full border bg-white/90 ${getStatusColor(step.status).replace('bg-', '').replace('text-', 'text-').replace('border-', 'border-')}`}>
-                        {step.status}
+                      <div className={`text-xs px-1.5 md:px-2 py-0.5 md:py-1 rounded-full border bg-white/90 ${getStatusColor(step.status).replace('bg-', '').replace('text-', 'text-').replace('border-', 'border-')}`}>
+                        <span className="hidden md:inline">{step.status}</span>
+                        <span className="md:hidden">
+                          {step.status === "Funcional" ? "✓" : 
+                           step.status === "MVP" ? "M" :
+                           step.status === "Protótipo" ? "P" :
+                           step.status === "Em Desenvolvimento" ? "D" :
+                           step.status === "Parcial" ? "~" :
+                           step.status === "Básico" ? "B" : "R"}
+                        </span>
                       </div>
                     </motion.div>
                   </motion.div>
@@ -279,7 +287,7 @@ const FeaturesSection = () => {
                 exit={{ opacity: 0, scale: 0.8, y: 20 }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white rounded-2xl p-6 md:p-8 max-w-lg w-full shadow-2xl border border-gray-100 relative overflow-hidden"
+                className="bg-white rounded-2xl p-6 md:p-8 max-w-lg w-full mx-4 shadow-2xl border border-gray-100 relative overflow-hidden"
               >
                 {/* Background Decoration */}
                 <div 
@@ -297,18 +305,18 @@ const FeaturesSection = () => {
                     <div className="relative">
                       <div className="flex items-center mb-6">
                         <div 
-                          className="w-16 h-16 rounded-2xl flex items-center justify-center text-white mr-4 shadow-lg"
+                          className="w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center text-white mr-4 shadow-lg"
                           style={{ backgroundColor: step.color }}
                         >
-                          <span className="text-2xl font-bold">
+                          <span className="text-lg md:text-2xl font-bold">
                             {step.id}
                           </span>
                         </div>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+                          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900">
                             {step.title}
                           </h3>
-                          <p className="text-gray-600 font-medium">
+                          <p className="text-sm md:text-base text-gray-600 font-medium">
                             {step.subtitle}
                           </p>
                         </div>
@@ -318,7 +326,7 @@ const FeaturesSection = () => {
                         {step.status}
                       </div>
                       
-                      <p className="text-gray-700 leading-relaxed mb-8 text-sm md:text-base">
+                      <p className="text-gray-700 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
                         {step.description}
                       </p>
                       
@@ -339,13 +347,13 @@ const FeaturesSection = () => {
           )}
         </AnimatePresence>
 
-        {/* Status Legend */}
+        {/* Status Legend - Melhorado para mobile */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 max-w-5xl mx-auto"
+          className="mt-12 md:mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4 max-w-5xl mx-auto"
         >
           {[
             { status: "Funcional", count: 2 },
@@ -357,11 +365,19 @@ const FeaturesSection = () => {
             { status: "Roadmap", count: 1 }
           ].map((item, index) => (
             <div key={index} className="text-center">
-              <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium border mb-2 ${getStatusColor(item.status)}`}>
-                {item.status}
+              <div className={`inline-block px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium border mb-2 ${getStatusColor(item.status)}`}>
+                <span className="hidden sm:inline">{item.status}</span>
+                <span className="sm:hidden">
+                  {item.status === "Funcional" ? "Func" : 
+                   item.status === "MVP" ? "MVP" :
+                   item.status === "Protótipo" ? "Proto" :
+                   item.status === "Em Desenvolvimento" ? "Dev" :
+                   item.status === "Parcial" ? "Parc" :
+                   item.status === "Básico" ? "Bás" : "Road"}
+                </span>
               </div>
               <div className="text-xs text-gray-600">
-                {item.count} componente{item.count > 1 ? 's' : ''}
+                {item.count} comp{item.count > 1 ? 's' : ''}
               </div>
             </div>
           ))}
@@ -373,20 +389,20 @@ const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-16 text-center"
+          className="mt-12 md:mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">
+          <div className="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-6 md:p-8 text-white">
+            <h3 className="text-xl md:text-2xl font-bold mb-4">
               Arquitetura Circular Integrada
             </h3>
-            <p className="text-lg mb-6 opacity-90">
+            <p className="text-base md:text-lg mb-6 opacity-90">
               Cada componente trabalha em harmonia para criar um ecossistema agentic completo e eficiente.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-medium transition-all duration-200">
+              <button className="bg-white text-primary-600 hover:bg-gray-100 px-6 md:px-8 py-3 rounded-lg font-medium transition-all duration-200">
                 Explorar Arquitetura
               </button>
-              <button className="btn border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-all duration-200">
+              <button className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-6 md:px-8 py-3 rounded-lg font-medium transition-all duration-200">
                 Documentação Técnica
               </button>
             </div>
