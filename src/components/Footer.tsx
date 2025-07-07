@@ -171,7 +171,7 @@ const Footer = () => {
                 <span className="text-gray-300">Feito com propósito no Brasil</span>
               </div>
               <p className="text-gray-400 text-sm">
-                Transparência é nosso DNA • Impacto é nossa missão
+                Fluxo Vivo, Impacto Real • Conectando Pessoas, Dados e Regeneração
               </p>
             </div>
           </motion.div>

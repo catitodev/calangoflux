@@ -247,12 +247,11 @@ const HeroSaaS = () => {
                 <Sparkles className="w-6 h-6 text-primary-600 mr-2" />
               </motion.div>
               <h3 className="text-lg font-semibold text-secondary-900">
-                Transparência é nosso DNA
+                Propósito CalangoFlux
               </h3>
             </div>
             <p className="text-gray-700 text-center">
-              Estamos em fase MVP com 2 apps e 2 sites desenvolvidos. 
-              Nosso compromisso é com a transparência total em cada etapa desta jornada.
+              Fluxo Vivo, Impacto Real: Conectando Pessoas, Dados e Regeneração.
             </p>
           </motion.div>
         </div>

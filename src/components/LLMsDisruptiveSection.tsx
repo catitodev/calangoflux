@@ -53,17 +53,35 @@ const LLMsDisruptiveSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          {/* Logo AideaFlux */}
           <motion.div
-            animate={{
-              scale: [1, 1.05, 1],
-              rotate: [0, 1, -1, 0]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-8"
           >
-            <Badge className="mb-6 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-lg px-6 py-2">
-              <Sparkles className="w-4 h-4 mr-2" />
-              🚀 DISRUPTIVO
-            </Badge>
+            <div className="flex items-center justify-center mb-6">
+              <motion.div
+                animate={{ 
+                  y: [0, -10, 0],
+                  rotateY: [0, 5, -5, 0]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+                className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20"
+              >
+                <div className="w-20 h-20 bg-gradient-to-br from-cyan-400 via-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white shadow-2xl">
+                  <span className="text-2xl font-black">A</span>
+                </div>
+              </motion.div>
+            </div>
+            <motion.p 
+              className="text-cyan-400 font-semibold text-lg"
+              animate={{ opacity: [0.7, 1, 0.7] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              Powered by AideaFlux
+            </motion.p>
           </motion.div>
 
           <motion.h2 
@@ -91,9 +109,33 @@ const LLMsDisruptiveSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Pare de pagar separadamente por GPT-4, Claude, Gemini... 
-            <strong className="text-primary-400"> Acesse TODAS as LLMs do planeta gratuitamente!</strong>
+            Conheça nossa plataforma AideaFlux e 
+            <strong className="text-primary-400"> acesse 100+ LLMs de todo o mundo!</strong>
           </motion.p>
+
+          {/* Botão Experiencie Centralizado */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mb-12"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button 
+                asChild
+                size="lg"
+                className="bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-500 hover:to-blue-700 text-white px-12 py-4 text-xl font-bold shadow-2xl rounded-full"
+              >
+                <a href="https://aideaflux.xyz" target="_blank" rel="noopener noreferrer">
+                  🚀 Experiencie!
+                </a>
+              </Button>
+            </motion.div>
+          </motion.div>
 
           <motion.div
             className="flex flex-wrap justify-center gap-3 mb-12 max-w-4xl mx-auto"

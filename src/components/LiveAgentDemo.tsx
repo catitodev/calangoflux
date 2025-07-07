@@ -25,7 +25,7 @@ const LiveAgentDemo = () => {
     'mvp': 'Sim, somos transparentes! Esta é uma demonstração básica do nosso MVP. O agente real será muito mais avançado com IA real.',
     'automação': 'Nossa automação permite criar agentes que trabalham 24/7 para você, conectando com Abacus e Tana!',
     'ia': 'Usamos as melhores LLMs do mercado: GPT-4, Claude 3.5, Gemini, Llama e muito mais!',
-    'transparência': 'Transparência é nosso DNA! Por isso mostramos exatamente onde estamos no desenvolvimento. Nada de marketing fake!',
+    'transparência': 'Nosso propósito é Fluxo Vivo, Impacto Real: Conectando Pessoas, Dados e Regeneração! Por isso mostramos exatamente onde estamos no desenvolvimento.',
     'contato': 'Você pode entrar em contato através da seção de contato no site ou acessar nossa plataforma!',
     'aideaflux': 'AideaFlux é nossa plataforma principal! Acesse em aideaflux.xyz para conhecer.',
     'portfolio': 'Temos AgroFamiliApp, Baya Nativa e em breve a plataforma de Letramento Web3!',
