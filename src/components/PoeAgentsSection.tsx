@@ -1,79 +1,9 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Bot, Zap, Users, MessageSquare } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { ExternalLink, Users, MessageSquare } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 
 const PoeAgentsSection = () => {
-  const agents = [
-    {
-      name: "Marketing Strategist",
-      description: "Especialista em estratégias de marketing digital e growth hacking",
-      specialty: "Marketing",
-      color: "bg-blue-500"
-    },
-    {
-      name: "Sales Expert",
-      description: "Agente focado em vendas, conversão e relacionamento com clientes",
-      specialty: "Vendas",
-      color: "bg-green-500"
-    },
-    {
-      name: "Tech Support",
-      description: "Suporte técnico especializado e resolução de problemas",
-      specialty: "Suporte",
-      color: "bg-purple-500"
-    },
-    {
-      name: "Content Creator",
-      description: "Criação de conteúdo envolvente e estratégias de storytelling",
-      specialty: "Conteúdo",
-      color: "bg-orange-500"
-    },
-    {
-      name: "Data Analyst",
-      description: "Análise de dados, métricas e insights estratégicos",
-      specialty: "Analytics",
-      color: "bg-indigo-500"
-    },
-    {
-      name: "Product Manager",
-      description: "Gestão de produtos, roadmaps e funcionalidades",
-      specialty: "Produto",
-      color: "bg-red-500"
-    },
-    {
-      name: "Financial Advisor",
-      description: "Consultoria financeira e planejamento estratégico",
-      specialty: "Financeiro",
-      color: "bg-emerald-500"
-    },
-    {
-      name: "Legal Consultant",
-      description: "Orientações legais e compliance para startups",
-      specialty: "Jurídico",
-      color: "bg-gray-600"
-    },
-    {
-      name: "Innovation Coach",
-      description: "Coaching em inovação e desenvolvimento de negócios",
-      specialty: "Inovação",
-      color: "bg-pink-500"
-    },
-    {
-      name: "Community Manager",
-      description: "Gestão de comunidades e engajamento social",
-      specialty: "Comunidade",
-      color: "bg-teal-500"
-    },
-    {
-      name: "Tech Architect",
-      description: "Arquitetura técnica e soluções de infraestrutura",
-      specialty: "Arquitetura",
-      color: "bg-cyan-500"
-    }
-  ];
-
   return (
     <section className="section bg-gradient-to-br from-gray-50 to-white">
       <div className="container">
@@ -106,7 +36,7 @@ const PoeAgentsSection = () => {
             <Button 
               asChild
               size="lg"
-              className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white px-8 py-3 text-lg mb-8"
+              className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white px-8 py-3 text-lg mb-12"
             >
               <a 
                 href="https://poe.com/calangoflux" 
@@ -115,58 +45,34 @@ const PoeAgentsSection = () => {
                 className="flex items-center"
               >
                 <MessageSquare className="w-5 h-5 mr-2" />
-                Acessar calangoflux no Poe
+                Experiencie Aqui!
                 <ExternalLink className="w-4 h-4 ml-2" />
               </a>
             </Button>
           </motion.div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {agents.map((agent, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-            >
-              <Card className="h-full bg-white/80 backdrop-blur-sm border-0 shadow-soft hover:shadow-lg transition-all duration-300 group">
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-4">
-                    <motion.div 
-                      className={`w-12 h-12 ${agent.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <Bot className="w-6 h-6 text-white" />
-                    </motion.div>
-                    <Badge variant="outline" className="text-xs">
-                      {agent.specialty}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-lg font-bold text-secondary-900 group-hover:text-primary-600 transition-colors">
-                    {agent.name}
-                  </CardTitle>
-                  <CardDescription className="text-gray-600">
-                    {agent.description}
-                  </CardDescription>
-                </CardHeader>
-                
-                <CardContent>
-                  <motion.div
-                    className="flex items-center text-sm text-primary-600 font-medium"
-                    whileHover={{ x: 5 }}
-                  >
-                    <Zap className="w-4 h-4 mr-2" />
-                    Ativo no Poe
-                  </motion.div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+        {/* Texto CTA substituindo os 11 cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mb-12"
+        >
+          <div className="max-w-4xl mx-auto">
+            <p className="text-2xl md:text-3xl font-semibold text-secondary-900 mb-4 leading-relaxed">
+              A CalangoFlux desenvolveu{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500 font-bold">
+                11 agentes personalizados
+              </span>{' '}
+              disponíveis na Poe gratuitamente.
+            </p>
+            <p className="text-xl text-gray-700 font-medium">
+              É só acessar! 🚀
+            </p>
+          </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -203,26 +109,17 @@ const PoeAgentsSection = () => {
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Button 
                 asChild
-                className="bg-white text-primary-600 hover:bg-gray-100"
+                className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 text-lg"
               >
                 <a 
                   href="https://poe.com/calangoflux" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  Testar Agentes Agora
-                </a>
-              </Button>
-              <Button
-                asChild 
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary-600"
-              >
-                <a href="https://www.aideaflux.xyz" target="_blank" rel="noopener noreferrer">
-                  Solicitar Early Access
+                  Teste Agentes Agora
                 </a>
               </Button>
             </div>
