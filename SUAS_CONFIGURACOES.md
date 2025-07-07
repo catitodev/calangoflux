@@ -7,21 +7,23 @@
 - **Projeto ID**: twfiakthfeirgobwvfxy
 - **Dashboard**: https://supabase.com/dashboard/project/twfiakthfeirgobwvfxy
 
-### 📋 O que você precisa fazer:
+### � Suas Chaves (já coletadas):
+- **Anon Public**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3Zmlha3RoZmVpcmdvYnd2Znh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE4OTg5ODIsImV4cCI6MjA2NzQ3NDk4Mn0.v-VXxPgCtS34O1sjgGYpMIoF5lQXY9T0IpuORhB1ii0`
+- **Service Role**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3Zmlha3RoZmVpcmdvYnd2Znh5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MTg5ODk4MiwiZXhwIjoyMDY3NDc0OTgyfQ.4mn9YVKzMDAWEGjXvZm-2FJMu01BlsMXZFxa_y7dREw`
 
-1. **Pegar a chave anon**:
-   - Vá em: https://supabase.com/dashboard/project/twfiakthfeirgobwvfxy/settings/api
-   - Copie a chave `anon public` (começa com `eyJ...`)
+### 📋 Próximos passos:
+
+1. **✅ Chaves coletadas** - Feito!
 
 2. **Executar o SQL**:
    - Vá em: https://supabase.com/dashboard/project/twfiakthfeirgobwvfxy/sql/new
    - Cole TODO o conteúdo do arquivo `supabase-schema.sql`
    - Clique em "RUN"
 
-3. **Configurar no Vercel**:
+3. **Configurar no Vercel** (copie e cole exatamente):
    ```
    VITE_SUPABASE_URL=https://twfiakthfeirgobwvfxy.supabase.co
-   VITE_SUPABASE_ANON_KEY=sua-chave-anon-aqui
+   VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3Zmlha3RoZmVpcmdvYnd2Znh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE4OTg5ODIsImV4cCI6MjA2NzQ3NDk4Mn0.v-VXxPgCtS34O1sjgGYpMIoF5lQXY9T0IpuORhB1ii0
    ```
 
 ---
@@ -46,21 +48,21 @@
 
 ---
 
-## 🔧 Variáveis para o Vercel:
+## 🔧 Variáveis COMPLETAS para o Vercel:
 
 Copie e cole estas no Vercel > Settings > Environment Variables:
 
 ```bash
-# Supabase (obrigatório)
+# Supabase (✅ PRONTO!)
 VITE_SUPABASE_URL=https://twfiakthfeirgobwvfxy.supabase.co
-VITE_SUPABASE_ANON_KEY=sua-chave-anon-do-supabase
+VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3Zmlha3RoZmVpcmdvYnd2Znh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE4OTg5ODIsImV4cCI6MjA2NzQ3NDk4Mn0.v-VXxPgCtS34O1sjgGYpMIoF5lQXY9T0IpuORhB1ii0
 
-# EmailJS (obrigatório para emails)
+# EmailJS (configure em https://emailjs.com)
 VITE_EMAILJS_SERVICE_ID=seu-service-id
 VITE_EMAILJS_TEMPLATE_ID=seu-template-id
 VITE_EMAILJS_PUBLIC_KEY=sua-chave-publica
 
-# OpenAI (obrigatório para chatbot)
+# OpenAI (configure em https://platform.openai.com/api-keys)
 OPENAI_API_KEY=sk-proj-sua-chave-openai
 
 # Configurações extras (opcional)
@@ -72,16 +74,13 @@ VITE_SITE_URL=https://calangoflux.vercel.app
 
 ---
 
-## 🎉 Resultado Final:
+## 🎉 Status das Configurações:
 
-Quando tudo estiver configurado, você terá:
-
-- ✅ **Site no ar**: https://calangoflux.vercel.app (ou seu domínio)
-- ✅ **Chatbot inteligente**: Responde perguntas sobre CalangoFlux
-- ✅ **Captura de leads**: Salva no Supabase automaticamente
-- ✅ **Emails automáticos**: Você recebe notificação de cada lead
-- ✅ **Banco de dados**: Todos os dados seguros no Supabase
-- ✅ **Analytics**: Relatórios no Vercel e Supabase
+- ✅ **Supabase**: Chaves coletadas
+- ⏳ **SQL**: Precisa executar o schema
+- ⏳ **EmailJS**: Precisa configurar
+- ⏳ **OpenAI**: Precisa pegar API key
+- ⏳ **Vercel**: Precisa adicionar variáveis
 
 ---
 
@@ -103,4 +102,4 @@ Quando tudo estiver configurado, você terá:
 
 ---
 
-**🦎 Seu projeto está pronto para decolar!**
+**🦎 Agora execute `./setup-rapido.sh` para continuar!**
