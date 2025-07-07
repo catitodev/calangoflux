@@ -1,6 +1,5 @@
 import calangoicone from '../assets/imagens/calangoicone.png';
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 
@@ -24,14 +23,14 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link to="/#inicio" className="flex items-center">
+        <a href="#inicio" className="flex items-center">
           <div className="flex items-center text-primary-600">
             <img className="w-10" src={calangoicone} alt="Icone da CalangoFlux" />
           </div>
           <span className="ml-2 font-heading font-bold text-xl">
             Calango<span className="text-secondary-500">Flux</span>
           </span>
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
@@ -84,49 +83,56 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
       {isOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-sm border-t">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <NavLink 
-              to="/" 
-              className={({ isActive }) => 
-                `text-base font-medium py-2 ${isActive ? 'text-primary-600' : 'text-gray-800'}`
-              }
+            <a 
+              href="#inicio" 
+              className="text-base font-medium py-2 text-gray-800 hover:text-primary-600"
               onClick={toggleMenu}
             >
               Início
-            </NavLink>
+            </a>
             <a 
               href="#features" 
-              className="text-base font-medium py-2 text-gray-800"
+              className="text-base font-medium py-2 text-gray-800 hover:text-primary-600"
               onClick={toggleMenu}
             >
               Recursos
             </a>
             <a 
               href="#servicos" 
-              className="text-base font-medium py-2 text-gray-800"
+              className="text-base font-medium py-2 text-gray-800 hover:text-primary-600"
               onClick={toggleMenu}
             >
               Serviços
             </a>
             <a 
               href="#pricing" 
-              className="text-base font-medium py-2 text-gray-800"
+              className="text-base font-medium py-2 text-gray-800 hover:text-primary-600"
               onClick={toggleMenu}
             >
               Preços
             </a>
             <a 
               href="#sobre" 
-              className="text-base font-medium py-2 text-gray-800"
+              className="text-base font-medium py-2 text-gray-800 hover:text-primary-600"
               onClick={toggleMenu}
             >
               Sobre
             </a>
             <a 
               href="#contato" 
-              className="text-base font-medium py-2 text-gray-800"
+              className="text-base font-medium py-2 text-gray-800 hover:text-primary-600"
               onClick={toggleMenu}
             >
               Contato
+            </a>
+            <a 
+              href="https://aideaflux.xyz" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary-600 hover:text-primary-700 transition font-bold py-2"
+              onClick={toggleMenu}
+            >
+              Plataforma AI Gratuita
             </a>
             <Button 
               variant="default" 
