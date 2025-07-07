@@ -1,50 +1,51 @@
 import HeroSaaS from '../components/HeroSaaS';
 import FeaturesSection from '../components/FeaturesSection';
-import LLMCarousel from '../components/LLMCarousel';
-import LLMsDisruptiveSection from '../components/LLMsDisruptiveSection';
 import LiveAgentDemo from '../components/LiveAgentDemo';
-import DashboardPreview from '../components/DashboardPreview';
-import PortfolioSection from '../components/PortfolioSection';
-import PoeAgentsSection from '../components/PoeAgentsSection';
-import About from '../components/About';
-import Services from '../components/Services';
-import TeamAndVisionSection from '../components/TestimonialsSection';
 import PricingSection from '../components/PricingSection';
+import LLMCarousel from '../components/LLMCarousel';
 import FAQSection from '../components/FAQSection';
-import Impact from '../components/Impact';
-import Contact from '../components/Contact';
-import FloatingChatbot from '../components/FloatingChatbot';
-import { useEffect } from 'react';
+import PortfolioSection from '../components/PortfolioSection';
+import SocialIntegrationsSection from '../components/SocialIntegrationsSection';
+import PoeAgentsSection from '../components/PoeAgentsSection';
+import LLMsDisruptiveSection from '../components/LLMsDisruptiveSection';
+import ServicesSection from '../components/ServicesSection';
 
-const Home = () => {
-  useEffect(() => {
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
-    
-    // Set page title
-    document.title = 'CalangoFlux | Early Access MVP - Automação Agentic Transparente';
-  }, []);
-
+export default function Home() {
   return (
-    <>
-      <HeroSaaS />
-      <FeaturesSection />
-      <LLMCarousel />
-      <LLMsDisruptiveSection />
+    <div className="overflow-x-hidden">
+      <section id="inicio">
+        <HeroSaaS />
+      </section>
+      
+      <section id="features">
+        <FeaturesSection />
+      </section>
+      
+      <section id="servicos">
+        <ServicesSection />
+      </section>
+      
       <LiveAgentDemo />
-      <DashboardPreview />
-      <PortfolioSection />
+      
+      <section id="portfolio">
+        <PortfolioSection />
+      </section>
+      
+      <SocialIntegrationsSection />
+      
       <PoeAgentsSection />
-      <About />
-      <Services />
-      <TeamAndVisionSection />
-      <PricingSection />
-      <FAQSection />
-      <Impact />
-      <Contact />
-      <FloatingChatbot />
-    </>
+      
+      <LLMCarousel />
+      
+      <section id="pricing">
+        <PricingSection />
+      </section>
+      
+      <LLMsDisruptiveSection />
+      
+      <section id="sobre">
+        <FAQSection />
+      </section>
+    </div>
   );
-};
-
-export default Home;
+}

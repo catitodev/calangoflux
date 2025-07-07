@@ -1,5 +1,6 @@
 import calangoicone from '../assets/imagens/calangoicone.png';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from './ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -39,20 +40,22 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
   };
 
   const navItems = [
-    { name: "Recursos", href: "#features" },
+    { name: "Recursos", href: "/#features", isLink: false },
     { 
       name: "Serviços", 
       href: "#servicos",
+      isLink: false,
       dropdown: [
-        { name: "Branding & Rebranding", href: "#contato" },
-        { name: "Desenvolvimento Web", href: "#contato" },
-        { name: "Automação Agentic", href: "#features" },
-        { name: "Integrações Sociais", href: "#contato" }
+        { name: "Agentes AI", href: "/agentes-ai", isLink: true },
+        { name: "Automações", href: "/automacoes", isLink: true },
+        { name: "Agentics", href: "/agentics", isLink: true },
+        { name: "Web Design", href: "/webdesign", isLink: true },
+        { name: "Letramento Web3", href: "/letramento-web3", isLink: true }
       ]
     },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Preços", href: "#pricing" },
-    { name: "Sobre", href: "#sobre" }
+    { name: "Portfolio", href: "/#portfolio", isLink: false },
+    { name: "Preços", href: "/#pricing", isLink: false },
+    { name: "Sobre", href: "/#sobre", isLink: false }
   ];
 
   return (
@@ -70,25 +73,25 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
         <div className="flex justify-between items-center">
           
           {/* Logo */}
-          <motion.a 
-            href="#inicio" 
-            className="flex items-center group"
+          <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="flex items-center text-primary-600">
-              <img 
-                className="w-8 h-8 sm:w-10 sm:h-10 group-hover:rotate-12 transition-transform duration-300" 
-                src={calangoicone} 
-                alt="CalangoFlux" 
-              />
-            </div>
-            <span className={`ml-2 sm:ml-3 font-heading font-bold text-lg sm:text-xl transition-colors duration-300 ${
-              isScrolled ? 'text-gray-900' : 'text-white'
-            }`}>
-              Calango<span className="text-secondary-500">Flux</span>
-            </span>
-          </motion.a>
+            <Link to="/" className="flex items-center group">
+              <div className="flex items-center text-primary-600">
+                <img 
+                  className="w-8 h-8 sm:w-10 sm:h-10 group-hover:rotate-12 transition-transform duration-300" 
+                  src={calangoicone} 
+                  alt="CalangoFlux" 
+                />
+              </div>
+              <span className={`ml-2 sm:ml-3 font-heading font-bold text-lg sm:text-xl transition-colors duration-300 ${
+                isScrolled ? 'text-gray-900' : 'text-white'
+              }`}>
+                Calango<span className="text-secondary-500">Flux</span>
+              </span>
+            </Link>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
@@ -123,35 +126,62 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
                           onMouseLeave={() => setActiveDropdown(null)}
                         >
                           {item.dropdown.map((subItem) => (
-                            <a
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="block px-4 py-2 text-sm text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200"
-                              onClick={() => setActiveDropdown(null)}
-                            >
-                              {subItem.name}
-                            </a>
+                            subItem.isLink ? (
+                              <Link
+                                key={subItem.name}
+                                to={subItem.href}
+                                className="block px-4 py-2 text-sm text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200"
+                                onClick={() => setActiveDropdown(null)}
+                              >
+                                {subItem.name}
+                              </Link>
+                            ) : (
+                              <a
+                                key={subItem.name}
+                                href={subItem.href}
+                                className="block px-4 py-2 text-sm text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200"
+                                onClick={() => setActiveDropdown(null)}
+                              >
+                                {subItem.name}
+                              </a>
+                            )
                           ))}
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </motion.div>
                 ) : (
-                  <motion.a
-                    href={item.href}
-                    className={`block px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                      isScrolled 
-                        ? 'text-gray-700 hover:text-primary-600 hover:bg-primary-50' 
-                        : 'text-white/90 hover:text-white hover:bg-white/10'
-                    }`}
+                  <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {item.name}
-                  </motion.a>
+                    {item.isLink ? (
+                      <Link
+                        to={item.href}
+                        className={`block px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                          isScrolled 
+                            ? 'text-gray-700 hover:text-primary-600 hover:bg-primary-50' 
+                            : 'text-white/90 hover:text-white hover:bg-white/10'
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className={`block px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                          isScrolled 
+                            ? 'text-gray-700 hover:text-primary-600 hover:bg-primary-50' 
+                            : 'text-white/90 hover:text-white hover:bg-white/10'
+                        }`}
+                      >
+                        {item.name}
+                      </a>
+                    )}
+                  </motion.div>
                 )}
               </div>
             ))}
@@ -178,7 +208,7 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
             </motion.a>
             
             <motion.a 
-              href="#contato"
+              href="/#contato"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: 0.4 }}
@@ -277,27 +307,48 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
                               className="ml-4 mt-1 space-y-1 overflow-hidden"
                             >
                               {item.dropdown.map((subItem) => (
-                                <a
-                                  key={subItem.name}
-                                  href={subItem.href}
-                                  className="block px-4 py-2 text-sm text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200"
-                                  onClick={closeMenu}
-                                >
-                                  {subItem.name}
-                                </a>
+                                subItem.isLink ? (
+                                  <Link
+                                    key={subItem.name}
+                                    to={subItem.href}
+                                    className="block px-4 py-2 text-sm text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200"
+                                    onClick={closeMenu}
+                                  >
+                                    {subItem.name}
+                                  </Link>
+                                ) : (
+                                  <a
+                                    key={subItem.name}
+                                    href={subItem.href}
+                                    className="block px-4 py-2 text-sm text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200"
+                                    onClick={closeMenu}
+                                  >
+                                    {subItem.name}
+                                  </a>
+                                )
                               ))}
                             </motion.div>
                           )}
                         </AnimatePresence>
                       </div>
                     ) : (
-                      <a
-                        href={item.href}
-                        className="block px-4 py-3 text-gray-800 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200 font-medium"
-                        onClick={closeMenu}
-                      >
-                        {item.name}
-                      </a>
+                      item.isLink ? (
+                        <Link
+                          to={item.href}
+                          className="block px-4 py-3 text-gray-800 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200 font-medium"
+                          onClick={closeMenu}
+                        >
+                          {item.name}
+                        </Link>
+                      ) : (
+                        <a
+                          href={item.href}
+                          className="block px-4 py-3 text-gray-800 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200 font-medium"
+                          onClick={closeMenu}
+                        >
+                          {item.name}
+                        </a>
+                      )
                     )}
                   </motion.div>
                 ))}
@@ -319,7 +370,7 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
                     🚀 Acesse 100+ LLMs Grátis
                   </a>
                   
-                  <a href="#contato" onClick={closeMenu}>
+                  <a href="/#contato" onClick={closeMenu}>
                     <Button 
                       className="w-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white shadow-lg"
                     >

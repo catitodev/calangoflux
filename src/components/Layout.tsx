@@ -1,7 +1,8 @@
 import { Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from './Navbar';
-import Footer from './Footer';
+import FooterSection from './FooterSection';
+import FloatingChatbot from './FloatingChatbot';
 
 const Layout = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,12 +21,13 @@ const Layout = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
       <Navbar isScrolled={isScrolled} />
       <main className="flex-grow">
         <Outlet />
       </main>
-      <Footer />
+      <FooterSection />
+      <FloatingChatbot />
     </div>
   );
 };
