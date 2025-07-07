@@ -9,6 +9,7 @@ import SocialIntegrationsSection from '../components/SocialIntegrationsSection';
 import PoeAgentsSection from '../components/PoeAgentsSection';
 import LLMsDisruptiveSection from '../components/LLMsDisruptiveSection';
 import ServicesSection from '../components/ServicesSection';
+import AboutSection from '../components/AboutSection';
 
 export default function Home() {
   return (
@@ -44,8 +45,10 @@ export default function Home() {
       <LLMsDisruptiveSection />
       
       <section id="sobre">
-        <FAQSection />
+        <AboutSection />
       </section>
+      
+      <FAQSection />
     </div>
   );
 }
