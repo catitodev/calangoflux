@@ -182,35 +182,9 @@ export default function AboutSection() {
           className="text-center"
         >
           <div className="bg-gradient-to-r from-secondary-900 to-primary-800 rounded-2xl p-8 md:p-12 text-white">
-            <h3 className="text-2xl md:text-3xl font-bold mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold mb-6">
               Essa criação entre pai e filha é mais que uma empresa ou um projeto.
             </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6"
-              >
-                <Sparkles className="w-8 h-8 text-primary-300 mx-auto mb-3" />
-                <h4 className="text-lg font-bold mb-2">É um organismo vivo</h4>
-              </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6"
-              >
-                <Heart className="w-8 h-8 text-red-300 mx-auto mb-3" />
-                <h4 className="text-lg font-bold mb-2">É um gesto de amor radical</h4>
-              </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6"
-              >
-                <Users className="w-8 h-8 text-secondary-300 mx-auto mb-3" />
-                <h4 className="text-lg font-bold mb-2">É o compromisso geracional</h4>
-              </motion.div>
-            </div>
             
             <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto leading-relaxed">
               É o compromisso de deixar para as gerações futuras, um mundo onde os códigos digitais 

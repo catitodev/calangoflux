@@ -10,6 +10,7 @@ import PoeAgentsSection from '../components/PoeAgentsSection';
 import LLMsDisruptiveSection from '../components/LLMsDisruptiveSection';
 import ServicesSection from '../components/ServicesSection';
 import AboutSection from '../components/AboutSection';
+import JourneySection from '../components/JourneySection';
 
 export default function Home() {
   return (
@@ -47,6 +48,8 @@ export default function Home() {
       <section id="sobre">
         <AboutSection />
       </section>
+      
+      <JourneySection />
       
       <FAQSection />
     </div>
