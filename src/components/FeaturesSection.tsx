@@ -224,11 +224,11 @@ const FeaturesSection = () => {
                 </div>
               </motion.div>
               
-              {/* Cards Transparentes Posicionados sobre as Cores */}
-              {automationSteps.map((step, index) => {
-                const middleAngle = (step.angle.start + step.angle.end) / 2;
-                const cardRadius = 130; // Posicionado sobre o círculo colorido
-                const cardPos = polarToCartesian(200, 200, cardRadius, middleAngle);
+                             {/* Cards Transparentes Posicionados sobre as Cores */}
+               {automationSteps.map((step, index) => {
+                 const middleAngle = (step.angle.start + step.angle.end) / 2;
+                 const cardRadius = 140; // Centralizado no meio de cada segmento colorido
+                 const cardPos = polarToCartesian(200, 200, cardRadius, middleAngle);
                 
                 return (
                   <motion.div
