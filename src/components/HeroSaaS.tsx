@@ -11,13 +11,45 @@ const HeroSaaS = () => {
     }
   };
 
+  // Animações dos elementos de fundo
+  const floatingAnimation = {
+    y: [0, -10, 0],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  };
+
+  const pulseAnimation = {
+    scale: [1, 1.1, 1],
+    opacity: [0.3, 0.6, 0.3],
+    transition: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 right-1/6 w-96 h-96 bg-gradient-to-br from-primary-300 to-secondary-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" />
-        <div className="absolute bottom-1/3 left-1/6 w-80 h-80 bg-gradient-to-br from-secondary-300 to-accent-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-br from-accent-300 to-primary-300 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-float" style={{ animationDelay: '4s' }} />
+        <motion.div 
+          className="absolute top-1/4 right-1/6 w-96 h-96 bg-gradient-to-br from-primary-300 to-secondary-300 rounded-full mix-blend-multiply filter blur-3xl"
+          animate={pulseAnimation}
+          style={{ animationDelay: '0s' }}
+        />
+        <motion.div 
+          className="absolute bottom-1/3 left-1/6 w-80 h-80 bg-gradient-to-br from-secondary-300 to-accent-300 rounded-full mix-blend-multiply filter blur-3xl"
+          animate={pulseAnimation}
+          style={{ animationDelay: '2s' }}
+        />
+        <motion.div 
+          className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-br from-accent-300 to-primary-300 rounded-full mix-blend-multiply filter blur-3xl"
+          animate={pulseAnimation}
+          style={{ animationDelay: '4s' }}
+        />
       </div>
 
       <div className="container relative z-10">
@@ -28,10 +60,20 @@ const HeroSaaS = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge variant="default" className="mb-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white">
-              <Rocket className="w-3 h-3 mr-1" />
-              Early Access MVP
-            </Badge>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Badge variant="default" className="mb-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white cursor-pointer">
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                >
+                  <Rocket className="w-3 h-3 mr-1" />
+                </motion.div>
+                Early Access MVP
+              </Badge>
+            </motion.div>
           </motion.div>
 
           <motion.h1 
@@ -40,9 +82,19 @@ const HeroSaaS = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Automação Inteligente{' '}
+            <motion.span
+              animate={floatingAnimation}
+              style={{ display: 'inline-block' }}
+            >
+              Automação Inteligente{' '}
+            </motion.span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
-              Agentic
+              <motion.span
+                animate={floatingAnimation}
+                style={{ display: 'inline-block', animationDelay: '0.5s' }}
+              >
+                Agentic
+              </motion.span>
             </span>
           </motion.h1>
           
@@ -62,18 +114,45 @@ const HeroSaaS = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft">
-              <Zap className="w-5 h-5 text-primary-500 mr-2" />
+            <motion.div 
+              className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft"
+              whileHover={{ scale: 1.05, y: -2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <Zap className="w-5 h-5 text-primary-500 mr-2" />
+              </motion.div>
               <span className="text-sm font-medium">MVP em Desenvolvimento</span>
-            </div>
-            <div className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft">
-              <Target className="w-5 h-5 text-secondary-500 mr-2" />
+            </motion.div>
+            <motion.div 
+              className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft"
+              whileHover={{ scale: 1.05, y: -2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+              >
+                <Target className="w-5 h-5 text-secondary-500 mr-2" />
+              </motion.div>
               <span className="text-sm font-medium">Early Access Limitado</span>
-            </div>
-            <div className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft">
-              <Bot className="w-5 h-5 text-accent-500 mr-2" />
+            </motion.div>
+            <motion.div 
+              className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft"
+              whileHover={{ scale: 1.05, y: -2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+              >
+                <Bot className="w-5 h-5 text-accent-500 mr-2" />
+              </motion.div>
               <span className="text-sm font-medium">Tecnologia Própria</span>
-            </div>
+            </motion.div>
           </motion.div>
           
           <motion.div 
@@ -82,22 +161,35 @@ const HeroSaaS = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Button 
-              onClick={scrollToFeatures} 
-              size="lg" 
-              className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white px-8 py-3 text-lg"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Solicitar Early Access
-            </Button>
+              <Button 
+                asChild
+                size="lg" 
+                className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white px-8 py-3 text-lg"
+              >
+                <a href="https://www.aideaflux.xyz" target="_blank" rel="noopener noreferrer">
+                  Solicitar Early Access
+                </a>
+              </Button>
+            </motion.div>
             
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-2 border-primary-500 text-primary-500 hover:bg-primary-50 px-8 py-3 text-lg"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <Play className="w-4 h-4 mr-2" />
-              Ver Roadmap
-            </Button>
+              <Button 
+                onClick={scrollToFeatures}
+                variant="outline" 
+                size="lg" 
+                className="border-2 border-primary-500 text-primary-500 hover:bg-primary-50 px-8 py-3 text-lg"
+              >
+                <Play className="w-4 h-4 mr-2" />
+                Ver Roadmap
+              </Button>
+            </motion.div>
           </motion.div>
 
           <motion.div 
@@ -107,12 +199,36 @@ const HeroSaaS = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <p className="text-sm text-gray-600 mb-4">Integrações planejadas:</p>
-            <div className="flex justify-center items-center gap-8 opacity-60">
-              <div className="text-2xl font-bold text-primary-600">Abacus</div>
-              <div className="text-2xl font-bold text-secondary-600">Tana</div>
-              <div className="text-2xl font-bold text-accent-600">WhatsApp</div>
-              <div className="text-2xl font-bold text-primary-600">Telegram</div>
-            </div>
+            <motion.div 
+              className="flex justify-center items-center gap-8 opacity-60"
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <motion.div 
+                className="text-2xl font-bold text-primary-600"
+                whileHover={{ scale: 1.1, color: "#32b890" }}
+              >
+                Abacus
+              </motion.div>
+              <motion.div 
+                className="text-2xl font-bold text-secondary-600"
+                whileHover={{ scale: 1.1, color: "#0066c8" }}
+              >
+                Tana
+              </motion.div>
+              <motion.div 
+                className="text-2xl font-bold text-accent-600"
+                whileHover={{ scale: 1.1, color: "#ff9800" }}
+              >
+                WhatsApp
+              </motion.div>
+              <motion.div 
+                className="text-2xl font-bold text-primary-600"
+                whileHover={{ scale: 1.1, color: "#32b890" }}
+              >
+                Telegram
+              </motion.div>
+            </motion.div>
           </motion.div>
 
           <motion.div 
@@ -120,9 +236,15 @@ const HeroSaaS = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
+            whileHover={{ scale: 1.02 }}
           >
             <div className="flex items-center justify-center mb-4">
-              <Sparkles className="w-6 h-6 text-primary-600 mr-2" />
+              <motion.div
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <Sparkles className="w-6 h-6 text-primary-600 mr-2" />
+              </motion.div>
               <h3 className="text-lg font-semibold text-secondary-900">
                 Transparência é nosso DNA
               </h3>
@@ -142,6 +264,7 @@ const HeroSaaS = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.2 }}
+          whileHover={{ scale: 1.1 }}
         >
           <span className="text-sm font-medium mb-2">Conhecer a visão</span>
           <motion.div

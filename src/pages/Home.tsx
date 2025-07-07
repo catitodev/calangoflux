@@ -1,7 +1,9 @@
 import HeroSaaS from '../components/HeroSaaS';
 import FeaturesSection from '../components/FeaturesSection';
+import LLMCarousel from '../components/LLMCarousel';
 import LiveAgentDemo from '../components/LiveAgentDemo';
 import DashboardPreview from '../components/DashboardPreview';
+import PortfolioSection from '../components/PortfolioSection';
 import About from '../components/About';
 import Services from '../components/Services';
 import TeamAndVisionSection from '../components/TestimonialsSection';
@@ -24,8 +26,10 @@ const Home = () => {
     <>
       <HeroSaaS />
       <FeaturesSection />
+      <LLMCarousel />
       <LiveAgentDemo />
       <DashboardPreview />
+      <PortfolioSection />
       <About />
       <Services />
       <TeamAndVisionSection />

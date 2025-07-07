@@ -18,16 +18,18 @@ const LiveAgentDemo = () => {
 
   // Respostas simples do agente para demonstração
   const agentResponses = {
-    'oi': 'Oi! Como você está?',
-    'olá': 'Olá! Prazer em conversar com você!',
-    'como funciona': 'Este é um agente simples que responde baseado em palavras-chave. Na versão completa, usaremos IA avançada!',
-    'preço': 'Estamos oferecendo Early Access gratuito por 6 meses. Quer saber mais?',
-    'mvp': 'Sim, somos transparentes! Esta é uma demonstração básica do nosso MVP. O agente real será muito mais avançado.',
-    'automação': 'Nossa automação permite criar agentes que trabalham 24/7 para você!',
-    'ia': 'Usamos IA para criar agentes que aprendem e se adaptam às suas necessidades.',
-    'transparência': 'Transparência é nosso DNA! Por isso mostramos exatamente onde estamos no desenvolvimento.',
-    'contato': 'Você pode entrar em contato através da seção de contato no site ou pelo WhatsApp!',
-    'default': 'Interessante! Por estar em MVP, ainda não entendo tudo, mas estou aprendendo. Que tal tentar: "como funciona", "preço", "automação" ou "mvp"?'
+    'oi': 'Oi! Como você está? 😊',
+    'olá': 'Olá! Prazer em conversar com você! 👋',
+    'como funciona': 'Este é um agente simples que responde baseado em palavras-chave. Na versão completa, usaremos IA avançada com LLMs como GPT-4 e Claude!',
+    'preço': 'Temos um modelo de subsídio cruzado! Projetos sociais podem ter acesso subsidiado. Quer saber mais?',
+    'mvp': 'Sim, somos transparentes! Esta é uma demonstração básica do nosso MVP. O agente real será muito mais avançado com IA real.',
+    'automação': 'Nossa automação permite criar agentes que trabalham 24/7 para você, conectando com Abacus e Tana!',
+    'ia': 'Usamos as melhores LLMs do mercado: GPT-4, Claude 3.5, Gemini, Llama e muito mais!',
+    'transparência': 'Transparência é nosso DNA! Por isso mostramos exatamente onde estamos no desenvolvimento. Nada de marketing fake!',
+    'contato': 'Você pode entrar em contato através da seção de contato no site ou acessar nossa plataforma!',
+    'aideaflux': 'AideaFlux é nossa plataforma principal! Acesse em aideaflux.xyz para conhecer.',
+    'portfolio': 'Temos AgroFamiliApp, Baya Nativa e em breve a plataforma de Letramento Web3!',
+    'default': 'Interessante! Por estar em MVP, ainda não entendo tudo, mas estou aprendendo. Que tal tentar: "como funciona", "preço", "automação", "portfolio" ou "transparência"? 🤖'
   };
 
   const handleSend = async () => {
@@ -75,8 +77,8 @@ const LiveAgentDemo = () => {
 
   const quickQuestions = [
     'Como funciona?',
-    'Preço do MVP',
-    'Sobre automação',
+    'Preço MVP',
+    'Portfólio',
     'Transparência'
   ];
 
@@ -90,10 +92,20 @@ const LiveAgentDemo = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <Badge variant="outline" className="mb-4">
-            <Bot className="w-3 h-3 mr-1" />
-            Agente Funcionando
-          </Badge>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Badge variant="outline" className="mb-4 cursor-pointer">
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <Bot className="w-3 h-3 mr-1" />
+              </motion.div>
+              Agente Funcionando
+            </Badge>
+          </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
             Teste Nosso{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
@@ -113,17 +125,32 @@ const LiveAgentDemo = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            whileHover={{ y: -2 }}
           >
             <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg h-[600px] flex flex-col">
               <CardHeader>
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
+                  <motion.div 
+                    className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center"
+                    animate={{ 
+                      boxShadow: [
+                        "0 0 0 0 rgba(50, 184, 144, 0.7)",
+                        "0 0 0 10px rgba(50, 184, 144, 0)",
+                        "0 0 0 0 rgba(50, 184, 144, 0)"
+                      ]
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
                     <Bot className="w-6 h-6 text-white" />
-                  </div>
+                  </motion.div>
                   <div>
                     <CardTitle className="text-lg">Agente CalangoFlux</CardTitle>
                     <CardDescription className="flex items-center">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                      <motion.div 
+                        className="w-2 h-2 bg-green-500 rounded-full mr-2"
+                        animate={{ scale: [1, 1.5, 1] }}
+                        transition={{ duration: 1, repeat: Infinity }}
+                      />
                       Online - Versão MVP
                     </CardDescription>
                   </div>
@@ -136,21 +163,28 @@ const LiveAgentDemo = () => {
                   {messages.map((message, index) => (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0, y: 10, scale: 0.8 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
                       transition={{ duration: 0.3 }}
                       className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
                     >
-                      <div
+                      <motion.div
                         className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
                           message.type === 'user'
                             ? 'bg-primary-500 text-white'
                             : 'bg-gray-100 text-gray-800'
                         }`}
+                        whileHover={{ scale: 1.02 }}
+                        layout
                       >
                         <div className="flex items-center space-x-2 mb-1">
                           {message.type === 'agent' ? (
-                            <Bot className="w-4 h-4" />
+                            <motion.div
+                              animate={{ rotate: 360 }}
+                              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                            >
+                              <Bot className="w-4 h-4" />
+                            </motion.div>
                           ) : (
                             <User className="w-4 h-4" />
                           )}
@@ -159,7 +193,7 @@ const LiveAgentDemo = () => {
                           </span>
                         </div>
                         <p className="text-sm">{message.content}</p>
-                      </div>
+                      </motion.div>
                     </motion.div>
                   ))}
                   
@@ -173,9 +207,18 @@ const LiveAgentDemo = () => {
                         <div className="flex items-center space-x-2">
                           <Bot className="w-4 h-4" />
                           <div className="flex space-x-1">
-                            <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"></div>
-                            <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                            <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                            {[0, 1, 2].map((i) => (
+                              <motion.div
+                                key={i}
+                                className="w-2 h-2 bg-gray-500 rounded-full"
+                                animate={{ y: [0, -4, 0] }}
+                                transition={{
+                                  duration: 0.6,
+                                  repeat: Infinity,
+                                  delay: i * 0.2
+                                }}
+                              />
+                            ))}
                           </div>
                         </div>
                       </div>
@@ -188,37 +231,48 @@ const LiveAgentDemo = () => {
                   <p className="text-sm text-gray-600 mb-2">Perguntas rápidas:</p>
                   <div className="flex flex-wrap gap-2">
                     {quickQuestions.map((question, index) => (
-                      <Button
+                      <motion.div
                         key={index}
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setInput(question)}
-                        className="text-xs"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                       >
-                        {question}
-                      </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setInput(question)}
+                          className="text-xs hover:bg-primary-50 hover:border-primary-300"
+                        >
+                          {question}
+                        </Button>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
 
                 {/* Input */}
                 <div className="flex space-x-2">
-                  <input
+                  <motion.input
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Digite sua mensagem..."
-                    className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all"
                     disabled={isTyping}
+                    whileFocus={{ scale: 1.02 }}
                   />
-                  <Button
-                    onClick={handleSend}
-                    disabled={!input.trim() || isTyping}
-                    className="bg-primary-500 hover:bg-primary-600"
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                   >
-                    <Send className="w-4 h-4" />
-                  </Button>
+                    <Button
+                      onClick={handleSend}
+                      disabled={!input.trim() || isTyping}
+                      className="bg-primary-500 hover:bg-primary-600"
+                    >
+                      <Send className="w-4 h-4" />
+                    </Button>
+                  </motion.div>
                 </div>
               </CardContent>
             </Card>
@@ -232,63 +286,111 @@ const LiveAgentDemo = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6"
           >
-            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  <Code className="w-5 h-5 mr-2 text-primary-600" />
-                  Como Este Agente Funciona
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-sm text-gray-700">
-                  <li className="flex items-start">
-                    <Zap className="w-4 h-4 text-primary-500 mr-2 mt-0.5" />
-                    <span><strong>Simples mas Real:</strong> Responde baseado em palavras-chave</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Zap className="w-4 h-4 text-secondary-500 mr-2 mt-0.5" />
-                    <span><strong>Tempo Real:</strong> Processamento instantâneo de mensagens</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Zap className="w-4 h-4 text-accent-500 mr-2 mt-0.5" />
-                    <span><strong>MVP Honesto:</strong> Mostra nossas capacidades atuais</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <motion.div
+              whileHover={{ y: -2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-lg">
+                    <motion.div
+                      animate={{ rotate: [0, 360] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                    >
+                      <Code className="w-5 h-5 mr-2 text-primary-600" />
+                    </motion.div>
+                    Como Este Agente Funciona
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-sm text-gray-700">
+                    <motion.li 
+                      className="flex items-start"
+                      whileHover={{ x: 5 }}
+                    >
+                      <Zap className="w-4 h-4 text-primary-500 mr-2 mt-0.5" />
+                      <span><strong>Simples mas Real:</strong> Responde baseado em palavras-chave</span>
+                    </motion.li>
+                    <motion.li 
+                      className="flex items-start"
+                      whileHover={{ x: 5 }}
+                    >
+                      <Zap className="w-4 h-4 text-secondary-500 mr-2 mt-0.5" />
+                      <span><strong>Tempo Real:</strong> Processamento instantâneo de mensagens</span>
+                    </motion.li>
+                    <motion.li 
+                      className="flex items-start"
+                      whileHover={{ x: 5 }}
+                    >
+                      <Zap className="w-4 h-4 text-accent-500 mr-2 mt-0.5" />
+                      <span><strong>MVP Honesto:</strong> Mostra nossas capacidades atuais</span>
+                    </motion.li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  <MessageSquare className="w-5 h-5 mr-2 text-secondary-600" />
-                  Na Versão Completa
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-sm text-gray-700">
-                  <li>🧠 IA avançada com processamento de linguagem natural</li>
-                  <li>🔗 Integração com Abacus e Tana</li>
-                  <li>📊 Aprendizado contínuo a partir das conversas</li>
-                  <li>⚡ Decisões autônomas e execução de ações</li>
-                  <li>🔄 Automação de tarefas complexas</li>
-                  <li>📱 Multi-channel (WhatsApp, Telegram, Discord)</li>
-                </ul>
-              </CardContent>
-            </Card>
+            <motion.div
+              whileHover={{ y: -2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-lg">
+                    <MessageSquare className="w-5 h-5 mr-2 text-secondary-600" />
+                    Na Versão Completa
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-sm text-gray-700">
+                    {[
+                      "🧠 IA avançada com processamento de linguagem natural",
+                      "🔗 Integração com Abacus e Tana",
+                      "📊 Aprendizado contínuo a partir das conversas",
+                      "⚡ Decisões autônomas e execução de ações",
+                      "🔄 Automação de tarefas complexas",
+                      "📱 Multi-channel (WhatsApp, Telegram, Discord)"
+                    ].map((item, index) => (
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
+                        whileHover={{ x: 5 }}
+                      >
+                        {item}
+                      </motion.li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <div className="bg-gradient-to-r from-primary-100 to-secondary-100 rounded-xl p-6">
+            <motion.div 
+              className="bg-gradient-to-r from-primary-100 to-secondary-100 rounded-xl p-6"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <h3 className="font-semibold text-secondary-900 mb-2 flex items-center">
                 <Bot className="w-5 h-5 mr-2" />
                 Este é o Início
               </h3>
-              <p className="text-gray-700 text-sm">
+              <p className="text-gray-700 text-sm mb-4">
                 Este agente simples é prova de que nossa tecnologia funciona. 
                 Estamos construindo algo muito maior - quer fazer parte desta jornada?
               </p>
-              <Button className="mt-4 w-full bg-primary-500 hover:bg-primary-600">
-                Solicitar Early Access
-              </Button>
-            </div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button asChild className="w-full bg-primary-500 hover:bg-primary-600">
+                  <a href="https://www.aideaflux.xyz" target="_blank" rel="noopener noreferrer">
+                    Solicitar Early Access
+                  </a>
+                </Button>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
