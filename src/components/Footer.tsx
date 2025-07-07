@@ -110,7 +110,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="https://poe.com/@calangoflux" 
+                  href="https://poe.com/calangoflux" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-secondary-400 hover:text-secondary-300 transition-colors flex items-center font-medium"

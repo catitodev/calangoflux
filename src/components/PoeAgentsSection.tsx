@@ -109,13 +109,13 @@ const PoeAgentsSection = () => {
               className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white px-8 py-3 text-lg mb-8"
             >
               <a 
-                href="https://poe.com/@calangoflux" 
+                href="https://poe.com/calangoflux" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center"
               >
                 <MessageSquare className="w-5 h-5 mr-2" />
-                Acessar @calangoflux no Poe
+                Acessar calangoflux no Poe
                 <ExternalLink className="w-4 h-4 ml-2" />
               </a>
             </Button>
@@ -209,7 +209,7 @@ const PoeAgentsSection = () => {
                 className="bg-white text-primary-600 hover:bg-gray-100"
               >
                 <a 
-                  href="https://poe.com/@calangoflux" 
+                  href="https://poe.com/calangoflux" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >

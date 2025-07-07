@@ -31,15 +31,21 @@ const FloatingChatbot = () => {
     'olá': 'Olá! Que bom te ver aqui! Como posso te auxiliar? 👋',
     'preço': 'Trabalhamos com subsídio cruzado: a cada 10 clientes pagantes, 1 projeto social recebe acesso gratuito. Quer saber mais sobre nossos planos?',
     'subsídio': 'Nosso modelo 10:1 permite que projetos sociais tenham acesso à tecnologia enquanto mantemos sustentabilidade financeira. É inovador!',
-    'aideaflux': 'AideaFlux é nossa plataforma principal! Acesse aideaflux.xyz para solicitar Early Access. É lá que toda a mágica acontece! ✨',
+    'aideaflux': 'AideaFlux é nossa plataforma GRATUITA com 100+ LLMs! Acesse aideaflux.xyz e teste GPT-4, Claude, Gemini e muito mais sem pagar nada! ✨',
+    'llms': 'Temos 100+ LLMs disponíveis gratuitamente na AideaFlux! OpenAI, Anthropic, Google, Meta... Todas em um lugar só! 🤖',
+    'gratuito': 'Sim! Nossa plataforma AideaFlux dá acesso GRATUITO a 100+ LLMs do mundo todo. Sem cartão, sem limite! Acesse aideaflux.xyz',
     'automação': 'Nossa automação conecta com Abacus, Tana e outras ferramentas para criar agentes que trabalham 24/7 para você!',
-    'agentes': 'Nossos agentes são powered by Abacus e usam as melhores LLMs do mercado. Eles aprendem, decidem e executam ações autonomamente!',
+    'agentes': 'Nossos agentes são powered by Abacus e usam as melhores LLMs do mercado. Eles aprendem, decidem e executem ações autonomamente!',
     'abacus': 'Abacus é nossa ferramenta principal para orquestração de agentes. Permite criar workflows complexos e automações inteligentes!',
     'contato': 'Pode falar conosco pelo WhatsApp +55 (22) 98832-4416 ou email contato@calangoflux.com. Também acesse aideaflux.xyz!',
-    'mvp': 'Estamos em fase MVP com total transparência. Já temos 2 apps funcionando e 1 plataforma core em desenvolvimento!',
+    'mvp': 'Estamos em fase MVP com total transparência. Já temos 2 apps funcionando e 1 plataforma core com 100+ LLMs gratuitas!',
     'transparência': 'Transparência é nosso DNA! Mostramos exatamente onde estamos, sem marketing fake. Construímos com honestidade!',
     'early access': 'Solicite Early Access em aideaflux.xyz! Estamos buscando pioneiros para construir juntos a automação agentic!',
-    'default': 'Interessante! Estou aprendendo mais a cada conversa. Que tal tentar: "preço", "automação", "agentes", "early access" ou "aideaflux"? 🤖'
+    'poe': 'Temos 11 agentes especializados no Poe! Acesse poe.com/calangoflux para falar com nossos agentes por área específica.',
+    'gpt': 'GPT-4, GPT-3.5, todas as versões OpenAI estão disponíveis GRATUITAMENTE na AideaFlux! Teste agora em aideaflux.xyz',
+    'claude': 'Claude 3.5, Claude Instant... Todos os modelos Anthropic gratuitos na AideaFlux! Acesse aideaflux.xyz',
+    'gemini': 'Gemini Pro, PaLM, todos os modelos Google disponíveis grátis na nossa plataforma! aideaflux.xyz',
+    'default': 'Interessante! Estou aprendendo mais a cada conversa. Que tal tentar: "llms", "gratuito", "aideaflux", "poe" ou "agentes"? 🤖'
   };
 
   const scrollToBottom = () => {

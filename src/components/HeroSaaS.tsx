@@ -104,7 +104,8 @@ const HeroSaaS = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Estamos construindo a primeira plataforma brasileira de agentes de IA autônomos. 
+            Estamos construindo a primeira plataforma brasileira de agentes de IA autônomos com 
+            <strong className="text-primary-600"> acesso a 100+ LLMs globais</strong>. 
             Junte-se ao nosso programa de Early Access e seja pioneiro na automação agentic.
           </motion.p>
 
@@ -170,8 +171,8 @@ const HeroSaaS = () => {
                 size="lg" 
                 className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white px-8 py-3 text-lg"
               >
-                <a href="https://www.aideaflux.xyz" target="_blank" rel="noopener noreferrer">
-                  Solicitar Early Access
+                <a href="https://aideaflux.xyz" target="_blank" rel="noopener noreferrer">
+                  🚀 Testar 100+ LLMs Grátis
                 </a>
               </Button>
             </motion.div>

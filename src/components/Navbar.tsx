@@ -34,50 +34,23 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6">
-          <NavLink 
-            to="/" 
-            className={({ isActive }) => 
-              `text-sm font-medium transition ${
-                isActive 
-                  ? 'text-primary-600' 
-                  : isScrolled ? 'text-gray-800 hover:text-primary-500' : 'text-gray-800 hover:text-primary-500'
-              }`
-            }
-          >
-            Início
-          </NavLink>
-          <a 
-            href="#features" 
-            className={`text-sm font-medium transition ${
-              isScrolled ? 'text-gray-800 hover:text-primary-500' : 'text-gray-800 hover:text-primary-500'
-            }`}
-          >
+        <nav className="hidden md:flex items-center space-x-8">
+          <a href="#features" className="text-gray-700 hover:text-primary-600 transition font-medium">
             Recursos
           </a>
-          <a 
-            href="#servicos" 
-            className={`text-sm font-medium transition ${
-              isScrolled ? 'text-gray-800 hover:text-primary-500' : 'text-gray-800 hover:text-primary-500'
-            }`}
-          >
-            Serviços
-          </a>
-          <a 
-            href="#pricing" 
-            className={`text-sm font-medium transition ${
-              isScrolled ? 'text-gray-800 hover:text-primary-500' : 'text-gray-800 hover:text-primary-500'
-            }`}
-          >
+          <a href="#pricing" className="text-gray-700 hover:text-primary-600 transition font-medium">
             Preços
           </a>
-          <a 
-            href="#sobre" 
-            className={`text-sm font-medium transition ${
-              isScrolled ? 'text-gray-800 hover:text-primary-500' : 'text-gray-800 hover:text-primary-500'
-            }`}
-          >
+          <a href="#sobre" className="text-gray-700 hover:text-primary-600 transition font-medium">
             Sobre
+          </a>
+          <a 
+            href="https://aideaflux.xyz" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-primary-600 hover:text-primary-700 transition font-bold"
+          >
+            Plataforma AI Gratuita
           </a>
         </nav>
 
