@@ -1,12 +1,11 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { Cpu, Play } from 'lucide-react';
+import { Cpu } from 'lucide-react';
 import { Badge } from './ui/badge';
 import calangoicone from '../assets/imagens/calangoicone.png';
 
 const FeaturesSection = () => {
   const [activeSegment, setActiveSegment] = useState<number | null>(null);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   const automationSteps = [
     {
@@ -116,11 +115,6 @@ const FeaturesSection = () => {
     ].join(" ");
   };
 
-  const startAnimation = () => {
-    setIsAnimating(true);
-    setTimeout(() => setIsAnimating(false), 4000);
-  };
-
   return (
     <section id="features" className="section bg-gradient-to-br from-gray-50 to-white">
       <div className="container">
@@ -145,16 +139,6 @@ const FeaturesSection = () => {
             Nossa arquitetura circular integrada. Clique em cada segmento para explorar 
             os componentes do nosso ecossistema de automação inteligente.
           </p>
-          
-          <motion.button
-            onClick={startAnimation}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-200"
-          >
-            <Play className="w-4 h-4" />
-            Animar Ecossistema
-          </motion.button>
         </motion.div>
 
         {/* Circular Diagram */}
@@ -194,9 +178,8 @@ const FeaturesSection = () => {
                     className="cursor-pointer transition-all duration-300"
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ 
-                      opacity: isAnimating ? 0.9 : 0.7,
-                      scale: 1,
-                      fill: isAnimating ? step.color : step.color
+                      opacity: 0.7,
+                      scale: 1
                     }}
                     whileHover={{ 
                       opacity: 0.9,
@@ -204,8 +187,8 @@ const FeaturesSection = () => {
                       transition: { duration: 0.2 }
                     }}
                     transition={{ 
-                      duration: isAnimating ? 0.3 : 0.6, 
-                      delay: isAnimating ? index * 0.1 : index * 0.1,
+                      duration: 0.6, 
+                      delay: index * 0.1,
                       type: "spring",
                       stiffness: 100
                     }}
@@ -225,62 +208,51 @@ const FeaturesSection = () => {
                 />
               </svg>
               
-              {/* Logo Central */}
+              {/* Logo Central - Corrigido e Simplificado */}
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.5, type: "spring" }}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                className="absolute inset-0 flex items-center justify-center"
               >
-                <motion.div
-                  animate={{ 
-                    rotate: isAnimating ? [0, 360] : [0, 10, -10, 0],
-                    scale: isAnimating ? [1, 1.1, 1] : [1, 1.05, 1]
-                  }}
-                  transition={{ 
-                    duration: isAnimating ? 2 : 4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-full p-4 md:p-6 shadow-xl"
-                >
+                <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
                   <img 
                     src={calangoicone} 
                     alt="CalangoFlux" 
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain opacity-90"
                   />
-                </motion.div>
+                </div>
               </motion.div>
               
-              {/* Labels */}
+              {/* Cards Transparentes Posicionados sobre as Cores */}
               {automationSteps.map((step, index) => {
                 const middleAngle = (step.angle.start + step.angle.end) / 2;
-                const labelRadius = 220;
-                const labelPos = polarToCartesian(200, 200, labelRadius, middleAngle);
+                const cardRadius = 130; // Posicionado sobre o círculo colorido
+                const cardPos = polarToCartesian(200, 200, cardRadius, middleAngle);
                 
                 return (
                   <motion.div
-                    key={`label-${step.id}`}
+                    key={`card-${step.id}`}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: index * 0.1 + 0.8 }}
                     className="absolute text-center cursor-pointer"
                     style={{
-                      left: `${((labelPos.x / 400) * 100)}%`,
-                      top: `${((labelPos.y / 400) * 100)}%`,
+                      left: `${((cardPos.x / 400) * 100)}%`,
+                      top: `${((cardPos.y / 400) * 100)}%`,
                       transform: 'translate(-50%, -50%)',
-                      maxWidth: '120px'
+                      maxWidth: '140px'
                     }}
                     onClick={() => setActiveSegment(activeSegment === step.id ? null : step.id)}
                   >
                     <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg border border-gray-200"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className="bg-white/20 backdrop-blur-sm rounded-xl px-3 py-3 shadow-lg border border-white/30 transition-all duration-300 hover:bg-white/30"
                     >
-                      <h4 className="text-sm font-bold text-gray-900 leading-tight mb-1">
+                      <h4 className="text-sm font-bold text-white leading-tight mb-2 drop-shadow-lg">
                         {step.title}
                       </h4>
-                      <div className={`text-xs px-2 py-1 rounded-full border ${getStatusColor(step.status)}`}>
+                      <div className={`text-xs px-2 py-1 rounded-full border bg-white/90 ${getStatusColor(step.status).replace('bg-', '').replace('text-', 'text-').replace('border-', 'border-')}`}>
                         {step.status}
                       </div>
                     </motion.div>
