@@ -57,9 +57,9 @@ export default function SocialIntegrationsSection() {
       color: "from-cyan-500 to-blue-600"
     },
     {
-      name: "NFT Marketplaces",
+      name: "NFTs & Smart Contracts",
       icon: Globe,
-      description: "OpenSea, Rarible e outros marketplaces",
+      description: "OpenSea, Rarible e contratos inteligentes",
       color: "from-orange-500 to-red-600"
     },
     {

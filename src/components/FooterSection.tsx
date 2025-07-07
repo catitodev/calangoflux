@@ -9,7 +9,10 @@ import {
   Twitter,
   Instagram,
   MessageCircle,
-  ExternalLink
+  ExternalLink,
+  Facebook,
+  Hash,
+  AtSign
 } from 'lucide-react';
 import calangoicone from '../assets/imagens/calangoicone.png';
 
@@ -21,6 +24,9 @@ export default function FooterSection() {
     { icon: Linkedin, href: "#", label: "LinkedIn" },
     { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Hash, href: "#", label: "Reddit" },
+    { icon: AtSign, href: "#", label: "Mastodon" },
     { icon: MessageCircle, href: "https://poe.com/calangoflux", label: "Poe AI Agents" }
   ];
 

@@ -106,8 +106,8 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
                     <button
                       className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                         isScrolled 
-                          ? 'text-gray-700 hover:text-primary-600 hover:bg-primary-50' 
-                          : 'text-white/90 hover:text-white hover:bg-white/10'
+                          ? 'text-gray-800 hover:text-white hover:bg-primary-500' 
+                          : 'text-white hover:text-primary-200 hover:bg-white/20'
                       }`}
                       onMouseEnter={() => setActiveDropdown(item.name)}
                     >
@@ -130,7 +130,7 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
                               <Link
                                 key={subItem.name}
                                 to={subItem.href}
-                                className="block px-4 py-2 text-sm text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200"
+                                className="block px-4 py-2 text-sm text-gray-700 hover:text-white hover:bg-primary-500 transition-all duration-200 rounded-lg mx-2"
                                 onClick={() => setActiveDropdown(null)}
                               >
                                 {subItem.name}
@@ -139,7 +139,7 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
                               <a
                                 key={subItem.name}
                                 href={subItem.href}
-                                className="block px-4 py-2 text-sm text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200"
+                                className="block px-4 py-2 text-sm text-gray-700 hover:text-white hover:bg-primary-500 transition-all duration-200 rounded-lg mx-2"
                                 onClick={() => setActiveDropdown(null)}
                               >
                                 {subItem.name}
@@ -163,8 +163,8 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
                         to={item.href}
                         className={`block px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                           isScrolled 
-                            ? 'text-gray-700 hover:text-primary-600 hover:bg-primary-50' 
-                            : 'text-white/90 hover:text-white hover:bg-white/10'
+                            ? 'text-gray-800 hover:text-white hover:bg-primary-500' 
+                            : 'text-white hover:text-primary-200 hover:bg-white/20'
                         }`}
                       >
                         {item.name}
@@ -174,8 +174,8 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
                         href={item.href}
                         className={`block px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                           isScrolled 
-                            ? 'text-gray-700 hover:text-primary-600 hover:bg-primary-50' 
-                            : 'text-white/90 hover:text-white hover:bg-white/10'
+                            ? 'text-gray-800 hover:text-white hover:bg-primary-500' 
+                            : 'text-white hover:text-primary-200 hover:bg-white/20'
                         }`}
                       >
                         {item.name}
@@ -195,8 +195,8 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
               rel="noopener noreferrer"
               className={`text-sm font-bold transition-all duration-300 px-3 py-2 rounded-lg ${
                 isScrolled 
-                  ? 'text-primary-600 hover:text-primary-700 hover:bg-primary-50' 
-                  : 'text-primary-400 hover:text-white hover:bg-white/10'
+                  ? 'text-primary-600 hover:text-white hover:bg-primary-500' 
+                  : 'text-primary-200 hover:text-white hover:bg-primary-500'
               }`}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -212,11 +212,13 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               <Button 
                 variant="default" 
                 size="sm"
-                className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
                 Começar Agora
               </Button>
