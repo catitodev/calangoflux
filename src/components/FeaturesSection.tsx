@@ -98,8 +98,32 @@ const FeaturesSection = () => {
   // Função para calcular posição do texto no segmento
   const getTextPosition = (step: typeof automationSteps[0]) => {
     const middleAngle = (step.angle.start + step.angle.end) / 2;
-    const textRadius = 120; // Raio para posicionar o texto
+    const textRadius = 115; // Reduzido para aproximar mais do centro
     return polarToCartesian(200, 200, textRadius, middleAngle);
+  };
+
+  // Função para calcular posição específica por segmento (ajuste fino)
+  const getAdjustedTextPosition = (step: typeof automationSteps[0]) => {
+    const basePos = getTextPosition(step);
+    
+    // Ajustes específicos para cada segmento baseado no ID
+    const adjustments: { [key: number]: { x: number; y: number } } = {
+      1: { x: -8, y: 0 },   // Input Trigger - mover para esquerda
+      2: { x: -12, y: -5 }, // IA Processing - mover para esquerda e um pouco para cima
+      3: { x: -8, y: 0 },   // Decision Engine - mover para esquerda
+      4: { x: -8, y: 5 },   // Knowledge Base - mover para esquerda e um pouco para baixo
+      5: { x: -8, y: 0 },   // Workflow Engine - mover para esquerda
+      6: { x: -8, y: -5 },  // API Gateway - mover para esquerda e um pouco para cima
+      7: { x: -8, y: 0 },   // Analytics Engine - mover para esquerda
+      8: { x: -8, y: 5 }    // Response Delivery - mover para esquerda e um pouco para baixo
+    };
+    
+    const adjustment = adjustments[step.id] || { x: 0, y: 0 };
+    
+    return {
+      x: basePos.x + adjustment.x,
+      y: basePos.y + adjustment.y
+    };
   };
 
   return (
@@ -231,7 +255,7 @@ const FeaturesSection = () => {
               
               {/* Títulos Incorporados nos Segmentos */}
               {automationSteps.map((step, index) => {
-                const textPos = getTextPosition(step);
+                const textPos = getAdjustedTextPosition(step);
                 
                 return (
                   <motion.div
