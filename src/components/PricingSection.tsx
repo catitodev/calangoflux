@@ -8,19 +8,19 @@ const PricingSection = () => {
   const plans = [
     {
       name: "Pioneer Access",
-      price: "R$ 47",
+      price: "R$ 147",
       period: "/mês",
-      description: "Acesso inicial ao MVP com compromisso de 3 meses para ciclo completo",
+      description: "Presença digital completa com automação básica",
       icon: <Rocket className="w-6 h-6" />,
       badge: "Regenerativo",
       badgeColor: "bg-primary-500",
       features: [
-        "Acesso completo ao MVP",
-        "Contrato mínimo: 3 meses",
-        "Feedback direto com a equipe",
-        "Atualizações semanais",
-        "Suporte prioritário",
-        "Dados preservados na migração"
+        "1 landing page simples",
+        "CTAs otimizados",
+        "Botões para WhatsApp ou Telegram",
+        "1 Linktree para bio",
+        "Respostas rápidas no WhatsApp/Telegram",
+        "*Identidade visual +R$93,00"
       ],
       buttonText: "Cultivar Mudança",
       buttonVariant: "default" as const,
@@ -29,19 +29,19 @@ const PricingSection = () => {
     },
     {
       name: "Beta Tester",
-      price: "R$ 97",
+      price: "R$ 297",
       period: "/mês",
-      description: "Para inovadores que querem co-criar o futuro regenerativo da tecnologia",
+      description: "Presença digital + agente personalizado exclusivo",
       icon: <TestTube className="w-6 h-6" />,
       badge: "Co-criador",
       badgeColor: "bg-secondary-500",
       features: [
         "Tudo do Pioneer Access",
-        "Contrato mínimo: 3 meses",
-        "Recursos experimentais",
-        "Testes A/B exclusivos",
-        "Sessões de co-criação",
-        "Desconto de 50% no lançamento"
+        "1 agente personalizado exclusivo",
+        "Funcionando em seu melhor canal",
+        "Treinamento personalizado do agente",
+        "Suporte técnico dedicado",
+        "Atualizações mensais do agente"
       ],
       buttonText: "Co-criar Futuro",
       buttonVariant: "secondary" as const,
@@ -50,19 +50,19 @@ const PricingSection = () => {
     },
     {
       name: "Impact Founder",
-      price: "R$ 197",
+      price: "R$ 347",
       period: "/mês",
-      description: "Para líderes regenerativos que querem impacto sistêmico duradouro",
+      description: "Solução completa com automação de redes sociais",
       icon: <Crown className="w-6 h-6" />,
       badge: "Sistêmico",
       badgeColor: "bg-accent-500",
       features: [
         "Tudo do Beta Tester",
-        "Contrato mínimo: 6 meses",
-        "Influência no roadmap",
-        "Consultoria regenerativa",
-        "Implementação sistêmica",
-        "Reconhecimento como fundador"
+        "Automação para 3 postagens semanais",
+        "2 redes sociais de sua preferência",
+        "Calendário editorial automatizado",
+        "Análise de engajamento",
+        "Estratégia de conteúdo personalizada"
       ],
       buttonText: "Liderar Regeneração",
       buttonVariant: "outline" as const,
