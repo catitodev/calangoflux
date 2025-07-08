@@ -6,7 +6,6 @@ import {
   TrendingUp, 
   Gift, 
   Sparkles, 
-  HandHeart,
   Zap,
   Sun,
   Compass,
@@ -320,7 +319,7 @@ const RelacoesAbundantes: React.FC = () => {
                 <div className="space-y-2">
                   {type.strategies.map((strategy, strategyIndex) => (
                     <div key={strategyIndex} className="flex items-center gap-2">
-                      <HandHeart className="w-4 h-4 text-pink-500" />
+                      <Heart className="w-4 h-4 text-pink-500" />
                       <span className="text-gray-700">{strategy}</span>
                     </div>
                   ))}

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { 
   Users, 
   Share, 
-  HandHeart, 
+  Heart, 
   Lightbulb, 
   Globe, 
   Music,
@@ -111,8 +111,8 @@ const CulturaCommons: React.FC = () => {
     {
       title: 'Colaboração',
       description: 'Trabalho conjunto para criar valor',
-      icon: HandHeart,
-      color: 'text-green-600'
+              icon: Heart,
+        color: 'text-green-600'
     },
     {
       title: 'Acesso Aberto',
