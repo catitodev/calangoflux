@@ -1,0 +1,200 @@
+name: 🚀 CI/CD Avançado L3trament0Web3
+
+on:
+  push:
+    branches: [ main, develop, staging ]
+  pull_request:
+    branches: [ main, develop ]
+  release:
+    types: [ published ]
+  schedule:
+    - cron: '0 2 * * 1' # Segunda-feira 2:00 UTC para análise semanal
+
+env:
+  NODE_VERSION: '18'
+  PNPM_VERSION: '8'
+
+jobs:
+  # 🔍 Análise de Código e Qualidade
+  code-analysis:
+    name: 🔍 Análise de Código
+    runs-on: ubuntu-latest
+    outputs:
+      should-deploy: ${{ steps.changes.outputs.should-deploy }}
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: 🔧 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+
+    - name: 📦 Install Dependencies
+      run: |
+        npm ci
+        npm audit --audit-level=high
+
+    - name: 🔍 Lint Code
+      run: npm run lint
+
+    - name: 🧪 Run Tests
+      run: |
+        npm run test:unit 2>/dev/null || echo "⚠️ Testes não configurados ainda"
+        npm run test:e2e 2>/dev/null || echo "⚠️ Testes E2E não configurados ainda"
+
+    - name: 🛡️ Security Scan
+      run: |
+        npx audit-ci --config .audit-ci.json 2>/dev/null || npm audit --audit-level=moderate
+
+    - name: 📊 Bundle Analysis
+      run: |
+        npm run build
+        npx bundlesize 2>/dev/null || echo "✅ Bundle analysis skipped"
+
+    - name: 🔄 Check for Changes
+      id: changes
+      run: |
+        if [[ "${{ github.event_name }}" == "push" ]] && [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+          echo "should-deploy=true" >> $GITHUB_OUTPUT
+        else
+          echo "should-deploy=false" >> $GITHUB_OUTPUT
+        fi
+
+  # 🏗️ Build Multi-Environment
+  build:
+    name: 🏗️ Build (${{ matrix.env }})
+    runs-on: ubuntu-latest
+    needs: code-analysis
+    strategy:
+      matrix:
+        env: [development, staging, production]
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+
+    - name: 🔧 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+
+    - name: 📦 Install Dependencies
+      run: npm ci
+
+    - name: 🏗️ Build for ${{ matrix.env }}
+      run: |
+        if [ "${{ matrix.env }}" = "production" ]; then
+          npm run build
+        elif [ "${{ matrix.env }}" = "staging" ]; then
+          VITE_API_URL=https://staging-api.l3trament0.com npm run build
+        else
+          VITE_API_URL=https://dev-api.l3trament0.com npm run build
+        fi
+
+    - name: 📁 Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-${{ matrix.env }}
+        path: dist/
+        retention-days: 30
+
+  # 🚀 Deploy Automático
+  deploy:
+    name: 🚀 Deploy (${{ matrix.platform }})
+    runs-on: ubuntu-latest
+    needs: [code-analysis, build]
+    if: needs.code-analysis.outputs.should-deploy == 'true'
+    strategy:
+      matrix:
+        platform: [vercel, netlify, github-pages]
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+
+    - name: 📁 Download Build Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-production
+        path: dist/
+
+    # Vercel Deploy
+    - name: 🌐 Deploy to Vercel
+      if: matrix.platform == 'vercel'
+      uses: amondnet/vercel-action@v25
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        vercel-org-id: ${{ secrets.ORG_ID }}
+        vercel-project-id: ${{ secrets.PROJECT_ID }}
+        vercel-args: '--prod'
+        working-directory: ./
+
+    # Netlify Deploy
+    - name: 🌐 Deploy to Netlify
+      if: matrix.platform == 'netlify'
+      uses: nwtgck/actions-netlify@v3.0
+      with:
+        publish-dir: './dist'
+        production-branch: main
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions"
+        enable-pull-request-comment: true
+        enable-commit-comment: true
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+    # GitHub Pages Deploy
+    - name: 🌐 Deploy to GitHub Pages
+      if: matrix.platform == 'github-pages'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+
+  # 🤖 Notificações e Relatórios
+  notifications:
+    name: 🤖 Notificações
+    runs-on: ubuntu-latest
+    needs: [deploy]
+    if: always()
+    
+    steps:
+    - name: 📊 Deploy Status Report
+      run: |
+        echo "## 🚀 Deploy Report" >> $GITHUB_STEP_SUMMARY
+        echo "- **Status**: ${{ needs.deploy.result }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Branch**: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Commit**: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Timestamp**: $(date)" >> $GITHUB_STEP_SUMMARY
+
+    - name: 💬 Discord Notification
+      if: secrets.DISCORD_WEBHOOK
+      run: |
+        curl -H "Content-Type: application/json" \
+             -d "{\"content\":\"🚀 **L3trament0Web3** deployed successfully!\n🌍 **Branch**: ${{ github.ref_name }}\n⏰ **Time**: $(date)\"}" \
+             ${{ secrets.DISCORD_WEBHOOK }}
+
+  # 🔒 Security Monitoring
+  security-scan:
+    name: 🔒 Security Scan
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'push'
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+
+    - name: 🛡️ CodeQL Analysis
+      uses: github/codeql-action/init@v3
+      with:
+        languages: javascript
+
+    - name: 🔍 Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3

@@ -1,0 +1,307 @@
+name: ✨ Feature Request
+description: Sugerir uma nova funcionalidade para o L3trament0Web3
+title: "[FEATURE] "
+labels: ["✨ enhancement", "🔍 needs-discussion"]
+assignees:
+  - catitodev
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ✨ Obrigado por sugerir uma nova funcionalidade!
+        
+        Suas ideias são fundamentais para a evolução do L3trament0Web3. Vamos construir juntos o futuro da alfabetização digital e dos bens públicos!
+
+  - type: input
+    id: feature-title
+    attributes:
+      label: 🚀 Título da Funcionalidade
+      description: Nome da funcionalidade em uma frase
+      placeholder: ex. Sistema de gamificação com NFTs para conquistas
+    validations:
+      required: true
+
+  - type: dropdown
+    id: feature-category
+    attributes:
+      label: 🎯 Categoria
+      description: Em qual área esta funcionalidade se encaixa?
+      options:
+        - 💻 Digital Literacy - Alfabetização Digital
+        - 🌐 Public Goods - Bens Públicos
+        - 🤝 Commons Culture - Cultura dos Comuns
+        - 💫 Abundant Relationships - Relacionamentos Abundantes
+        - 🌱 ReFi - Finanças Regenerativas
+        - 🎮 Journey - Jornada do Usuário
+        - 👥 Community - Comunidade
+        - 📊 Impact - Métricas e Impacto
+        - 🔧 Technical - Infraestrutura Técnica
+        - 🎨 UI/UX - Interface e Experiência
+        - 📱 Mobile - Experiência Mobile
+        - 🔒 Security - Segurança
+        - ⚡ Performance - Performance
+        - 🤖 AI/ML - Inteligência Artificial
+        - 🌍 Blockchain - Web3/Blockchain
+    validations:
+      required: true
+
+  - type: dropdown
+    id: feature-priority
+    attributes:
+      label: ⚡ Prioridade Sugerida
+      description: Qual a urgência desta funcionalidade?
+      options:
+        - 🔴 Crítica - Essencial para o funcionamento
+        - 🟠 Alta - Muito importante para os usuários
+        - 🟡 Média - Seria útil ter
+        - 🟢 Baixa - Nice to have
+        - 💡 Experimental - Ideia para futuro
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: 🎯 Problema a Resolver
+      description: Que problema esta funcionalidade resolve?
+      placeholder: |
+        **Contexto:**
+        Atualmente, os usuários enfrentam dificuldade para...
+        
+        **Impacto:**
+        Isso causa problemas como...
+        
+        **Oportunidade:**
+        Se resolvermos isso, poderemos...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: 💡 Solução Proposta
+      description: Como você imagina que esta funcionalidade funcionaria?
+      placeholder: |
+        **Funcionalidade Principal:**
+        [Descreva a funcionalidade core]
+        
+        **Como Funcionaria:**
+        1. Usuário acessa...
+        2. Sistema apresenta...
+        3. Usuário interage...
+        4. Resultado é...
+        
+        **Benefícios:**
+        - Melhora a experiência porque...
+        - Facilita o aprendizado...
+        - Aumenta o engajamento...
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-stories
+    attributes:
+      label: 👤 Histórias do Usuário
+      description: Como diferentes tipos de usuários se beneficiariam?
+      placeholder: |
+        **Como iniciante em Web3:**
+        - Eu quero [funcionalidade] para [benefício]
+        - Para que eu possa [resultado]
+        
+        **Como educador:**
+        - Eu quero [funcionalidade] para [benefício]
+        - Para que eu possa [resultado]
+        
+        **Como desenvolvedor da comunidade:**
+        - Eu quero [funcionalidade] para [benefício]
+        - Para que eu possa [resultado]
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: ✅ Critérios de Aceite
+      description: Como saberemos que a funcionalidade está pronta?
+      placeholder: |
+        **Funcionalidades Obrigatórias:**
+        - [ ] Deve permitir que usuários...
+        - [ ] Deve exibir informações sobre...
+        - [ ] Deve validar dados quando...
+        
+        **Comportamentos Esperados:**
+        - [ ] Quando usuário clica em X, deve Y
+        - [ ] Sistema deve responder em menos de Z segundos
+        - [ ] Interface deve ser responsiva em mobile
+        
+        **Critérios de Qualidade:**
+        - [ ] Deve ser acessível (WCAG)
+        - [ ] Deve funcionar offline (se aplicável)
+        - [ ] Deve ter testes automatizados
+
+  - type: dropdown
+    id: complexity-estimate
+    attributes:
+      label: 🔧 Complexidade Estimada
+      description: Como você avalia a complexidade técnica?
+      options:
+        - 🟢 Simples - Algumas horas/dias
+        - 🟡 Moderada - 1-2 semanas
+        - 🟠 Complexa - 1 mês
+        - 🔴 Muito Complexa - Vários meses
+        - 🤔 Não sei avaliar
+    validations:
+      required: false
+
+  - type: textarea
+    id: mockups-references
+    attributes:
+      label: 🎨 Mockups e Referências
+      description: Imagens, links ou descrições visuais da funcionalidade
+      placeholder: |
+        **Wireframes/Mockups:**
+        [Cole ou arraste imagens aqui]
+        
+        **Referências/Inspirações:**
+        - [Nome do site/app]: [URL] - [O que gostou]
+        - [Exemplo]: Como funciona no GitHub, Discord, etc.
+        
+        **Descrição Visual:**
+        - Interface deve ter aparência...
+        - Elementos principais são...
+        - Fluxo visual é...
+
+  - type: textarea
+    id: technical-considerations
+    attributes:
+      label: ⚙️ Considerações Técnicas
+      description: Requisitos técnicos ou integrações necessárias
+      placeholder: |
+        **APIs/Integrações:**
+        - Precisa integrar com...
+        - Deve consumir dados de...
+        
+        **Tecnologias Sugeridas:**
+        - Frontend: React, TypeScript, etc.
+        - Backend: Node.js, Python, etc.
+        - Blockchain: Ethereum, Polygon, etc.
+        
+        **Infraestrutura:**
+        - Precisa de banco de dados?
+        - Requer armazenamento específico?
+        - Performance especial?
+
+  - type: checkboxes
+    id: web3-alignment
+    attributes:
+      label: 🌍 Alinhamento Web3
+      description: Como esta funcionalidade se alinha com valores Web3?
+      options:
+        - label: 🔓 Promove descentralização
+        - label: 👥 Fortalece a comunidade
+        - label: 🌱 Contribui para sustentabilidade
+        - label: 📚 Avança a educação digital
+        - label: 🤝 Facilita colaboração
+        - label: 💰 Cria valor para todos
+        - label: 🔒 Aumenta privacidade/segurança
+        - label: 🌐 Constrói bens públicos
+
+  - type: dropdown
+    id: target-audience
+    attributes:
+      label: 👥 Público-Alvo Principal
+      description: Quem mais se beneficiaria desta funcionalidade?
+      options:
+        - 🔰 Iniciantes em Web3
+        - 🎓 Educadores e professores
+        - 👨‍💻 Desenvolvedores Web3
+        - 🏢 Organizações/DAOs
+        - 🌍 Ativistas e changemakers
+        - 💼 Profissionais ReFi
+        - 👥 Toda a comunidade
+        - 🤖 Desenvolvedores do projeto
+    validations:
+      required: true
+
+  - type: textarea
+    id: success-metrics
+    attributes:
+      label: 📊 Métricas de Sucesso
+      description: Como mediremos o sucesso desta funcionalidade?
+      placeholder: |
+        **Métricas Quantitativas:**
+        - Aumento de X% no engajamento
+        - Y usuários utilizando por semana
+        - Redução de Z% no tempo para completar tarefa
+        
+        **Métricas Qualitativas:**
+        - Feedback positivo dos usuários
+        - Facilidade de uso reportada
+        - Contribuição para objetivos do projeto
+        
+        **OKRs (Objectives & Key Results):**
+        - Objetivo: [O que queremos alcançar]
+        - KR1: [Resultado-chave mensurável]
+        - KR2: [Resultado-chave mensurável]
+
+  - type: checkboxes
+    id: implementation-readiness
+    attributes:
+      label: 🛠️ Prontidão para Implementação
+      description: Confirme os pontos abaixo
+      options:
+        - label: Pesquisei se funcionalidade similar já existe
+          required: true
+        - label: Esta funcionalidade alinha com a missão do projeto
+          required: true
+        - label: Considerai o impacto nos usuários existentes
+          required: false
+        - label: Tenho disponibilidade para testar quando pronta
+          required: false
+        - label: Posso contribuir com desenvolvimento (se aplicável)
+          required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: 📋 Contexto Adicional
+      description: Qualquer informação adicional relevante
+      placeholder: |
+        **Links Úteis:**
+        - [Documentação relevante]
+        - [Discussões relacionadas]
+        - [Issues similares]
+        
+        **Cronograma:**
+        - Quando seria útil ter isso?
+        - Há algum prazo específico?
+        
+        **Recursos:**
+        - Posso ajudar com design?
+        - Posso ajudar com testes?
+        - Conheço especialistas na área?
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🤖 Próximos Passos Automáticos
+        
+        1. **🏷️ Categorização**: Bot adicionará labels baseadas na categoria
+        2. **📊 Análise de Impacto**: Sistema calculará pontuação de prioridade
+        3. **💬 Discussão**: Comunidade poderá votar e comentar
+        4. **📋 Planejamento**: Será incluída no roadmap se aprovada
+        5. **🛠️ Desenvolvimento**: Time de devs implementará
+        6. **🚀 Lançamento**: Deploy e feedback dos usuários
+        
+        ## 🗳️ Sistema de Votação
+        
+        A comunidade poderá votar nesta funcionalidade usando reações:
+        - 👍 = Quero esta funcionalidade
+        - ❤️ = Amo esta ideia
+        - 🚀 = Prioridade alta para mim
+        - 💡 = Tenho sugestões para melhorar
+        
+        **Obrigado por contribuir para o futuro do L3trament0Web3! ✨**

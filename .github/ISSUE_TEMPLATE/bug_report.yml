@@ -1,0 +1,187 @@
+name: 🐛 Bug Report
+description: Relatar um bug no L3trament0Web3
+title: "[BUG] "
+labels: ["🐛 bug", "🔍 needs-triage"]
+assignees:
+  - catitodev
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🐛 Obrigado por reportar um bug!
+        
+        Vamos resolver isso juntos! Preencha as informações abaixo para nos ajudar a entender e corrigir o problema.
+
+  - type: input
+    id: bug-summary
+    attributes:
+      label: 📝 Resumo do Bug
+      description: Descreva o bug em uma frase
+      placeholder: ex. Botão de login não funciona na página inicial
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: 📋 Descrição Detalhada
+      description: Descreva o que aconteceu, o que você esperava, e como reproduzir
+      placeholder: |
+        **O que aconteceu:**
+        [Descreva o comportamento atual]
+        
+        **O que era esperado:**
+        [Descreva o comportamento esperado]
+        
+        **Como reproduzir:**
+        1. Vá para '...'
+        2. Clique em '...'
+        3. Role até '...'
+        4. Veja o erro
+    validations:
+      required: true
+
+  - type: dropdown
+    id: bug-severity
+    attributes:
+      label: ⚡ Severidade
+      description: Qual o impacto deste bug?
+      options:
+        - 🔴 Crítico - Sistema não funciona
+        - 🟠 Alto - Funcionalidade importante quebrada
+        - 🟡 Médio - Problema menor mas visível
+        - 🟢 Baixo - Problema cosmético ou edge case
+    validations:
+      required: true
+
+  - type: dropdown
+    id: bug-component
+    attributes:
+      label: 🎯 Componente Afetado
+      description: Onde o bug acontece?
+      options:
+        - 🏠 Página Inicial
+        - 💻 Digital Literacy
+        - 🌐 Public Goods
+        - 🤝 Commons Culture
+        - 💫 Abundant Relationships
+        - 🌱 ReFi
+        - 🎮 Journey
+        - 👥 Community
+        - 📊 Impact
+        - 🔧 Sistema/Infraestrutura
+        - 📱 Mobile/Responsivo
+        - 🎨 UI/Design
+        - ⚡ Performance
+        - 🔒 Segurança
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 🌐 Ambiente
+      description: Informações do seu ambiente
+      value: |
+        - **Browser:** [ex. Chrome 119, Firefox 118]
+        - **OS:** [ex. Windows 11, macOS 14, Ubuntu 22.04]
+        - **Device:** [ex. Desktop, Mobile, Tablet]
+        - **Screen Size:** [ex. 1920x1080, 390x844]
+        - **URL:** [onde o bug aconteceu]
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: 🔄 Passos para Reproduzir
+      description: Passos detalhados para reproduzir o bug
+      placeholder: |
+        1. 
+        2. 
+        3. 
+        4. 
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: ✅ Comportamento Esperado
+      description: O que deveria acontecer?
+      placeholder: Descreva o que você esperava que acontecesse
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: ❌ Comportamento Atual
+      description: O que realmente acontece?
+      placeholder: Descreva o que realmente acontece
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 📸 Screenshots/Videos
+      description: Adicione screenshots ou vídeos que mostrem o problema
+      placeholder: |
+        Cole suas imagens aqui ou arraste e solte
+        
+        💡 Dica: Você pode anexar imagens arrastando e soltando, ou selecionando-as.
+
+  - type: textarea
+    id: console-errors
+    attributes:
+      label: 🔍 Erros do Console
+      description: Erros no console do navegador (F12 → Console)
+      placeholder: |
+        Cole aqui qualquer erro que apareça no console:
+        ```
+        [erro aqui]
+        ```
+
+  - type: checkboxes
+    id: bug-checklist
+    attributes:
+      label: ✅ Checklist
+      description: Confirme que você fez estas verificações
+      options:
+        - label: Verifiquei se já existe uma issue similar
+          required: true
+        - label: Testei em diferentes browsers (se possível)
+          required: false
+        - label: Testei em modo incógnito/privado
+          required: false
+        - label: Limpei cache e cookies
+          required: false
+        - label: Este bug é reproduzível consistentemente
+          required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: 📋 Contexto Adicional
+      description: Qualquer outra informação relevante
+      placeholder: |
+        - Acontece só em certas condições?
+        - Começou depois de alguma mudança específica?
+        - Logs adicionais ou informações técnicas?
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🤖 O que acontece agora?
+        
+        1. **🏷️ Auto-labeling**: O bot irá adicionar labels automaticamente
+        2. **🔍 Triagem**: A equipe irá analisar e priorizar
+        3. **🛠️ Investigação**: Desenvolvedores irão investigar
+        4. **✅ Resolução**: Implementaremos a correção
+        5. **🚀 Deploy**: A correção será implantada
+        
+        **Obrigado por contribuir para melhorar o L3trament0Web3! 🚀**

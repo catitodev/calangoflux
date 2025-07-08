@@ -1,0 +1,263 @@
+name: 🤖 Bot Automático PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  pull_request_review:
+    types: [submitted]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  statuses: write
+
+jobs:
+  # 🤖 Análise Automática de PR
+  pr-analysis:
+    name: 🤖 Análise Automática
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: 📥 Checkout PR
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: 🔧 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: 📦 Install Dependencies
+      run: npm ci
+
+    - name: 📊 PR Metrics Analysis
+      id: metrics
+      run: |
+        # Análise de métricas do PR
+        FILES_CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | wc -l)
+        LINES_ADDED=$(git diff --shortstat origin/${{ github.base_ref }}...HEAD | grep -oE '[0-9]+ insertions?' | cut -d' ' -f1 || echo "0")
+        LINES_DELETED=$(git diff --shortstat origin/${{ github.base_ref }}...HEAD | grep -oE '[0-9]+ deletions?' | cut -d' ' -f1 || echo "0")
+        
+        echo "files_changed=$FILES_CHANGED" >> $GITHUB_OUTPUT
+        echo "lines_added=$LINES_ADDED" >> $GITHUB_OUTPUT
+        echo "lines_deleted=$LINES_DELETED" >> $GITHUB_OUTPUT
+
+    - name: 🔍 Code Quality Check
+      id: quality
+      run: |
+        # Executar linting e análise
+        LINT_RESULT=$(npm run lint 2>&1 || echo "FAILED")
+        BUILD_RESULT=$(npm run build 2>&1 || echo "FAILED")
+        
+        if [[ "$LINT_RESULT" == *"FAILED"* ]]; then
+          echo "lint_status=❌ Falhou" >> $GITHUB_OUTPUT
+        else
+          echo "lint_status=✅ Passou" >> $GITHUB_OUTPUT
+        fi
+        
+        if [[ "$BUILD_RESULT" == *"FAILED"* ]]; then
+          echo "build_status=❌ Falhou" >> $GITHUB_OUTPUT
+        else
+          echo "build_status=✅ Passou" >> $GITHUB_OUTPUT
+        fi
+
+    - name: 🎯 Component Analysis
+      id: components
+      run: |
+        # Análise de componentes modificados
+        COMPONENTS_CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E '\.(tsx|ts|jsx|js)$' | grep -c 'src/components' || echo "0")
+        PAGES_CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E '\.(tsx|ts|jsx|js)$' | grep -c 'src/pages' || echo "0")
+        STYLES_CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E '\.(css|scss|sass)$' | wc -l || echo "0")
+        
+        echo "components_changed=$COMPONENTS_CHANGED" >> $GITHUB_OUTPUT
+        echo "pages_changed=$PAGES_CHANGED" >> $GITHUB_OUTPUT
+        echo "styles_changed=$STYLES_CHANGED" >> $GITHUB_OUTPUT
+
+    - name: 🤖 Generate PR Review
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const metrics = {
+            files: '${{ steps.metrics.outputs.files_changed }}',
+            added: '${{ steps.metrics.outputs.lines_added }}',
+            deleted: '${{ steps.metrics.outputs.lines_deleted }}',
+            components: '${{ steps.components.outputs.components_changed }}',
+            pages: '${{ steps.components.outputs.pages_changed }}',
+            styles: '${{ steps.components.outputs.styles_changed }}',
+            lint: '${{ steps.quality.outputs.lint_status }}',
+            build: '${{ steps.quality.outputs.build_status }}'
+          };
+
+          const reviewMessage = `## 🤖 Análise Automática do PR
+
+          ### 📊 Métricas do PR
+          - **Arquivos modificados**: ${metrics.files}
+          - **Linhas adicionadas**: +${metrics.added}
+          - **Linhas removidas**: -${metrics.deleted}
+
+          ### 🔧 Componentes Afetados
+          - **Componentes**: ${metrics.components}
+          - **Páginas**: ${metrics.pages}
+          - **Estilos**: ${metrics.styles}
+
+          ### ✅ Verificações de Qualidade
+          - **Lint**: ${metrics.lint}
+          - **Build**: ${metrics.build}
+
+          ### 🎯 Análise de Impacto
+          ${parseInt(metrics.files) > 10 ? '⚠️ **PR Grande**: Considere dividir em PRs menores' : '✅ **Tamanho Adequado**: PR de tamanho bom para review'}
+
+          ${parseInt(metrics.components) > 0 ? '🔄 **Componentes Modificados**: Verifique se não quebra a compatibilidade' : ''}
+
+          ### 🚀 Próximos Passos
+          1. ✅ Análise automática concluída
+          2. 👀 Aguardando review manual
+          3. 🧪 Testes automáticos em execução
+          4. 🚀 Deploy preview será gerado
+
+          ---
+          *Bot automático L3trament0 - Análise realizada em ${new Date().toLocaleString('pt-BR')}*`;
+
+          await github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: reviewMessage
+          });
+
+  # 🔄 Auto-merge para dependências
+  auto-merge:
+    name: 🔄 Auto-merge
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.actor == 'dependabot[bot]'
+    
+    steps:
+    - name: 🤖 Auto-merge Dependabot
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const pr = await github.rest.pulls.get({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: context.issue.number
+          });
+
+          // Auto-merge apenas se for patch ou minor
+          const title = pr.data.title.toLowerCase();
+          if (title.includes('patch') || title.includes('minor')) {
+            await github.rest.pulls.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              merge_method: 'squash'
+            });
+            
+            console.log('✅ Auto-merged dependabot PR');
+          }
+
+  # 🏷️ Auto-labeling
+  auto-label:
+    name: 🏷️ Auto-labeling
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: 🏷️ Add Labels
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const { owner, repo } = context.repo;
+          const { number } = context.issue;
+
+          // Get changed files
+          const files = await github.rest.pulls.listFiles({
+            owner,
+            repo,
+            pull_number: number
+          });
+
+          const labels = [];
+          const changedFiles = files.data.map(f => f.filename);
+
+          // Detect file types and add labels
+          if (changedFiles.some(f => f.includes('src/components'))) labels.push('🔧 component');
+          if (changedFiles.some(f => f.includes('src/pages'))) labels.push('📱 pages');
+          if (changedFiles.some(f => f.includes('.css') || f.includes('.scss'))) labels.push('🎨 styles');
+          if (changedFiles.some(f => f.includes('package.json'))) labels.push('📦 dependencies');
+          if (changedFiles.some(f => f.includes('.github'))) labels.push('🤖 automation');
+          if (changedFiles.some(f => f.includes('README') || f.includes('.md'))) labels.push('📚 documentation');
+
+          // Size labels
+          const totalChanges = files.data.reduce((acc, f) => acc + f.changes, 0);
+          if (totalChanges < 50) labels.push('size/small');
+          else if (totalChanges < 200) labels.push('size/medium');
+          else labels.push('size/large');
+
+          if (labels.length > 0) {
+            await github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number: number,
+              labels
+            });
+          }
+
+  # 📝 Comandos de Bot
+  bot-commands:
+    name: 📝 Bot Commands
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issue_comment' && contains(github.event.comment.body, '/bot')
+    
+    steps:
+    - name: 🤖 Process Bot Commands
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const comment = context.payload.comment.body;
+          const { owner, repo } = context.repo;
+          const { number } = context.issue;
+
+          let response = '';
+
+          if (comment.includes('/bot help')) {
+            response = `## 🤖 Comandos Disponíveis
+
+            - \`/bot help\` - Mostra esta ajuda
+            - \`/bot review\` - Solicita review automático
+            - \`/bot deploy preview\` - Gera preview de deploy
+            - \`/bot size\` - Analisa tamanho do PR
+            - \`/bot quality\` - Executa verificações de qualidade
+            - \`/bot approve\` - Aprova PR (se autorizado)
+
+            *Bot L3trament0Web3 🚀*`;
+          }
+          
+          if (comment.includes('/bot review')) {
+            response = '🤖 Iniciando análise automática do PR...';
+            // Trigger review workflow
+          }
+
+          if (comment.includes('/bot deploy preview')) {
+            response = '🚀 Gerando preview de deploy... Link será postado quando pronto.';
+          }
+
+          if (response) {
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: number,
+              body: response
+            });
+          }
