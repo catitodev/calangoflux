@@ -127,7 +127,7 @@ const HeroSaaS = () => {
               >
                 <Zap className="w-5 h-5 text-primary-500 mr-2" />
               </motion.div>
-              <span className="text-sm font-medium">MVP em Desenvolvimento</span>
+              <span className="text-sm font-medium">SaaS & MicroSaaS</span>
             </motion.div>
             <motion.div 
               className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft"
@@ -140,7 +140,7 @@ const HeroSaaS = () => {
               >
                 <Target className="w-5 h-5 text-secondary-500 mr-2" />
               </motion.div>
-              <span className="text-sm font-medium">Early Access Limitado</span>
+              <span className="text-sm font-medium">Apps Personalizados</span>
             </motion.div>
             <motion.div 
               className="flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-soft"
@@ -153,7 +153,7 @@ const HeroSaaS = () => {
               >
                 <Bot className="w-5 h-5 text-accent-500 mr-2" />
               </motion.div>
-              <span className="text-sm font-medium">Tecnologia Própria</span>
+              <span className="text-sm font-medium">Agentics Exclusivos</span>
             </motion.div>
           </motion.div>
           
@@ -210,13 +210,13 @@ const HeroSaaS = () => {
                 className="text-lg font-bold text-primary-600"
                 whileHover={{ scale: 1.1, color: "#32b890" }}
               >
-                                  CalangoFlux
+                                  CRM
               </motion.div>
               <motion.div 
                 className="text-lg font-bold text-secondary-600"
                 whileHover={{ scale: 1.1, color: "#0066c8" }}
               >
-                Tana
+                MCP
               </motion.div>
               <motion.div 
                 className="text-lg font-bold text-accent-600"
