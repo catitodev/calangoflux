@@ -8,8 +8,8 @@ const PricingSection = () => {
   const plans = [
     {
       name: "Pioneer Access",
-      price: "R$ 147",
-      period: "/mês",
+      price: "R$ 1.470",
+      period: "/10x",
       description: "Presença digital completa com automação básica",
       icon: <Rocket className="w-6 h-6" />,
       badge: "Regenerativo",
@@ -20,7 +20,7 @@ const PricingSection = () => {
         "Botões para WhatsApp ou Telegram",
         "1 Linktree para bio",
         "Respostas rápidas no WhatsApp/Telegram",
-        "*Identidade visual +R$93,00"
+        "*Identidade visual +R$930,00"
       ],
       buttonText: "Cultivar Mudança",
       buttonVariant: "default" as const,
@@ -29,8 +29,8 @@ const PricingSection = () => {
     },
     {
       name: "Beta Tester",
-      price: "R$ 297",
-      period: "/mês",
+      price: "R$ 2.970",
+      period: "/10x",
       description: "Presença digital + agente personalizado exclusivo",
       icon: <TestTube className="w-6 h-6" />,
       badge: "Co-criador",
@@ -50,8 +50,8 @@ const PricingSection = () => {
     },
     {
       name: "Impact Founder",
-      price: "R$ 347",
-      period: "/mês",
+      price: "R$ 3.470",
+      period: "/10x",
       description: "Solução completa com automação de redes sociais",
       icon: <Crown className="w-6 h-6" />,
       badge: "Sistêmico",
@@ -211,7 +211,7 @@ const PricingSection = () => {
             </span>
           </h3>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-12">
-            Nosso modelo inovador: <strong>a cada 10 clientes pagantes, 1 serviço é fornecido por subsídio cruzado</strong>. 
+            Nosso modelo nutre resṕonsabilidade social: <strong>a cada 10 clientes pagantes, 1 serviço é fornecido por subsídio cruzado</strong>. 
             Assim, projetos sociais têm acesso à tecnologia financiados por quem pode pagar.
           </p>
 
@@ -253,10 +253,11 @@ const PricingSection = () => {
 
           <div className="bg-gradient-to-r from-primary-100 to-secondary-100 rounded-xl p-6 max-w-2xl mx-auto">
             <h4 className="text-lg font-semibold text-secondary-900 mb-2">
-              🎯 Meta: 100 Clientes Pagantes = 10 Projetos Subsidiados
+              🎯 Meta em 6 meses: 100 Clientes Pagantes = 10 Projetos Subsidiados
             </h4>
             <p className="text-gray-700 text-sm">
               Nosso modelo 10:1 permite crescimento sustentável enquanto financiamos projetos de impacto social.
+              Assim que a meta for alcançada, nosso modelo será 8:2.
             </p>
           </div>
         </motion.div>
@@ -273,12 +274,12 @@ const PricingSection = () => {
               Precisa de Subsídio?
             </h3>
             <p className="text-lg text-gray-700 mb-6">
-              Projetos com <strong>impacto social comprovado</strong> podem solicitar subsídio. 
+              Projetos com <strong>impacto social positivo comprovado</strong> podem solicitar subsídio. 
               Avaliamos cada caso individualmente considerando propósito, alcance e sustentabilidade.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="default" className="px-8 py-3 bg-primary-500 hover:bg-primary-600">
-                <a href="https://www.aideaflux.xyz" target="_blank" rel="noopener noreferrer">
+                <a href="$" target="_blank" rel="noopener noreferrer">
                   Solicitar Subsídio
                 </a>
               </Button>
