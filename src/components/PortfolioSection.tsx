@@ -11,30 +11,50 @@ const PortfolioSection = () => {
       description: "Aplicativo completo para gestão de agricultura familiar com automações inteligentes",
       url: "#",
       icon: <Smartphone className="w-6 h-6" />,
-      status: "Funcionando",
-      badge: "Agricultura",
+      status: "Captação Financiamento",
+      badge: "Agricultura Familiar",
       color: "text-green-600",
-      features: ["App Mobile", "Gestão Agrícola", "Automação", "Dashboard"]
+      features: ["App Mobile", "Orientações Conformidade", "Meteorologia", "Acesso a Recursos", "Notícias"]
     },
     {
-      title: "Baya Nativa",
-      description: "Plataforma web para conservação e valorização da biodiversidade nativa",
-      url: "#",
+      title: "CalangoFlux Hub APP",
+      description: "Portfólio de aplicativos e possibilidades disruptivas",
+      url: "https://v0-calango-flux-hub-app-s6-hsf66agxt-catitodevs-projects.vercel.app/",
       icon: <Globe className="w-6 h-6" />,
       status: "Funcionando", 
-      badge: "Sustentabilidade",
+      badge: "Inovação Web",
       color: "text-primary-600",
-      features: ["Website", "Conservação", "Biodiversidade", "Educação"]
+      features: ["App Mobile", "On Demand", "Biodiversidade", "Educação"]
     },
     {
       title: "AideaFlux Platform",
-      description: "Nossa plataforma principal de automação agentic e criação de agentes inteligentes",
+      description: "Plataforma principal de acesso a mais de 100 LLMs de todo o mundo",
       url: "https://www.aideaflux.xyz",
       icon: <Rocket className="w-6 h-6" />,
-      status: "Em Desenvolvimento",
+      status: "Funcionando",
       badge: "Core Platform",
       color: "text-secondary-600",
-      features: ["Agentes IA", "Automação", "Dashboard", "API"]
+      features: ["Agentes IA", "Dashboard", "API", "LLMs"]
+    },
+ {
+      title: "CalangoFlux Empreendedorismo Rural Labs",
+      description: "Plataforma educacional para incentivar o empreendedorismo digital rural",
+      url: "https://v0-calango-flux-rural-labs-55l43bgjr-catitodevs-projects.vercel.app/",
+      icon: <Coins className="w-6 h-6" />,
+      status: "Funcionando",
+      badge: "Educação no Campo",
+      color: "text-accent-600",
+      features: ["Blockchain", "Educação", "ReFi", "NFTs", "Empoderamento Digital"]
+    },
+{
+      title: "CalangoFlux Rural Labs",
+      description: "Plataforma educacional para democratizar o letramento digital rural",
+      url: "#",
+      icon: <Coins className="w-6 h-6" />,
+      status: "Em Breve",
+      badge: "Educação",
+      color: "text-accent-600",
+      features: ["Empoderamento Digital", "Educação", "Web", "Apps", "Acessibilidade"]
     },
     {
       title: "Letramento Web3",
