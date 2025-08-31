@@ -187,22 +187,6 @@ export default function ServicesSection() {
                   </a>
                 </Button>
               </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 text-lg font-semibold"
-                  asChild
-                >
-                  <a href="https://aideaflux.xyz" target="_blank" rel="noopener noreferrer">
-                    🚀 Testar AideaFlux
-                  </a>
-                </Button>
-              </motion.div>
             </div>
           </div>
         </motion.div>

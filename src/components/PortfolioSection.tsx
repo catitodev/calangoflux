@@ -21,7 +21,7 @@ const PortfolioSection = () => {
       description: "Portfólio de aplicativos e possibilidades disruptivas",
       url: "https://v0-calango-flux-hub-app-s6-hsf66agxt-catitodevs-projects.vercel.app/",
       icon: <Globe className="w-6 h-6" />,
-      status: "Funcionando", 
+      status: "Funcionando",
       badge: "Inovação Web",
       color: "text-primary-600",
       features: ["App Mobile", "On Demand", "Biodiversidade", "Educação"]
@@ -36,7 +36,7 @@ const PortfolioSection = () => {
       color: "text-secondary-600",
       features: ["Agentes IA", "Dashboard", "API", "LLMs"]
     },
- {
+    {
       title: "CalangoFlux Empreendedorismo Rural Labs",
       description: "Plataforma educacional para incentivar o empreendedorismo digital rural",
       url: "https://v0-calango-flux-rural-labs-55l43bgjr-catitodevs-projects.vercel.app/",
@@ -46,7 +46,7 @@ const PortfolioSection = () => {
       color: "text-accent-600",
       features: ["Blockchain", "Educação", "ReFi", "NFTs", "Empoderamento Digital"]
     },
-{
+    {
       title: "CalangoFlux Rural Labs",
       description: "Plataforma educacional para democratizar o letramento digital rural",
       url: "#",
@@ -134,7 +134,7 @@ const PortfolioSection = () => {
                     {project.description}
                   </CardDescription>
                 </CardHeader>
-                
+
                 <CardContent>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.features.map((feature, featureIndex) => (
@@ -146,7 +146,7 @@ const PortfolioSection = () => {
                       </span>
                     ))}
                   </div>
-                  
+
                   {project.url !== "#" ? (
                     <Button
                       asChild
@@ -187,33 +187,26 @@ const PortfolioSection = () => {
         >
           <div className="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">
-              Quer um projeto como estes?
+              Tem um projeto em mente?
             </h3>
             <p className="text-lg mb-6 opacity-90">
               Nossa equipe tem experiência comprovada em desenvolver soluções completas que geram impacto real.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                asChild
-                className="bg-white text-primary-600 hover:bg-gray-100"
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <a 
-                  href="https://www.aideaflux.xyz" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-2 border-white bg-white text-primary-600"
                 >
-                  Acessar Plataforma
-                </a>
-              </Button>
-              <Button
-                asChild 
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary-600"
-              >
-                <a href="#contato">
-                  Falar Conosco
-                </a>
-              </Button>
+                  <a href="#contato">
+                    Falar Conosco
+                  </a>
+                </Button>
+              </motion.div>
             </div>
           </div>
         </motion.div>
@@ -226,37 +219,37 @@ const PortfolioSection = () => {
           className="mt-12 text-center"
         >
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <motion.div 
+            <motion.div
               className="text-center"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="text-3xl font-bold text-secondary-900 mb-2">4</div>
+              <div className="text-3xl font-bold text-secondary-900 mb-2">7</div>
               <div className="text-primary-600 font-medium">Apps Funcionando</div>
             </motion.div>
-            <motion.div 
+            <motion.div
+              className="text-center"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <div className="text-3xl font-bold text-secondary-900 mb-2">15</div>
+              <div className="text-secondary-600 font-medium">Sites Ativos</div>
+            </motion.div>
+            <motion.div
               className="text-center"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="text-3xl font-bold text-secondary-900 mb-2">5</div>
-              <div className="text-secondary-600 font-medium">Sites Ativos</div>
+              <div className="text-accent-600 font-medium">Plataformas</div>
             </motion.div>
-            <motion.div 
-              className="text-center"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <div className="text-3xl font-bold text-secondary-900 mb-2">3</div>
-              <div className="text-accent-600 font-medium">Plataforma Core</div>
-            </motion.div>
-            <motion.div 
+            <motion.div
               className="text-center"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="text-3xl font-bold text-secondary-900 mb-2">100%</div>
-              <div className="text-green-600 font-medium">Transparência</div>
+              <div className="text-green-600 font-medium">Inovação</div>
             </motion.div>
           </div>
         </motion.div>
