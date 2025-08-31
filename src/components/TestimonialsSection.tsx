@@ -163,35 +163,6 @@ const TeamAndVisionSection = () => {
           </div>
         </motion.div>
 
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 text-center"
-        >
-          <h3 className="text-2xl font-bold text-secondary-900 mb-8">
-            Nossa Realidade Atual
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-4xl font-bold text-secondary-900 mb-2">{stat.number}</div>
-                <div className="text-primary-600 font-semibold mb-1">{stat.label}</div>
-                <div className="text-gray-600 text-sm">{stat.description}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -213,7 +184,7 @@ const TeamAndVisionSection = () => {
                 <Users className="w-4 h-4 mr-2" />
                 Juntar-se ao Time
               </button>
-              <button className="btn border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-all duration-200">
+              <button className="btn border-2 border-white bg-white text-primary-600 px-8 py-3 rounded-lg font-medium transition-all duration-200">
                 <MessageSquare className="w-4 h-4 mr-2" />
                 Conversar Conosco
               </button>

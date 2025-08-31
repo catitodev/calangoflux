@@ -385,14 +385,6 @@ const FeaturesSection = () => {
             <p className="text-base md:text-lg mb-6 opacity-90">
               Cada segmento colorido é um componente interativo. Clique para explorar nossa arquitetura agentic.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-primary-600 hover:bg-gray-100 px-6 md:px-8 py-3 rounded-lg font-medium transition-all duration-200">
-                Explorar Arquitetura
-              </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-6 md:px-8 py-3 rounded-lg font-medium transition-all duration-200">
-                Documentação Técnica
-              </button>
-            </div>
           </div>
         </motion.div>
       </div>
