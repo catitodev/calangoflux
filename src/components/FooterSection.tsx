@@ -20,7 +20,7 @@ export default function FooterSection() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Github, href: "https://github.com/catitodev", label: "GitHub" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
     { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Instagram, href: "#", label: "Instagram" },
@@ -34,8 +34,8 @@ export default function FooterSection() {
     [key: string]: Array<{ name: string; href: string; external?: boolean }>
   } = {
     "Plataforma": [
-      { name: "AideaFlux", href: "https://aideaflux.xyz", external: true },
-      { name: "100+ LLMs Gratuitos", href: "https://aideaflux.xyz", external: true },
+      { name: "AideaFlux - 100+ LLMs Gratuitos", href: "https://aideaflux.xyz", external: true },
+      { name: "CalangoHub - Portfólio de Aplicações", href: "https://v0-calango-flux-hub-app-s6-hsf66agxt-catitodevs-projects.vercel.app/", external: true },
       { name: "Agentes Poe", href: "https://poe.com/calangoflux", external: true },
         ],
     "Serviços": [
@@ -80,7 +80,7 @@ export default function FooterSection() {
             <div className="space-y-3">
               <div className="flex items-center text-sm text-gray-400">
                 <Mail className="w-4 h-4 mr-2 text-primary-400" />
-                <span>contato@calangoflux.xyz</span>
+                <span>calangoflux@proton.me</span>
               </div>
               <div className="flex items-center text-sm text-gray-400">
                 <MapPin className="w-4 h-4 mr-2 text-primary-400" />
