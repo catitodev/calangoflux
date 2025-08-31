@@ -40,7 +40,7 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
   };
 
   const navItems = [
-    { name: "Recursos", href: "/#features", isLink: false },
+    { name: "Sobre", href: "/about", isLink: false },
     { 
       name: "Serviços", 
       href: "#servicos",
@@ -53,9 +53,9 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
         { name: "Letramento Web3", href: "/letramento-web3", isLink: true }
       ]
     },
-    { name: "Portfolio", href: "/#portfolio", isLink: false },
-    { name: "Preços", href: "/#pricing", isLink: false },
-    { name: "Sobre", href: "/#sobre", isLink: false }
+    { name: "Recursos", href: "/features", isLink: false },
+    { name: "Portfolio", href: "/portfolio", isLink: false },
+    { name: "Preços", href: "/pricing", isLink: false },
   ];
 
   return (
@@ -86,7 +86,7 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
                 />
               </div>
               <span className={`ml-2 sm:ml-3 font-heading font-bold text-lg sm:text-xl transition-colors duration-300 ${
-                isScrolled ? 'text-gray-900' : 'text-white'
+                isScrolled ? 'text-gray-900' : 'text-gray-900'
               }`}>
                 Calango<span className="text-secondary-500">Flux</span>
               </span>
@@ -208,7 +208,7 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
             </motion.a>
             
             <motion.a 
-              href="/#contato"
+              href="/contact"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: 0.4 }}
@@ -372,7 +372,7 @@ const Navbar = ({ isScrolled: propIsScrolled }: NavbarProps) => {
                     🚀 Acesse 100+ LLMs Grátis
                   </a>
                   
-                  <a href="/#contato" onClick={closeMenu}>
+                  <a href="/contact" onClick={closeMenu}>
                     <Button 
                       className="w-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white shadow-lg"
                     >
