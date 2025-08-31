@@ -16,15 +16,9 @@ const Home = () => {
   return (
     <div className="overflow-x-hidden">
       <HeroSaaS />
-      <FeaturesSection />
       <ServicesSection />
-      <PortfolioSection />
-      <LLMsDisruptiveSection />
-      <PoeAgentsSection />
-      <LLMCarousel />
-      <PricingSection />
-      <AboutSection />
       <JourneySection />
+      <FeaturesSection />
       <TestimonialsSection />
       <FAQSection />
       <FooterSection />
