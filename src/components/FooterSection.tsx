@@ -37,8 +37,7 @@ export default function FooterSection() {
       { name: "AideaFlux", href: "https://aideaflux.xyz", external: true },
       { name: "100+ LLMs Gratuitos", href: "https://aideaflux.xyz", external: true },
       { name: "Agentes Poe", href: "https://poe.com/calangoflux", external: true },
-      { name: "Early Access", href: "#pricing" }
-    ],
+        ],
     "Serviços": [
       { name: "Branding & Rebranding", href: "#contato" },
       { name: "Desenvolvimento Web", href: "#contato" },

@@ -52,7 +52,7 @@ export default function AboutSection() {
               </p>
               
               <p>
-                <strong>Filha, 16</strong>, com olhos curiosos, visão sistêmica e pensamento crítico aguçado, 
+                <strong>Filha, 17</strong>, com olhos curiosos, visão sistêmica e pensamento crítico aguçado, 
                 personalidade autodidata empoderada, sensibilidade artística ímpar, compartilham questionamentos 
                 que nutriram para além das capacitações e aprofundamentos experienciais, nutriram um pacto intergeracional.
               </p>
