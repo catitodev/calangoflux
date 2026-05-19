@@ -16,7 +16,7 @@ const FeaturesSection = () => {
       subtitle: "Entrada de Dados",
       description: "Recebe inputs de múltiplas fontes: WhatsApp, Telegram, site, APIs e webhooks. O sistema identifica contexto e intenção do usuário automaticamente.",
       color: "#10b981",
-      angle: { start: 0, end: 45 }
+      angle: { start: 315, end: 360 }
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const FeaturesSection = () => {
       subtitle: "Processamento Inteligente",
       description: "Engine de IA (Llama 3.3 via Groq) analisa contexto, classifica intenções e determina o fluxo de automação mais adequado para cada situação.",
       color: "#3b82f6",
-      angle: { start: 45, end: 90 }
+      angle: { start: 0, end: 45 }
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const FeaturesSection = () => {
       subtitle: "Motor de Decisão",
       description: "Algoritmos de decisão baseados em regras e contexto. Roteamento inteligente para diferentes workflows com base no histórico e perfil do usuário.",
       color: "#8b5cf6",
-      angle: { start: 90, end: 135 }
+      angle: { start: 45, end: 90 }
     },
     {
       id: 4,
@@ -43,7 +43,7 @@ const FeaturesSection = () => {
       subtitle: "Base de Conhecimento",
       description: "Base de conhecimento persistente com contexto dos serviços, preços, portfólio e histórico de interações. Aprendizado contínuo dos padrões de uso.",
       color: "#06b6d4",
-      angle: { start: 135, end: 180 }
+      angle: { start: 90, end: 135 }
     },
     {
       id: 5,
@@ -52,7 +52,7 @@ const FeaturesSection = () => {
       subtitle: "Motor de Automação",
       description: "Execução de workflows via n8n: orquestração de agentes, notificações, CRM e integrações externas com monitoramento em tempo real.",
       color: "#f59e0b",
-      angle: { start: 180, end: 225 }
+      angle: { start: 135, end: 180 }
     },
     {
       id: 6,
@@ -61,7 +61,7 @@ const FeaturesSection = () => {
       subtitle: "Gateway de Integração",
       description: "Hub central para integrações: Supabase, Airtable, EmailJS, Telegram, WhatsApp e serviços de terceiros conectados de forma segura.",
       color: "#ef4444",
-      angle: { start: 225, end: 270 }
+      angle: { start: 180, end: 225 }
     },
     {
       id: 7,
@@ -70,7 +70,7 @@ const FeaturesSection = () => {
       subtitle: "Motor de Análise",
       description: "Coleta métricas de leads, conversões e engajamento. Gera insights para otimização contínua dos fluxos e performance do atendimento.",
       color: "#ec4899",
-      angle: { start: 270, end: 315 }
+      angle: { start: 225, end: 270 }
     },
     {
       id: 8,
@@ -79,7 +79,7 @@ const FeaturesSection = () => {
       subtitle: "Entrega de Resposta",
       description: "Sistema de entrega multi-canal: responde no site, WhatsApp, Telegram ou email. Adapta formato e tom ao canal e contexto do usuário.",
       color: "#22c55e",
-      angle: { start: 315, end: 360 }
+      angle: { start: 270, end: 315 }
     }
   ];
 
