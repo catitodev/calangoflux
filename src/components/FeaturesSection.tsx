@@ -14,7 +14,7 @@ const FeaturesSection = () => {
       title: "Input Trigger",
       titleLines: ["Input", "Trigger"],
       subtitle: "Entrada de Dados",
-      description: "Recebe inputs de múltiplas fontes: WhatsApp, Telegram, APIs, webhooks. Sistema de parsing inteligente identifica contexto e intenção do usuário.",
+      description: "Recebe inputs de múltiplas fontes: WhatsApp, Telegram, site, APIs e webhooks. O sistema identifica contexto e intenção do usuário automaticamente.",
       color: "#10b981",
       angle: { start: 0, end: 45 }
     },
@@ -23,7 +23,7 @@ const FeaturesSection = () => {
       title: "IA Processing",
       titleLines: ["IA", "Processing"],
       subtitle: "Processamento Inteligente",
-      description: "Engine de IA analisa contexto, classifica intenções e determina fluxo de automação apropriado. Integração com múltiplos LLMs para máxima precisão.",
+      description: "Engine de IA (Llama 3.3 via Groq) analisa contexto, classifica intenções e determina o fluxo de automação mais adequado para cada situação.",
       color: "#3b82f6",
       angle: { start: 45, end: 90 }
     },
@@ -32,7 +32,7 @@ const FeaturesSection = () => {
       title: "Decision Engine",
       titleLines: ["Decision", "Engine"],
       subtitle: "Motor de Decisão",
-      description: "Algoritmos de decisão baseados em regras e ML. Roteamento inteligente para diferentes workflows baseado no contexto e histórico.",
+      description: "Algoritmos de decisão baseados em regras e contexto. Roteamento inteligente para diferentes workflows com base no histórico e perfil do usuário.",
       color: "#8b5cf6",
       angle: { start: 90, end: 135 }
     },
@@ -41,7 +41,7 @@ const FeaturesSection = () => {
       title: "Knowledge Base",
       titleLines: ["Knowledge", "Base"],
       subtitle: "Base de Conhecimento",
-      description: "Integração com Tana para armazenamento dinâmico. Contexto persistente e aprendizado contínuo dos padrões de uso e preferências.",
+      description: "Base de conhecimento persistente com contexto dos serviços, preços, portfólio e histórico de interações. Aprendizado contínuo dos padrões de uso.",
       color: "#06b6d4",
       angle: { start: 135, end: 180 }
     },
@@ -50,7 +50,7 @@ const FeaturesSection = () => {
       title: "Workflow Engine",
       titleLines: ["Workflow", "Engine"],
       subtitle: "Motor de Automação",
-      description: "Execução de workflows complexos e inteligentes. Orquestração de múltiplos agentes e sistemas externos com monitoramento em tempo real.",
+      description: "Execução de workflows via n8n: orquestração de agentes, notificações, CRM e integrações externas com monitoramento em tempo real.",
       color: "#f59e0b",
       angle: { start: 180, end: 225 }
     },
@@ -59,7 +59,7 @@ const FeaturesSection = () => {
       title: "API Gateway",
       titleLines: ["API", "Gateway"],
       subtitle: "Gateway de Integração",
-      description: "Hub central para integrações externas. Conecta com CRMs, ERPs, plataformas de comunicação e serviços de terceiros de forma segura.",
+      description: "Hub central para integrações: Supabase, Airtable, EmailJS, Telegram, WhatsApp e serviços de terceiros conectados de forma segura.",
       color: "#ef4444",
       angle: { start: 225, end: 270 }
     },
@@ -68,7 +68,7 @@ const FeaturesSection = () => {
       title: "Analytics Engine",
       titleLines: ["Analytics", "Engine"],
       subtitle: "Motor de Análise",
-      description: "Coleta métricas em tempo real, gera insights e alimenta loops de feedback para otimização contínua dos workflows e performance.",
+      description: "Coleta métricas de leads, conversões e engajamento. Gera insights para otimização contínua dos fluxos e performance do atendimento.",
       color: "#ec4899",
       angle: { start: 270, end: 315 }
     },
@@ -77,7 +77,7 @@ const FeaturesSection = () => {
       title: "Response Delivery",
       titleLines: ["Response", "Delivery"],
       subtitle: "Entrega de Resposta",
-      description: "Sistema de entrega multi-canal com formatação inteligente. Adapta resposta ao canal e contexto do usuário para máxima efetividade.",
+      description: "Sistema de entrega multi-canal: responde no site, WhatsApp, Telegram ou email. Adapta formato e tom ao canal e contexto do usuário.",
       color: "#22c55e",
       angle: { start: 315, end: 360 }
     }
