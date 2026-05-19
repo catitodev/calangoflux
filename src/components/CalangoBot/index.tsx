@@ -37,7 +37,7 @@ export default function CalangoBot() {
       return messages;
     }
     // If panel is open and no messages yet, show welcome
-    if (isOpen && !welcomeAdded.current) {
+    if (isOpen) {
       return [{ role: 'assistant' as const, content: WELCOME_MESSAGE }];
     }
     return [];

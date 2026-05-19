@@ -36,10 +36,20 @@ function getStoredSession(): { messages: ChatMessage[]; sessionId: string; leadC
   try {
     const stored = sessionStorage.getItem(SESSION_STORAGE_KEY);
     if (stored) {
-      return JSON.parse(stored);
+      const parsed = JSON.parse(stored);
+      // Fix corrupted sessions: if last message is from user with no assistant reply,
+      // the previous stream likely failed. Remove the dangling user message.
+      if (parsed.messages && parsed.messages.length > 0) {
+        const lastMsg = parsed.messages[parsed.messages.length - 1];
+        if (lastMsg.role === 'user') {
+          parsed.messages.pop();
+        }
+      }
+      return parsed;
     }
   } catch {
-    // Ignore parse errors
+    // Clear corrupted storage
+    sessionStorage.removeItem(SESSION_STORAGE_KEY);
   }
   return null;
 }
