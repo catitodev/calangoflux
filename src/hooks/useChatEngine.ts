@@ -75,6 +75,24 @@ function detectLead(text: string): string | null {
   return null;
 }
 
+function detectEmail(text: string): string | null {
+  const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+  const match = text.match(emailRegex);
+  return match ? match[0] : null;
+}
+
+function detectName(text: string): string | null {
+  // Common patterns: "meu nome é X", "sou o/a X", "me chamo X"
+  const patterns = [
+    /(?:meu nome é|me chamo|sou o|sou a|pode me chamar de)\s+([A-ZÀ-Ú][a-zà-ú]+(?:\s+[A-ZÀ-Ú][a-zà-ú]+)?)/i,
+  ];
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    if (match) return match[1];
+  }
+  return null;
+}
+
 export function useChatEngine() {
   const stored = useRef(getStoredSession());
 
@@ -121,6 +139,31 @@ export function useChatEngine() {
       const detectedKeyword = detectLead(content);
       if (detectedKeyword || isQuickAction) {
         setState((prev) => ({ ...prev, leadCaptured: true }));
+      }
+
+      // Detect email and name from user message
+      const detectedEmail = detectEmail(content);
+      const detectedName = detectName(content);
+
+      // If email or name detected, persist to Supabase via webhook
+      if (detectedEmail || detectedName) {
+        try {
+          const leadData: Record<string, string> = {};
+          if (detectedEmail) leadData.email = detectedEmail;
+          if (detectedName) leadData.nome = detectedName;
+          if (detectedKeyword) leadData.interesse = detectedKeyword;
+          leadData.origem = 'chatbot';
+          leadData.session_id = state.sessionId;
+
+          // Fire and forget — don't block the chat
+          fetch('/api/lead-webhook', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(leadData),
+          }).catch(() => { /* silent fail */ });
+        } catch {
+          // Never block chat on persistence failure
+        }
       }
 
       // Prepare messages for API (only user and assistant messages)
