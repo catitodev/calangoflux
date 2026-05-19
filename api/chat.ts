@@ -90,8 +90,8 @@ export default async function handler(req: Request): Promise<Response> {
     return errorResponse(405, 'Method not allowed', 'VALIDATION_ERROR');
   }
 
-  // Check API key
-  const apiKey = process.env.OPENAI_API_KEY;
+  // Check API key (supports GROQ_API_KEY or OPENAI_API_KEY for flexibility)
+  const apiKey = process.env.GROQ_API_KEY || process.env.OPENAI_API_KEY;
   if (!apiKey) {
     return errorResponse(500, 'AI service is currently unavailable.', 'SERVICE_UNAVAILABLE');
   }
@@ -133,14 +133,14 @@ export default async function handler(req: Request): Promise<Response> {
   const timeoutId = setTimeout(() => controller.abort(), 30000);
 
   try {
-    const openaiResponse = await fetch('https://api.openai.com/v1/chat/completions', {
+    const openaiResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: 'gpt-4o-mini',
+        model: 'llama-3.3-70b-versatile',
         messages: messagesWithSystem,
         max_tokens: 1000,
         stream: useStream,

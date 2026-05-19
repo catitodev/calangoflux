@@ -4,7 +4,6 @@ import ServicesSection from '../components/ServicesSection';
 import JourneySection from '../components/JourneySection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import FAQSection from '../components/FAQSection';
-import FooterSection from '../components/FooterSection';
 
 const Home = () => {
   return (
@@ -15,7 +14,6 @@ const Home = () => {
       <FeaturesSection />
       <TestimonialsSection />
       <FAQSection />
-      <FooterSection />
     </div>
   );
 };
