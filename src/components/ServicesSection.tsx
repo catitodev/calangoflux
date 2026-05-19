@@ -1,196 +1,234 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Badge } from './ui/badge';
 import { Button } from './ui/button';
-import { 
-  Bot, 
-  Zap, 
-  Palette, 
-  Globe, 
-  ArrowRight,
+import {
+  Bot,
+  Zap,
   Sparkles,
-  Code,
-  Users
+  Palette,
+  Globe,
+  ArrowRight,
 } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
+const services = [
+  {
+    id: 'agentes-ai',
+    title: 'Agentes AI',
+    subtitle: 'Inteligência que conversa',
+    description:
+      'Bots sob medida para Telegram, Discord, WhatsApp e web. Respondem, vendem e aprendem — 24/7.',
+    icon: Bot,
+    link: '/agentes-ai',
+    accent: 'var(--accent-primary)',
+  },
+  {
+    id: 'automacoes',
+    title: 'Automações',
+    subtitle: 'Fluxos que trabalham por você',
+    description:
+      'Workflows inteligentes conectando sistemas. n8n, Notion, APIs — tudo integrado e monitorado.',
+    icon: Zap,
+    link: '/automacoes',
+    accent: 'var(--accent-secondary)',
+  },
+  {
+    id: 'agentics',
+    title: 'Agentics',
+    subtitle: 'Decisões autônomas',
+    description:
+      'Sistemas agentic que tomam decisões, se adaptam e evoluem em tempo real.',
+    icon: Sparkles,
+    link: '/agentics',
+    accent: 'var(--accent-primary)',
+  },
+  {
+    id: 'webdesign',
+    title: 'Web Design',
+    subtitle: 'Presença digital que converte',
+    description:
+      'Sites modernos, responsivos e otimizados. Performance e estética em equilíbrio.',
+    icon: Palette,
+    link: '/webdesign',
+    accent: 'var(--accent-secondary)',
+  },
+  {
+    id: 'letramento-web3',
+    title: 'Letramento Web3',
+    subtitle: 'Educação descentralizada',
+    description:
+      'Blockchain, smart contracts, ReFi — educação gratuita para comunidades.',
+    icon: Globe,
+    link: '/letramento-web3',
+    accent: 'var(--accent-primary)',
+  },
+];
 
 export default function ServicesSection() {
-  const services = [
-    {
-      id: 'agentes-ai',
-      title: 'Agentes AI',
-      description: 'Agentes inteligentes personalizados para automatizar tarefas complexas e interagir naturalmente com seus clientes.',
-      icon: Bot,
-      color: 'from-blue-500 to-cyan-500',
-      features: ['Processamento de linguagem natural', 'Aprendizado contínuo', 'Integração com APIs'],
-      link: '/agentes-ai'
-    },
-    {
-      id: 'automacoes',
-      title: 'Automações',
-      description: 'Fluxos de trabalho inteligentes que conectam sistemas e executam tarefas repetitivas automaticamente.',
-      icon: Zap,
-      color: 'from-yellow-500 to-orange-500',
-      features: ['Workflows personalizados', 'Integração multi-plataforma', 'Monitoramento em tempo real'],
-      link: '/automacoes'
-    },
-    {
-      id: 'agentics',
-      title: 'Agentics',
-      description: 'Sistemas agentic avançados que tomam decisões autônomas e se adaptam ao ambiente em tempo real.',
-      icon: Sparkles,
-      color: 'from-purple-500 to-pink-500',
-      features: ['Tomada de decisão autônoma', 'Adaptação dinâmica', 'Aprendizado por reforço'],
-      link: '/agentics'
-    },
-    {
-      id: 'webdesign',
-      title: 'Web Design',
-      description: 'Criação de websites e aplicações web modernas, responsivas e otimizadas para conversão.',
-      icon: Palette,
-      color: 'from-green-500 to-teal-500',
-      features: ['Design responsivo', 'UX/UI otimizada', 'Performance avançada'],
-      link: '/webdesign'
-    },
-    {
-      id: 'letramento-web3',
-      title: 'Letramento Web3',
-      description: 'Educação e implementação de tecnologias Web3, blockchain e ecossistemas descentralizados.',
-      icon: Globe,
-      color: 'from-indigo-500 to-blue-500',
-      features: ['Educação blockchain', 'Smart contracts', 'DApps development'],
-      link: '/letramento-web3'
-    }
-  ];
+  const prefersReducedMotion = useReducedMotion();
+
+  // Scroll-driven reveal for the section header
+  const headerAnim = useScrollAnimation({
+    type: 'reveal',
+    offset: ['start 85%', 'start 50%'],
+  });
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section
+      id="services"
+      className="relative bg-[var(--bg-primary)]"
+      style={{ paddingTop: 'var(--section-gap-lg)', paddingBottom: 'var(--section-gap-xl)' }}
+    >
+      {/* Section header — off-center (8%+ offset from center) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          ref={headerAnim.ref as React.RefObject<HTMLDivElement>}
+          style={
+            prefersReducedMotion
+              ? {}
+              : { opacity: headerAnim.opacity, y: headerAnim.y }
+          }
+          className="mb-20 lg:ml-[8%]"
         >
-          <Badge className="mb-4 bg-primary-100 text-primary-800 border-primary-200">
+          <p className="text-xs font-mono tracking-[0.2em] uppercase text-[var(--accent-primary)] mb-3">
             Nossos Serviços
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
-            Soluções Completas para{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
-              Sua Transformação Digital
-            </span>
-          </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Oferecemos serviços especializados em IA, automação e desenvolvimento web 
-            para impulsionar seu negócio no futuro digital.
           </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[var(--text-primary)] max-w-2xl leading-tight">
+            Soluções que{' '}
+            <span className="bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] bg-clip-text text-transparent">
+              transformam
+            </span>{' '}
+            negócios
+          </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="group"
-            >
-              <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden bg-white/80 backdrop-blur-sm">
-                <CardHeader className="relative">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <service.icon className="w-8 h-8 text-white" />
-                  </div>
-                  
-                  <CardTitle className="text-xl font-bold text-secondary-900 group-hover:text-primary-600 transition-colors duration-300">
-                    {service.title}
-                  </CardTitle>
-                  
-                  <p className="text-gray-600 leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardHeader>
-
-                <CardContent className="pt-0">
-                  <div className="space-y-3 mb-6">
-                    {service.features.map((feature, featureIndex) => (
-                      <motion.div
-                        key={featureIndex}
-                        className="flex items-center text-sm text-gray-600"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: (index * 0.1) + (featureIndex * 0.05) }}
-                      >
-                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.color} mr-3`}></div>
-                        {feature}
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Button asChild className="w-full group/btn">
-                      <Link to={service.link}>
-                        <span className="flex items-center justify-center">
-                          Saiba Mais
-                          <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                        </span>
-                      </Link>
-                    </Button>
-                  </motion.div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+        {/* Editorial grid — unequal columns, varying heights, overlapping elements */}
+        {/* Row 1: 2fr / 1fr layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 mb-6">
+          <ServiceCard service={services[0]} size="large" index={0} />
+          <ServiceCard service={services[1]} size="small" index={1} />
         </div>
 
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-16"
-        >
-          <div className="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 md:p-12 text-white">
-            <div className="flex items-center justify-center mb-6">
-              <Users className="w-8 h-8 mr-3" />
-              <h3 className="text-2xl md:text-3xl font-bold">
-                Pronto para Começar?
-              </h3>
-            </div>
-            
-            <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-              Nossos especialistas estão prontos para criar a solução perfeita 
-              para suas necessidades específicas.
+        {/* Row 2: 1fr / 3fr / 2fr layout — with overlapping element */}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr_2fr] gap-6 mb-6 relative">
+          {/* Off-center decorative element — overlaps by 32px */}
+          <motion.div
+            className="absolute -top-8 left-[12%] w-24 h-24 rounded-full bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/10 z-0 hidden lg:block"
+            animate={prefersReducedMotion ? {} : { scale: [1, 1.1, 1] }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          />
+
+          {/* Spacer / pull quote on desktop */}
+          <div className="hidden md:flex items-center justify-center">
+            <p className="text-lg font-display font-light text-[var(--text-muted)] italic leading-relaxed text-center transform -rotate-2">
+              "Simplicidade<br />inteligente<br />em movimento"
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button 
-                  size="lg" 
-                  className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold"
-                  asChild
-                >
-                  <a href="#contato">
-                    💬 Falar com Especialista
-                  </a>
-                </Button>
-              </motion.div>
-            </div>
           </div>
-        </motion.div>
+
+          <ServiceCard service={services[2]} size="medium" index={2} />
+          <ServiceCard service={services[3]} size="medium" index={3} />
+        </div>
+
+        {/* Row 3: 3fr / 2fr layout — different height from row 1 (30%+ variation) */}
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 relative">
+          {/* Overlapping element — negative margin creates 24px+ overlap */}
+          <motion.div
+            className="absolute -top-6 right-[20%] w-16 h-16 rounded-xl bg-[var(--accent-secondary)]/8 border border-[var(--accent-secondary)]/15 z-0 hidden lg:block rotate-12"
+            animate={prefersReducedMotion ? {} : { rotate: [12, 18, 12] }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          />
+
+          <ServiceCard service={services[4]} size="wide" index={4} />
+
+          {/* CTA card — off-center positioning (8%+ offset) */}
+          <motion.div
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-gradient-to-br from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/5 border border-[var(--accent-primary)]/20 rounded-2xl p-8 flex flex-col justify-center lg:ml-[10%]"
+          >
+            <p className="text-2xl md:text-3xl font-display font-bold text-[var(--text-primary)] mb-4">
+              Pronto para começar?
+            </p>
+            <p className="text-[var(--text-secondary)] mb-6">
+              Nossos especialistas criam a solução perfeita para suas necessidades.
+            </p>
+            <Button
+              asChild
+              className="w-fit bg-[var(--accent-primary)] text-[var(--bg-primary)] hover:bg-[var(--accent-primary)]/90 shadow-glow-sm hover:shadow-glow-md transition-shadow"
+            >
+              <a href="https://wa.me/5522988324416" target="_blank" rel="noopener noreferrer">
+                💬 Falar com Especialista
+              </a>
+            </Button>
+          </motion.div>
+        </div>
       </div>
     </section>
+  );
+}
+
+interface ServiceCardProps {
+  service: (typeof services)[number];
+  size: 'large' | 'medium' | 'small' | 'wide';
+  index: number;
+}
+
+function ServiceCard({ service, size, index }: ServiceCardProps) {
+  const prefersReducedMotion = useReducedMotion();
+  const Icon = service.icon;
+
+  // Height varies by size — creating 30%+ variation between adjacent sections
+  const heightClass =
+    size === 'large'
+      ? 'min-h-[320px]'
+      : size === 'wide'
+        ? 'min-h-[240px]'
+        : size === 'medium'
+          ? 'min-h-[280px]'
+          : 'min-h-[320px]';
+
+  return (
+    <motion.div
+      initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.6, delay: index * 0.08 }}
+      className="relative z-10"
+    >
+      <Link
+        to={service.link}
+        className={`group block ${heightClass} bg-[var(--bg-surface)]/60 backdrop-blur-sm border border-[var(--bg-elevated)] rounded-2xl p-8 hover:border-[var(--accent-primary)]/30 transition-all duration-300 hover:shadow-glow-sm`}
+      >
+        <div className="flex flex-col h-full justify-between">
+          <div>
+            <div
+              className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+              style={{ backgroundColor: `color-mix(in srgb, ${service.accent} 15%, transparent)` }}
+            >
+              <Icon className="w-6 h-6" style={{ color: service.accent }} />
+            </div>
+
+            <p className="text-xs font-mono tracking-wider uppercase mb-2" style={{ color: service.accent }}>
+              {service.subtitle}
+            </p>
+
+            <h3 className="text-xl md:text-2xl font-display font-bold text-[var(--text-primary)] mb-3 group-hover:text-[var(--accent-primary)] transition-colors duration-300">
+              {service.title}
+            </h3>
+
+            <p className="text-[var(--text-secondary)] leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+
+          <div className="flex items-center text-sm text-[var(--accent-primary)] mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span className="font-medium">Saiba mais</span>
+            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+          </div>
+        </div>
+      </Link>
+    </motion.div>
   );
 }

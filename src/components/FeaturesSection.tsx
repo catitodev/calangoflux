@@ -15,7 +15,7 @@ const FeaturesSection = () => {
       titleLines: ["Input", "Trigger"],
       subtitle: "Entrada de Dados",
       description: "Recebe inputs de múltiplas fontes: WhatsApp, Telegram, APIs, webhooks. Sistema de parsing inteligente identifica contexto e intenção do usuário.",
-      color: "#10b981", // emerald-500
+      color: "#10b981",
       angle: { start: 0, end: 45 }
     },
     {
@@ -24,7 +24,7 @@ const FeaturesSection = () => {
       titleLines: ["IA", "Processing"],
       subtitle: "Processamento Inteligente",
       description: "Engine de IA analisa contexto, classifica intenções e determina fluxo de automação apropriado. Integração com múltiplos LLMs para máxima precisão.",
-      color: "#3b82f6", // blue-500
+      color: "#3b82f6",
       angle: { start: 45, end: 90 }
     },
     {
@@ -33,7 +33,7 @@ const FeaturesSection = () => {
       titleLines: ["Decision", "Engine"],
       subtitle: "Motor de Decisão",
       description: "Algoritmos de decisão baseados em regras e ML. Roteamento inteligente para diferentes workflows baseado no contexto e histórico.",
-      color: "#8b5cf6", // violet-500
+      color: "#8b5cf6",
       angle: { start: 90, end: 135 }
     },
     {
@@ -42,7 +42,7 @@ const FeaturesSection = () => {
       titleLines: ["Knowledge", "Base"],
       subtitle: "Base de Conhecimento",
       description: "Integração com Tana para armazenamento dinâmico. Contexto persistente e aprendizado contínuo dos padrões de uso e preferências.",
-      color: "#06b6d4", // cyan-500
+      color: "#06b6d4",
       angle: { start: 135, end: 180 }
     },
     {
@@ -51,7 +51,7 @@ const FeaturesSection = () => {
       titleLines: ["Workflow", "Engine"],
       subtitle: "Motor de Automação",
       description: "Execução de workflows complexos e inteligentes. Orquestração de múltiplos agentes e sistemas externos com monitoramento em tempo real.",
-      color: "#f59e0b", // amber-500
+      color: "#f59e0b",
       angle: { start: 180, end: 225 }
     },
     {
@@ -60,7 +60,7 @@ const FeaturesSection = () => {
       titleLines: ["API", "Gateway"],
       subtitle: "Gateway de Integração",
       description: "Hub central para integrações externas. Conecta com CRMs, ERPs, plataformas de comunicação e serviços de terceiros de forma segura.",
-      color: "#ef4444", // red-500
+      color: "#ef4444",
       angle: { start: 225, end: 270 }
     },
     {
@@ -69,7 +69,7 @@ const FeaturesSection = () => {
       titleLines: ["Analytics", "Engine"],
       subtitle: "Motor de Análise",
       description: "Coleta métricas em tempo real, gera insights e alimenta loops de feedback para otimização contínua dos workflows e performance.",
-      color: "#ec4899", // pink-500
+      color: "#ec4899",
       angle: { start: 270, end: 315 }
     },
     {
@@ -78,7 +78,7 @@ const FeaturesSection = () => {
       titleLines: ["Response", "Delivery"],
       subtitle: "Entrega de Resposta",
       description: "Sistema de entrega multi-canal com formatação inteligente. Adapta resposta ao canal e contexto do usuário para máxima efetividade.",
-      color: "#22c55e", // green-500
+      color: "#22c55e",
       angle: { start: 315, end: 360 }
     }
   ];
@@ -103,31 +103,25 @@ const FeaturesSection = () => {
     ].join(" ");
   };
 
-  // Função para calcular posição do texto no segmento
   const getTextPosition = (step: typeof automationSteps[0]) => {
     const middleAngle = (step.angle.start + step.angle.end) / 2;
-    const textRadius = 115; // Reduzido para aproximar mais do centro
+    const textRadius = 115;
     return polarToCartesian(200, 200, textRadius, middleAngle);
   };
 
-  // Função para calcular posição específica por segmento (ajuste fino para duas linhas)
   const getAdjustedTextPosition = (step: typeof automationSteps[0]) => {
     const basePos = getTextPosition(step);
-    
-    // Ajustes específicos para cada segmento baseado no ID (otimizado para duas linhas)
     const adjustments: { [key: number]: { x: number; y: number } } = {
-      1: { x: -5, y: 0 },   // Input Trigger
-      2: { x: -8, y: 0 },   // IA Processing 
-      3: { x: -5, y: 0 },   // Decision Engine
-      4: { x: -5, y: 0 },   // Knowledge Base
-      5: { x: -5, y: 0 },   // Workflow Engine
-      6: { x: -5, y: 0 },   // API Gateway
-      7: { x: -5, y: 0 },   // Analytics Engine
-      8: { x: -5, y: 0 }    // Response Delivery
+      1: { x: -5, y: 0 },
+      2: { x: -8, y: 0 },
+      3: { x: -5, y: 0 },
+      4: { x: -5, y: 0 },
+      5: { x: -5, y: 0 },
+      6: { x: -5, y: 0 },
+      7: { x: -5, y: 0 },
+      8: { x: -5, y: 0 }
     };
-    
     const adjustment = adjustments[step.id] || { x: 0, y: 0 };
-    
     return {
       x: basePos.x + adjustment.x,
       y: basePos.y + adjustment.y
@@ -135,7 +129,7 @@ const FeaturesSection = () => {
   };
 
   return (
-    <section id="features" className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+    <section id="features" className="py-16 md:py-20 bg-[var(--bg-primary)] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -144,57 +138,53 @@ const FeaturesSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="outline" className="mb-4 border-[var(--bg-elevated)] text-[var(--text-secondary)]">
             <Cpu className="w-3 h-3 mr-1" />
             Arquitetura de Automação
           </Badge>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 mb-4 md:mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4 md:mb-6">
             Ecossistema{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)]">
               Agentic
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-3xl mx-auto mb-8">
             Nossa arquitetura circular integrada. Clique em cada segmento colorido para explorar 
             os componentes do nosso ecossistema de automação inteligente.
           </p>
         </motion.div>
 
-        {/* Circular Diagram - Simplificado */}
+        {/* Circular Diagram */}
         <div className="relative max-w-3xl lg:max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative bg-white rounded-full shadow-2xl p-4 md:p-6 lg:p-8"
+            className="relative bg-[var(--bg-surface)] rounded-full shadow-2xl p-4 md:p-6 lg:p-8 border border-[var(--bg-elevated)]"
           >
-            {/* SVG Circle - Limpo e Elegante */}
             <div className="relative w-full max-w-lg lg:max-w-2xl mx-auto aspect-square">
               <svg 
                 viewBox="0 0 400 400" 
                 className="w-full h-full transform -rotate-90"
                 style={{ minHeight: '300px' }}
               >
-                {/* Background Circle */}
                 <circle
                   cx="200"
                   cy="200"
                   r="160"
                   fill="none"
-                  stroke="#f3f4f6"
+                  stroke="var(--bg-elevated)"
                   strokeWidth="2"
                   opacity="0.3"
                 />
                 
-                {/* Segmentos Interativos Limpos */}
                 {automationSteps.map((step, index) => (
                   <motion.g key={step.id}>
-                    {/* Segmento Principal */}
                     <motion.path
                       d={describeArc(200, 200, 160, step.angle.start, step.angle.end)}
                       fill={step.color}
-                      stroke="#ffffff"
+                      stroke="var(--bg-primary)"
                       strokeWidth="3"
                       className="cursor-pointer transition-all duration-300"
                       initial={{ opacity: 0, scale: 0 }}
@@ -212,11 +202,10 @@ const FeaturesSection = () => {
                       onMouseLeave={() => setHoveredSegment(null)}
                       onClick={() => setActiveSegment(activeSegment === step.id ? null : step.id)}
                       style={{
-                        filter: hoveredSegment === step.id ? 'drop-shadow(0 8px 16px rgba(0,0,0,0.2))' : 'none'
+                        filter: hoveredSegment === step.id ? 'drop-shadow(0 8px 16px rgba(0,0,0,0.4))' : 'none'
                       }}
                     />
                     
-                    {/* Efeito de Hover - Anel Externo */}
                     <motion.path
                       d={describeArc(200, 200, 170, step.angle.start, step.angle.end)}
                       fill="none"
@@ -233,13 +222,12 @@ const FeaturesSection = () => {
                   </motion.g>
                 ))}
                 
-                {/* Inner Circle for Logo */}
                 <circle
                   cx="200"
                   cy="200"
                   r="70"
-                  fill="white"
-                  stroke="#e5e7eb"
+                  fill="var(--bg-primary)"
+                  stroke="var(--bg-elevated)"
                   strokeWidth="2"
                   className="drop-shadow-lg"
                 />
@@ -261,7 +249,7 @@ const FeaturesSection = () => {
                 </div>
               </motion.div>
               
-              {/* Títulos Incorporados nos Segmentos */}
+              {/* Títulos nos Segmentos */}
               {automationSteps.map((step, index) => {
                 const textPos = getAdjustedTextPosition(step);
                 
@@ -278,19 +266,19 @@ const FeaturesSection = () => {
                       transform: 'translate(-50%, -50%)'
                     }}
                   >
-                                          <motion.div
-                        animate={{
-                          scale: hoveredSegment === step.id ? 1.05 : 1,
-                          y: hoveredSegment === step.id ? -2 : 0
-                        }}
-                        transition={{ duration: 0.2 }}
-                        className="text-center"
-                      >
-                        <div className="text-sm md:text-base font-bold text-white leading-tight drop-shadow-lg">
-                          <div>{step.titleLines[0]}</div>
-                          <div>{step.titleLines[1]}</div>
-                        </div>
-                      </motion.div>
+                    <motion.div
+                      animate={{
+                        scale: hoveredSegment === step.id ? 1.05 : 1,
+                        y: hoveredSegment === step.id ? -2 : 0
+                      }}
+                      transition={{ duration: 0.2 }}
+                      className="text-center"
+                    >
+                      <div className="text-sm md:text-base font-bold text-white leading-tight drop-shadow-lg">
+                        <div>{step.titleLines[0]}</div>
+                        <div>{step.titleLines[1]}</div>
+                      </div>
+                    </motion.div>
                   </motion.div>
                 );
               })}
@@ -314,9 +302,8 @@ const FeaturesSection = () => {
                 exit={{ opacity: 0, scale: 0.8, y: 20 }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white rounded-2xl p-6 md:p-8 max-w-lg w-full mx-4 shadow-2xl border border-gray-100 relative overflow-hidden"
+                className="bg-[var(--bg-surface)] rounded-2xl p-6 md:p-8 max-w-lg w-full mx-4 shadow-2xl border border-[var(--bg-elevated)] relative overflow-hidden"
               >
-                {/* Background Decoration */}
                 <div 
                   className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-20 -mr-16 -mt-16" 
                   style={{ 
@@ -340,16 +327,16 @@ const FeaturesSection = () => {
                           </span>
                         </div>
                         <div>
-                          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900">
+                          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[var(--text-primary)]">
                             {step.title}
                           </h3>
-                          <p className="text-sm md:text-base text-gray-600 font-medium">
+                          <p className="text-sm md:text-base text-[var(--text-muted)] font-medium">
                             {step.subtitle}
                           </p>
                         </div>
                       </div>
                       
-                      <p className="text-gray-700 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
+                      <p className="text-[var(--text-secondary)] leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
                         {step.description}
                       </p>
                       
@@ -378,11 +365,11 @@ const FeaturesSection = () => {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="mt-12 md:mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-6 md:p-8 text-white">
-            <h3 className="text-xl md:text-2xl font-bold mb-4">
+          <div className="bg-gradient-to-r from-[var(--accent-primary)]/20 to-[var(--accent-secondary)]/20 border border-[var(--accent-primary)]/30 rounded-2xl p-6 md:p-8">
+            <h3 className="text-xl md:text-2xl font-bold mb-4 text-[var(--text-primary)]">
               Arquitetura Circular Integrada
             </h3>
-            <p className="text-base md:text-lg mb-6 opacity-90">
+            <p className="text-base md:text-lg text-[var(--text-secondary)]">
               Cada segmento colorido é um componente interativo. Clique para explorar nossa arquitetura agentic.
             </p>
           </div>

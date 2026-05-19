@@ -4,63 +4,77 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#e6f7ed',
-          100: '#c2ebda',
-          200: '#9edec8',
-          300: '#7ad1b5',
-          400: '#56c4a3',
-          500: '#32b890', // Main primary color
-          600: '#29a37d',
-          700: '#218e6a',
-          800: '#187958',
-          900: '#0f6445',
-        },
-        secondary: {
-          50: '#e6f0f9',
-          100: '#cce0f4',
-          200: '#99c2e9',
-          300: '#66a3de',
-          400: '#3385d3',
-          500: '#0066c8', // Main secondary color
-          600: '#0052a0',
-          700: '#003d78',
-          800: '#002950',
-          900: '#001428',
+        bg: {
+          primary: 'var(--bg-primary)',
+          surface: 'var(--bg-surface)',
+          elevated: 'var(--bg-elevated)',
         },
         accent: {
-          50: '#fff3e0',
-          100: '#ffe0b2',
-          200: '#ffcc80',
-          300: '#ffb74d',
-          400: '#ffa726',
-          500: '#ff9800', // Main accent color
-          600: '#fb8c00',
-          700: '#f57c00',
-          800: '#ef6c00',
-          900: '#e65100',
+          primary: 'var(--accent-primary)',
+          secondary: 'var(--accent-secondary)',
+          'primary-hover': '#00e67a',
+          'primary-focus': '#00cc6d',
+          'primary-active': '#00b360',
+          'secondary-hover': '#4de0f5',
+          'secondary-focus': '#3ad6eb',
+          'secondary-active': '#27cce0',
+        },
+        text: {
+          primary: 'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
+          muted: 'var(--text-muted)',
+        },
+        // Keep legacy colors for gradients that still reference them
+        primary: {
+          50: '#e6fff3',
+          100: '#b3ffe0',
+          200: '#80ffcc',
+          300: '#4dffb9',
+          400: '#1affa5',
+          500: '#00FF87',
+          600: '#00e67a',
+          700: '#00cc6d',
+          800: '#00b360',
+          900: '#009953',
+        },
+        secondary: {
+          50: '#e6fbff',
+          100: '#b3f4ff',
+          200: '#80edff',
+          300: '#60EFFF',
+          400: '#4de0f5',
+          500: '#3ad6eb',
+          600: '#27cce0',
+          700: '#14c2d6',
+          800: '#01b8cc',
+          900: '#009eb3',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        heading: ['Montserrat', 'sans-serif'],
-      },
-      spacing: {
-        '72': '18rem',
-        '84': '21rem',
-        '96': '24rem',
-      },
-      borderRadius: {
-        'xl': '1rem',
-        '2xl': '1.5rem',
+        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+        // Keep legacy aliases
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Space Grotesk', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
-        'medium': '0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.04)',
+        'glow-sm': 'var(--glow-sm)',
+        'glow-md': 'var(--glow-md)',
+        'glow-lg': 'var(--glow-lg)',
+        'glow-cyan': 'var(--glow-cyan)',
+        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
+        'medium': '0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3)',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+        'gradient-accent': 'linear-gradient(135deg, var(--accent-primary), var(--accent-secondary))',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-in-out',
+        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+        'float': 'float 6s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -70,6 +84,14 @@ export default {
         slideUp: {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        pulseGlow: {
+          '0%, 100%': { boxShadow: '0 0 10px rgba(0, 255, 135, 0.3)' },
+          '50%': { boxShadow: '0 0 30px rgba(0, 255, 135, 0.6)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
       },
     },

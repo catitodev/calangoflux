@@ -47,7 +47,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="section bg-white">
+    <section className="section bg-[var(--bg-primary)]">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -56,17 +56,17 @@ const FAQSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="outline" className="mb-4 border-[var(--bg-elevated)] text-[var(--text-secondary)]">
             <HelpCircle className="w-3 h-3 mr-1" />
             Perguntas Frequentes
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-6">
             Dúvidas{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)]">
               Esclarecidas
             </span>
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+          <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto">
             Encontre respostas para as principais dúvidas sobre nossa plataforma SaaS Agentic.
           </p>
         </motion.div>
@@ -81,17 +81,17 @@ const FAQSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="border-0 shadow-soft hover:shadow-md transition-shadow duration-300">
+                <Card className="border border-[var(--bg-elevated)] shadow-soft hover:shadow-md transition-shadow duration-300 bg-[var(--bg-surface)]">
                   <CardHeader 
                     className="cursor-pointer"
                     onClick={() => toggleFAQ(index)}
                   >
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-lg font-semibold text-secondary-900 pr-4">
+                      <CardTitle className="text-lg font-semibold text-[var(--text-primary)] pr-4">
                         {faq.question}
                       </CardTitle>
                       <ChevronDown 
-                        className={`w-5 h-5 text-gray-600 transition-transform duration-300 ${
+                        className={`w-5 h-5 text-[var(--text-muted)] transition-transform duration-300 ${
                           openIndex === index ? 'rotate-180' : ''
                         }`}
                       />
@@ -108,7 +108,7 @@ const FAQSection = () => {
                     className="overflow-hidden"
                   >
                     <CardContent className="pt-0">
-                      <p className="text-gray-700 leading-relaxed">
+                      <p className="text-[var(--text-secondary)] leading-relaxed">
                         {faq.answer}
                       </p>
                     </CardContent>
@@ -126,18 +126,18 @@ const FAQSection = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-gray-50 to-white border rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-secondary-900 mb-4">
+          <div className="bg-[var(--bg-surface)] border border-[var(--bg-elevated)] rounded-2xl p-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
               Não encontrou sua resposta?
             </h3>
-            <p className="text-lg text-gray-700 mb-6">
+            <p className="text-lg text-[var(--text-secondary)] mb-6">
               Nossa equipe está pronta para esclarecer qualquer dúvida sobre a plataforma.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200">
+              <button className="btn bg-[var(--accent-primary)] hover:bg-[var(--accent-primary)]/90 text-[var(--bg-primary)] px-8 py-3 rounded-lg font-medium transition-all duration-200">
                 Falar com Especialista
               </button>
-              <button className="btn border-2 border-primary-500 text-primary-500 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-all duration-200">
+              <button className="btn border-2 border-[var(--accent-primary)] text-[var(--accent-primary)] hover:bg-[var(--accent-primary)]/10 px-8 py-3 rounded-lg font-medium transition-all duration-200">
                 Agendar Demo
               </button>
             </div>

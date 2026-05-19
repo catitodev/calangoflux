@@ -13,7 +13,7 @@ const PricingSection = () => {
       description: "Presença digital completa com automação básica",
       icon: <Rocket className="w-6 h-6" />,
       badge: "Regenerativo",
-      badgeColor: "bg-primary-500",
+      badgeColor: "bg-[var(--accent-primary)]",
       features: [
         "1 landing page simples",
         "CTAs otimizados",
@@ -34,7 +34,7 @@ const PricingSection = () => {
       description: "Presença digital + agente personalizado exclusivo",
       icon: <TestTube className="w-6 h-6" />,
       badge: "Co-criador",
-      badgeColor: "bg-secondary-500",
+      badgeColor: "bg-[var(--accent-secondary)]",
       features: [
         "Tudo do Pioneer Access",
         "1 agente personalizado exclusivo",
@@ -76,7 +76,7 @@ const PricingSection = () => {
       description: "Para organizações que querem transformação regenerativa em escala",
       icon: <Building2 className="w-6 h-6" />,
       badge: "Transformacional",
-      badgeColor: "bg-gray-600",
+      badgeColor: "bg-[var(--bg-elevated)]",
       features: [
         "Desenvolvimento dedicado",
         "Contrato personalizado",
@@ -93,7 +93,7 @@ const PricingSection = () => {
   ];
 
   return (
-    <section id="pricing" className="section bg-white">
+    <section id="pricing" className="section bg-[var(--bg-primary)]">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -106,13 +106,13 @@ const PricingSection = () => {
             <DollarSign className="w-3 h-3 mr-1" />
             Economia Regenerativa
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-6">
             Planos{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
               Regenerativos
             </span>
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+          <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto">
             Escolha o plano que melhor se alinha com sua jornada regenerativa. 
             <strong> Contratos mínimos garantem ciclos completos de transformação.</strong>
           </p>
@@ -143,18 +143,18 @@ const PricingSection = () => {
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <div className={`p-3 rounded-full ${plan.popular ? 'bg-primary-100 text-primary-600' : 'bg-gray-100 text-gray-600'}`}>
+                    <div className={`p-3 rounded-full ${plan.popular ? 'bg-[var(--accent-primary)]/20 text-[var(--accent-primary)]' : 'bg-[var(--bg-elevated)] text-[var(--text-muted)]'}`}>
                       {plan.icon}
                     </div>
                   </motion.div>
-                  <CardTitle className="text-2xl font-bold text-secondary-900">
+                  <CardTitle className="text-2xl font-bold text-[var(--text-primary)]">
                     {plan.name}
                   </CardTitle>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-secondary-900">{plan.price}</span>
-                    <span className="text-gray-600 text-lg">{plan.period}</span>
+                    <span className="text-4xl font-bold text-[var(--text-primary)]">{plan.price}</span>
+                    <span className="text-[var(--text-muted)] text-lg">{plan.period}</span>
                   </div>
-                  <CardDescription className="text-gray-600 mt-2">
+                  <CardDescription className="text-[var(--text-muted)] mt-2">
                     {plan.description}
                   </CardDescription>
                 </CardHeader>
@@ -163,7 +163,7 @@ const PricingSection = () => {
                   <Button 
                     asChild={plan.available}
                     variant={plan.buttonVariant}
-                    className={`w-full mb-6 ${plan.popular ? 'bg-primary-500 hover:bg-primary-600' : ''} ${!plan.available ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`w-full mb-6 ${plan.popular ? 'bg-[var(--accent-primary)] hover:bg-[var(--accent-primary)]/90 text-[var(--bg-primary)]' : ''} ${!plan.available ? 'opacity-50 cursor-not-allowed' : ''}`}
                     disabled={!plan.available}
                   >
                     <a href={plan.available ? "https://www.aideaflux.xyz" : "#"} target={plan.available ? "_blank" : "_self"} rel={plan.available ? "noopener noreferrer" : ""}>
@@ -182,7 +182,7 @@ const PricingSection = () => {
                         transition={{ duration: 0.3, delay: featureIndex * 0.1 }}
                       >
                         <Check className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
+                        <span className="text-[var(--text-secondary)]">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -204,13 +204,13 @@ const PricingSection = () => {
             <Star className="w-3 h-3 mr-1" />
             Modelo Inovador
           </Badge>
-          <h3 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
+          <h3 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-6">
             Subsídio{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
               Cruzado
             </span>
           </h3>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-12">
+          <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto mb-12">
             Nosso modelo nutre resṕonsabilidade social: <strong>a cada 10 clientes pagantes, 1 serviço é fornecido por subsídio cruzado</strong>. 
             Assim, projetos sociais têm acesso à tecnologia financiados por quem pode pagar.
           </p>
@@ -221,22 +221,22 @@ const PricingSection = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Rocket className="w-8 h-8 text-primary-600" />
+              <div className="bg-[var(--accent-primary)]/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Rocket className="w-8 h-8 text-[var(--accent-primary)]" />
               </div>
-              <h4 className="font-semibold text-secondary-900 mb-2">Acesso Justo</h4>
-              <p className="text-gray-600 text-sm">Tecnologia de ponta para quem precisa, financiada por quem pode</p>
+              <h4 className="font-semibold text-[var(--text-primary)] mb-2">Acesso Justo</h4>
+              <p className="text-[var(--text-muted)] text-sm">Tecnologia de ponta para quem precisa, financiada por quem pode</p>
             </motion.div>
             <motion.div 
               className="text-center"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="bg-secondary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-secondary-600" />
+              <div className="bg-[var(--accent-secondary)]/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="w-8 h-8 text-[var(--accent-secondary)]" />
               </div>
-              <h4 className="font-semibold text-secondary-900 mb-2">Impacto Multiplicado</h4>
-              <p className="text-gray-600 text-sm">Cada pagamento gera acesso para projetos sociais</p>
+              <h4 className="font-semibold text-[var(--text-primary)] mb-2">Impacto Multiplicado</h4>
+              <p className="text-[var(--text-muted)] text-sm">Cada pagamento gera acesso para projetos sociais</p>
             </motion.div>
             <motion.div 
               className="text-center"
@@ -246,16 +246,16 @@ const PricingSection = () => {
               <div className="bg-accent-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Crown className="w-8 h-8 text-accent-600" />
               </div>
-              <h4 className="font-semibold text-secondary-900 mb-2">Sustentabilidade</h4>
-              <p className="text-gray-600 text-sm">Modelo que permite crescimento e impacto duradouro</p>
+              <h4 className="font-semibold text-[var(--text-primary)] mb-2">Sustentabilidade</h4>
+              <p className="text-[var(--text-muted)] text-sm">Modelo que permite crescimento e impacto duradouro</p>
             </motion.div>
           </div>
 
-          <div className="bg-gradient-to-r from-primary-100 to-secondary-100 rounded-xl p-6 max-w-2xl mx-auto">
-            <h4 className="text-lg font-semibold text-secondary-900 mb-2">
+          <div className="bg-gradient-to-r from-[var(--bg-surface)] to-[var(--bg-surface)] rounded-xl p-6 max-w-2xl mx-auto">
+            <h4 className="text-lg font-semibold text-[var(--text-primary)] mb-2">
               🎯 Meta em 6 meses: 100 Clientes Pagantes = 10 Projetos Subsidiados
             </h4>
-            <p className="text-gray-700 text-sm">
+            <p className="text-[var(--text-secondary)] text-sm">
               Nosso modelo 10:1 permite crescimento sustentável enquanto financiamos projetos de impacto social.
               Assim que a meta for alcançada, nosso modelo será 8:2.
             </p>
@@ -269,21 +269,21 @@ const PricingSection = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-gray-50 to-white border rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-secondary-900 mb-4">
+          <div className="bg-gradient-to-r from-[var(--bg-surface)] to-[var(--bg-primary)] border rounded-2xl p-8">
+            <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
               Precisa de Subsídio?
             </h3>
-            <p className="text-lg text-gray-700 mb-6">
+            <p className="text-lg text-[var(--text-secondary)] mb-6">
               Projetos com <strong>impacto social positivo comprovado</strong> podem solicitar subsídio. 
               Avaliamos cada caso individualmente considerando propósito, alcance e sustentabilidade.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild variant="default" className="px-8 py-3 bg-primary-500 hover:bg-primary-600">
+              <Button asChild variant="default" className="px-8 py-3 bg-[var(--accent-primary)] hover:bg-[var(--accent-primary)]/90 text-[var(--bg-primary)]">
                 <a href="$" target="_blank" rel="noopener noreferrer">
                   Solicitar Subsídio
                 </a>
               </Button>
-              <Button asChild variant="outline" className="px-8 py-3 border-primary-500 text-primary-500 hover:bg-primary-50">
+              <Button asChild variant="outline" className="px-8 py-3 border-[var(--accent-primary)] text-[var(--accent-primary)] hover:bg-[var(--accent-primary)]/10">
                 <a href="#contato">
                   Critérios de Elegibilidade
                 </a>
@@ -305,22 +305,22 @@ const PricingSection = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Rocket className="w-8 h-8 text-primary-600" />
+              <div className="bg-[var(--accent-primary)]/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Rocket className="w-8 h-8 text-[var(--accent-primary)]" />
               </div>
-              <h4 className="font-semibold text-secondary-900 mb-2">Ciclos Completos</h4>
-              <p className="text-gray-600 text-sm">Contratos mínimos garantem tempo suficiente para transformação real</p>
+              <h4 className="font-semibold text-[var(--text-primary)] mb-2">Ciclos Completos</h4>
+              <p className="text-[var(--text-muted)] text-sm">Contratos mínimos garantem tempo suficiente para transformação real</p>
             </motion.div>
             <motion.div 
               className="text-center"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="bg-secondary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-secondary-600" />
+              <div className="bg-[var(--accent-secondary)]/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="w-8 h-8 text-[var(--accent-secondary)]" />
               </div>
-              <h4 className="font-semibold text-secondary-900 mb-2">Foco Regenerativo</h4>
-              <p className="text-gray-600 text-sm">Cada plano é desenhado para gerar impacto positivo duradouro</p>
+              <h4 className="font-semibold text-[var(--text-primary)] mb-2">Foco Regenerativo</h4>
+              <p className="text-[var(--text-muted)] text-sm">Cada plano é desenhado para gerar impacto positivo duradouro</p>
             </motion.div>
             <motion.div 
               className="text-center"
@@ -330,8 +330,8 @@ const PricingSection = () => {
               <div className="bg-accent-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Crown className="w-8 h-8 text-accent-600" />
               </div>
-              <h4 className="font-semibold text-secondary-900 mb-2">Co-criação</h4>
-              <p className="text-gray-600 text-sm">Construímos juntos soluções que regeneram sistemas</p>
+              <h4 className="font-semibold text-[var(--text-primary)] mb-2">Co-criação</h4>
+              <p className="text-[var(--text-muted)] text-sm">Construímos juntos soluções que regeneram sistemas</p>
             </motion.div>
           </div>
         </motion.div>
@@ -343,11 +343,11 @@ const PricingSection = () => {
           transition={{ duration: 0.6, delay: 0.9 }}
           className="mt-12 text-center"
         >
-          <div className="bg-gradient-to-r from-primary-100 to-secondary-100 rounded-xl p-6 max-w-2xl mx-auto">
-            <h3 className="text-lg font-semibold text-secondary-900 mb-2">
+          <div className="bg-gradient-to-r from-[var(--bg-surface)] to-[var(--bg-surface)] rounded-xl p-6 max-w-2xl mx-auto">
+            <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">
               � Economia Regenerativa em Ação
             </h3>
-            <p className="text-gray-700 text-sm">
+            <p className="text-[var(--text-secondary)] text-sm">
               Nossos planos são desenhados para criar valor compartilhado, regenerar sistemas e promover transformação duradoura.
             </p>
           </div>

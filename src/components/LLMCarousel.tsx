@@ -103,13 +103,13 @@ const LLMCarousel = () => {
             <Brain className="w-3 h-3 mr-1" />
             LLMs Disponíveis
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4">
             Tecnologias{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)]">
               Avançadas
             </span>
           </h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
             Utilizamos as LLMs mais inovadoras do mercado para criar agentes verdadeiramente inteligentes
           </p>
         </motion.div>
@@ -137,14 +137,14 @@ const LLMCarousel = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="bg-white rounded-xl p-6 shadow-soft border hover:shadow-md transition-shadow duration-300 min-w-[200px]">
+                <div className="bg-[var(--bg-surface)] rounded-xl p-6 shadow-soft border border-[var(--bg-elevated)] hover:shadow-md transition-shadow duration-300 min-w-[200px]">
                   <div className="flex items-center space-x-4">
                     <div className={`w-12 h-12 ${llm.color} rounded-lg flex items-center justify-center text-white text-2xl`}>
                       {llm.icon}
                     </div>
                     <div>
-                      <h3 className="font-bold text-secondary-900">{llm.name}</h3>
-                      <p className="text-sm text-gray-600">{llm.company}</p>
+                      <h3 className="font-bold text-[var(--text-primary)]">{llm.name}</h3>
+                      <p className="text-sm text-[var(--text-muted)]">{llm.company}</p>
                     </div>
                   </div>
                 </div>
@@ -161,11 +161,11 @@ const LLMCarousel = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-12 text-center"
         >
-          <div className="bg-gradient-to-r from-primary-100 to-secondary-100 rounded-xl p-6 max-w-2xl mx-auto">
-            <h3 className="font-semibold text-secondary-900 mb-2">
+          <div className="bg-[var(--bg-surface)] border border-[var(--bg-elevated)] rounded-xl p-6 max-w-2xl mx-auto">
+            <h3 className="font-semibold text-[var(--text-primary)] mb-2">
               🎯 Flexibilidade Total
             </h3>
-            <p className="text-gray-700 text-sm">
+            <p className="text-[var(--text-secondary)] text-sm">
               Para cada cliente, analisamos o caso específico e escolhemos a melhor combinação de tecnologias. 
               Não limitamos sua criatividade - expandimos suas possibilidades!
             </p>

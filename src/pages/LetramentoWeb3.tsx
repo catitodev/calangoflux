@@ -5,36 +5,33 @@ import { useEffect } from 'react';
 
 const LetramentoWeb3 = () => {
   useEffect(() => {
-    // Scroll to top when component mounts
     window.scrollTo(0, 0);
-    
-    // Set page title
     document.title = 'Letramento Web3 | CalangoFlux';
   }, []);
 
   const features = [
     {
-      icon: <Network className="w-8 h-8 text-emerald-500" />,
+      icon: <Network className="w-8 h-8 text-[var(--accent-primary)]" />,
       title: "Blockchain Fundamentals",
       description: "Compreenda os conceitos básicos da tecnologia blockchain e suas aplicações."
     },
     {
-      icon: <Key className="w-8 h-8 text-emerald-500" />,
+      icon: <Key className="w-8 h-8 text-[var(--accent-primary)]" />,
       title: "Carteiras Digitais",
       description: "Aprenda a criar, gerenciar e proteger suas carteiras de criptomoedas."
     },
     {
-      icon: <Users className="w-8 h-8 text-emerald-500" />,
+      icon: <Users className="w-8 h-8 text-[var(--accent-primary)]" />,
       title: "ReFi (Finanças Regenerativas)",
       description: "Explore como as finanças descentralizadas podem gerar impacto positivo."
     },
     {
-      icon: <BookOpen className="w-8 h-8 text-emerald-500" />,
+      icon: <BookOpen className="w-8 h-8 text-[var(--accent-primary)]" />,
       title: "NFTs & Smart Contracts",
       description: "Entenda tokens não-fungíveis e contratos inteligentes na prática."
     },
     {
-      icon: <Orbit className="w-8 h-8 text-emerald-500" />,
+      icon: <Orbit className="w-8 h-8 text-[var(--accent-primary)]" />,
       title: "Empoderamento Digital",
       description: "Desenvolva autonomia e confiança no mundo digital descentralizado."
     }
@@ -42,21 +39,21 @@ const LetramentoWeb3 = () => {
 
   return (
     <div className="pt-16">
-      <section className="bg-secondary-500 text-white py-20">
+      <section className="bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-primary)] py-20 border-b border-[var(--bg-elevated)]">
         <div className="container mx-auto px-6">
           <div className="flex items-center mb-8">
             <Link 
               to="/" 
-              className="flex items-center text-white hover:text-primary-300 transition-colors mr-6"
+              className="flex items-center text-[var(--text-muted)] hover:text-[var(--accent-primary)] transition-colors mr-6"
             >
               <ArrowLeft className="w-6 h-6 mr-2" />
               Voltar
             </Link>
-            <h1 className="text-4xl font-bold">Letramento Web3</h1>
+            <h1 className="text-4xl font-bold text-[var(--text-primary)]">Letramento Web3</h1>
           </div>
           
           <div className="max-w-4xl">
-            <p className="text-xl text-secondary-100 mb-8">
+            <p className="text-xl text-[var(--text-secondary)] mb-8">
               Desenvolva fluência digital no mundo descentralizado. Nosso programa de letramento Web3 
               capacita você a navegar com confiança no universo blockchain, ReFi e tecnologias regenerativas.
             </p>
@@ -68,11 +65,11 @@ const LetramentoWeb3 = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors"
+                  className="bg-[var(--bg-elevated)]/50 backdrop-blur-sm rounded-lg p-6 hover:bg-[var(--bg-elevated)]/80 transition-colors border border-[var(--bg-elevated)]"
                 >
                   <div className="mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-secondary-100">{feature.description}</p>
+                  <h3 className="text-xl font-semibold mb-2 text-[var(--text-primary)]">{feature.title}</h3>
+                  <p className="text-[var(--text-secondary)]">{feature.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -80,7 +77,7 @@ const LetramentoWeb3 = () => {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-[var(--bg-primary)]">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -88,13 +85,13 @@ const LetramentoWeb3 = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-secondary-800 mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-6">
                 Conhecimento Regenerativo Disruptivo
               </h2>
-              <p className="text-gray-700 mb-6">
+              <p className="text-[var(--text-secondary)] mb-6">
                 A CalangoFlux abre este espaço de letramento Web3 gratuito, voltado pra quem quer entender — sem hype e sem enrolação — temas como:
               </p>
-              <p className="text-gray-700">
+              <p className="text-[var(--text-secondary)]">
                 Tudo com linguagem acessível, foco real em impacto e acolhimento pra quem tá começando.
               </p>
             </motion.div>
@@ -103,44 +100,44 @@ const LetramentoWeb3 = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-secondary-50 p-8 rounded-xl"
+              className="bg-[var(--bg-surface)] p-8 rounded-xl border border-[var(--bg-elevated)]"
             >
               <div className="flex justify-center mb-6">
-                <div className="bg-secondary-100 w-20 h-20 rounded-full flex items-center justify-center text-secondary-600">
+                <div className="bg-[var(--bg-elevated)] w-20 h-20 rounded-full flex items-center justify-center text-[var(--accent-secondary)]">
                   <BookOpen size={40} />
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-center mb-6">Temas</h3>
+              <h3 className="text-xl font-semibold text-center mb-6 text-[var(--text-primary)]">Temas</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <div className="bg-secondary-100 w-8 h-8 rounded-full flex items-center justify-center text-secondary-600 mr-3 mt-1">
+                  <div className="bg-[var(--bg-elevated)] w-8 h-8 rounded-full flex items-center justify-center text-[var(--accent-secondary)] mr-3 mt-1">
                     <Key size={16} />
                   </div>
-                  <div>
+                  <div className="text-[var(--text-secondary)]">
                     • O que é Web3?
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="bg-secondary-100 w-8 h-8 rounded-full flex items-center justify-center text-secondary-600 mr-3 mt-1">
+                  <div className="bg-[var(--bg-elevated)] w-8 h-8 rounded-full flex items-center justify-center text-[var(--accent-secondary)] mr-3 mt-1">
                     <Users size={16} />
                   </div>
-                  <div>
+                  <div className="text-[var(--text-secondary)]">
                     • DAOs, tokens, NFTs e contratos inteligentes
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="bg-secondary-100 w-8 h-8 rounded-full flex items-center justify-center text-secondary-600 mr-3 mt-1">
+                  <div className="bg-[var(--bg-elevated)] w-8 h-8 rounded-full flex items-center justify-center text-[var(--accent-secondary)] mr-3 mt-1">
                     <Network size={16} />
                   </div>
-                  <div>
+                  <div className="text-[var(--text-secondary)]">
                     • Como isso se conecta com justiça social e soberania digital?
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="bg-secondary-100 w-8 h-8 rounded-full flex items-center justify-center text-secondary-600 mr-3 mt-1">
+                  <div className="bg-[var(--bg-elevated)] w-8 h-8 rounded-full flex items-center justify-center text-[var(--accent-secondary)] mr-3 mt-1">
                     <Orbit size={16} />
                   </div>
-                  <div>
+                  <div className="text-[var(--text-secondary)]">
                     • Por que tudo isso importa agora?
                   </div>
                 </li>
@@ -150,7 +147,7 @@ const LetramentoWeb3 = () => {
         </div>
       </section>
 
-      <section className="section bg-gray-50">
+      <section className="section bg-[var(--bg-surface)]">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -159,8 +156,8 @@ const LetramentoWeb3 = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-secondary-800 mb-4">A Jornada Web3 Envolve</h2>
-            <div className="w-16 h-1 bg-secondary-500 mx-auto"></div>
+            <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-4">A Jornada Web3 Envolve</h2>
+            <div className="w-16 h-1 bg-[var(--accent-secondary)] mx-auto"></div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -169,13 +166,13 @@ const LetramentoWeb3 = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white p-6 rounded-xl shadow-soft"
+              className="bg-[var(--bg-primary)] p-6 rounded-xl shadow-soft border border-[var(--bg-elevated)]"
             >
-              <h3 className="text-lg font-semibold mb-3 text-secondary-700">Estruturação de DAOs</h3>
-              <p className="text-gray-700 mb-4">
+              <h3 className="text-lg font-semibold mb-3 text-[var(--text-primary)]">Estruturação de DAOs</h3>
+              <p className="text-[var(--text-secondary)] mb-4">
                 Entendendo Organizações Descentralizadas Autônomas.
               </p>
-              <ul className="text-sm text-gray-600 space-y-2">
+              <ul className="text-sm text-[var(--text-muted)] space-y-2">
                 <li>• Contratos Inteligentes personalizados</li>
                 <li>• Mecanismos de Governança</li>
                 <li>• Tokenomics, Defi & Refi</li>
@@ -188,13 +185,13 @@ const LetramentoWeb3 = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white p-6 rounded-xl shadow-soft"
+              className="bg-[var(--bg-primary)] p-6 rounded-xl shadow-soft border border-[var(--bg-elevated)]"
             >
-              <h3 className="text-lg font-semibold mb-3 text-secondary-700">Letramento Web3</h3>
-              <p className="text-gray-700 mb-4">
+              <h3 className="text-lg font-semibold mb-3 text-[var(--text-primary)]">Letramento Web3</h3>
+              <p className="text-[var(--text-secondary)] mb-4">
                 Capacitamos sua equipe ou comunidade com os conhecimentos necessários para operar no ecossistema Web3.
               </p>
-              <ul className="text-sm text-gray-600 space-y-2">
+              <ul className="text-sm text-[var(--text-muted)] space-y-2">
                 <li>• Workshops educativos</li>
                 <li>• Treinamentos práticos</li>
                 <li>• Documentação personalizada</li>
@@ -207,13 +204,13 @@ const LetramentoWeb3 = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-white p-6 rounded-xl shadow-soft"
+              className="bg-[var(--bg-primary)] p-6 rounded-xl shadow-soft border border-[var(--bg-elevated)]"
             >
-              <h3 className="text-lg font-semibold mb-3 text-secondary-700">NFTs funcionais</h3>
-              <p className="text-gray-700 mb-4">
+              <h3 className="text-lg font-semibold mb-3 text-[var(--text-primary)]">NFTs funcionais</h3>
+              <p className="text-[var(--text-secondary)] mb-4">
                 Incentivamos criação de NFTs que vão além da arte digital, com utilidades reais para sua comunidade.
               </p>
-              <ul className="text-sm text-gray-600 space-y-2">
+              <ul className="text-sm text-[var(--text-muted)] space-y-2">
                 <li>• Tokens de acesso a produtos e serviços</li>
                 <li>• Certificações e credenciais</li>
                 <li>• Sistemas de lealdade e recompensas</li>
@@ -226,13 +223,13 @@ const LetramentoWeb3 = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-white p-6 rounded-xl shadow-soft"
+              className="bg-[var(--bg-primary)] p-6 rounded-xl shadow-soft border border-[var(--bg-elevated)]"
             >
-              <h3 className="text-lg font-semibold mb-3 text-secondary-700">Integrações e ferramentas</h3>
-              <p className="text-gray-700 mb-4">
+              <h3 className="text-lg font-semibold mb-3 text-[var(--text-primary)]">Integrações e ferramentas</h3>
+              <p className="text-[var(--text-secondary)] mb-4">
                 Conectamos sua DAO com o ecossistema de ferramentas Web3 mais adequado para suas necessidades.
               </p>
-              <ul className="text-sm text-gray-600 space-y-2">
+              <ul className="text-sm text-[var(--text-muted)] space-y-2">
                 <li>• TONxDAO para gestão organizacional</li>
                 <li>• ENS para identidade e domínios</li>
                 <li>• IPFS para armazenamento descentralizado</li>
@@ -243,14 +240,14 @@ const LetramentoWeb3 = () => {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-[var(--bg-primary)]">
         <div className="container">
-          <div className="bg-secondary-50 rounded-xl p-8 md:p-12">
+          <div className="bg-[var(--bg-surface)] border border-[var(--bg-elevated)] rounded-xl p-8 md:p-12">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-secondary-800 mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-6">
                 Pronto para entrar no futuro da organização?
               </h2>
-              <p className="text-lg text-gray-700 mb-8">
+              <p className="text-lg text-[var(--text-secondary)] mb-8">
                 Entre em contato para uma consulta gratuita. Vamos entender seus objetivos e desenhar a melhor estrutura de DAO para sua organização.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -265,7 +262,7 @@ const LetramentoWeb3 = () => {
                 <a href="https://calangoflux.rf.gd"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-outline border-secondary-500 text-secondary-500 hover:bg-secondary-50">
+                  className="btn btn-outline">
                   Web3
                 </a>
               </div>

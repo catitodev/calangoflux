@@ -72,7 +72,7 @@ const LLMsDisruptiveSection = () => {
           </motion.h2>
 
           <motion.p 
-            className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8"
+            className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-4xl mx-auto mb-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -118,7 +118,7 @@ const LLMsDisruptiveSection = () => {
             {llmBrands.map((brand, index) => (
               <motion.span
                 key={index}
-                className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium text-white/90 border border-white/20"
+                className="px-4 py-2 bg-[var(--bg-elevated)]/50 backdrop-blur-sm rounded-full text-sm font-medium text-[var(--text-primary)]/90 border border-[var(--bg-elevated)]"
                 whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
                 animate={{ 
                   y: [0, -2, 0],
@@ -146,7 +146,7 @@ const LLMsDisruptiveSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -10, scale: 1.02 }}
             >
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300 h-full">
+              <div className="bg-[var(--bg-elevated)]/50 backdrop-blur-md rounded-2xl p-6 border border-[var(--bg-elevated)] hover:border-[var(--accent-primary)]/40 transition-all duration-300 h-full">
                 <motion.div 
                   className={`w-12 h-12 bg-gradient-to-r ${feature.color} rounded-xl flex items-center justify-center mb-4 text-white`}
                   whileHover={{ rotate: 360 }}
@@ -155,7 +155,7 @@ const LLMsDisruptiveSection = () => {
                   {feature.icon}
                 </motion.div>
                 <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                <p className="text-gray-300">{feature.description}</p>
+                <p className="text-[var(--text-secondary)]">{feature.description}</p>
               </div>
             </motion.div>
           ))}
@@ -193,7 +193,7 @@ const LLMsDisruptiveSection = () => {
                 <Button 
                   asChild
                   size="lg"
-                  className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 text-lg font-bold shadow-2xl"
+                  className="bg-[var(--bg-primary)] text-[var(--accent-primary)] hover:bg-[var(--bg-surface)] px-8 py-4 text-lg font-bold shadow-2xl"
                 >
                   <a href="https://aideaflux.xyz" target="_blank" rel="noopener noreferrer">
                     🚀 ACESSAR 100+ LLMs GRÁTIS
