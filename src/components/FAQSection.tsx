@@ -9,36 +9,44 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      question: "O que é um sistema Agentic?",
-      answer: "Um sistema Agentic é uma forma avançada de IA que vai além da simples automação. Nossos agentes são capazes de aprender, tomar decisões autônomas e executar ações complexas com base em objetivos definidos. Eles se adaptam ao contexto e melhoram continuamente sua performance."
+      question: "O que é automação agentic e como é diferente de automação tradicional?",
+      answer: "Automação agentic usa agentes de IA autônomos que tomam decisões, aprendem com contexto e executam tarefas complexas sem intervenção manual. Diferente de ferramentas como n8n ou Zapier (que seguem fluxos fixos), nossos agentes entendem objetivos, classificam demandas e agem de forma inteligente — como um funcionário digital que pensa antes de agir."
     },
     {
-      question: "Como funcionam nossas integrações e automações?",
-      answer: "Utilizamos as melhores ferramentas do mercado para criar automações inteligentes, fornecendo a infraestrutura necessária para processamento avançado. Nossos sistemas funcionam como um banco de conhecimento dinâmico que alimenta nossos agentes com informações contextuais. Ambas as integrações são nativas e funcionam em tempo real."
+      question: "Quanto custa contratar automação agentic para meu negócio?",
+      answer: "Na CalangoFlux, os serviços variam de R$700 a R$3.900 por entrega, com ciclo de 10 a 20 dias úteis. Não cobramos mensalidade obrigatória. Você paga pelo que precisa e escala quando quiser. A cada 10 clientes pagantes, atendemos 1 projeto social gratuitamente."
     },
     {
-      question: "Posso começar com um teste gratuito?",
-      answer: "Sim! Oferecemos 14 dias de teste gratuito completo em todos os planos. Durante esse período, você tem acesso a todos os recursos, pode criar agentes, testar integrações e avaliar a plataforma sem nenhum custo ou compromisso."
+      question: "Preciso de conhecimento técnico para usar agentes de IA?",
+      answer: "Não. Entregamos tudo funcionando com documentação completa e treinamento. Nosso modelo é baseado em autonomia — você sai sabendo usar, sem depender de nós. Oferecemos suporte por 30 dias após a entrega."
     },
     {
-      question: "É seguro para dados empresariais?",
-      answer: "Absolutamente. Utilizamos criptografia end-to-end, infraestrutura em nuvem com certificação SOC 2 Type II, e seguimos rigorosamente a LGPD. Nossos agentes processam dados localmente quando necessário e todas as integrações são protegidas por autenticação multifator."
+      question: "Como funciona o atendimento automatizado com IA no site?",
+      answer: "O CalangoBot no site faz triagem inicial usando IA (Llama 3.3 70B via Groq). Quando detecta necessidade de análise mais profunda, escala para o Gemini via nosso sistema operacional agentic. Tudo acontece em tempo real, com detecção automática de leads e notificação instantânea."
     },
     {
-      question: "Como é o suporte técnico?",
-      answer: "Oferecemos suporte escalonado por plano: email para Essential, prioritário para Core, 24/7 para Premium e suporte dedicado para Enterprise. Também fornecemos documentação completa, tutoriais em vídeo e uma comunidade ativa de usuários."
+      question: "O que é Web3 e como a CalangoFlux usa blockchain?",
+      answer: "Web3 é a internet descentralizada baseada em blockchain. Usamos para: tokenização de ativos ecológicos (créditos de carbono), rastreabilidade de produtos orgânicos, DAOs para governança de coletivos, e oferecemos letramento Web3 gratuito para comunidades que nunca tiveram contato com a tecnologia."
     },
     {
-      question: "Posso personalizar os agentes?",
-      answer: "Sim! Nossa plataforma oferece total flexibilidade. Você pode personalizar o comportamento, aparência, canais de comunicação e até mesmo criar agentes especializados para casos de uso específicos do seu negócio. Tudo isso através de nossa interface visual intuitiva."
+      question: "Vocês atendem ONGs e projetos sociais?",
+      answer: "Sim. Nosso modelo de subsídio cruzado garante que a cada 10 clientes pagantes, 1 projeto social é atendido com a mesma qualidade profissional. Autônomos, coletivos, cooperativas e ONGs são nosso público principal."
     },
     {
-      question: "Quais plataformas são suportadas?",
-      answer: "Integramos nativamente com WhatsApp Business, Telegram, Discord, Slack, e-mail, websites e aplicativos mobile. Também oferecemos API robusta para integrações customizadas com qualquer sistema existente."
+      question: "Qual a diferença entre CalangoFlux e outras agências digitais?",
+      answer: "Somos 80% agentic e 100% cloud. Nossos agentes de IA trabalham 24/7 em containers isolados com segurança zero-trust e audit trail imutável. Não usamos templates genéricos — cada solução é personalizada com IA que aprende o contexto do seu negócio. E somos open source (Apache-2.0)."
     },
     {
-      question: "Como funciona o processo de onboarding?",
-      answer: "Após a contratação, nossa equipe técnica conduz um onboarding personalizado que inclui: configuração inicial, treinamento da equipe, criação dos primeiros agentes e acompanhamento durante as primeiras semanas para garantir o sucesso da implementação."
+      question: "Como funciona a segurança dos dados?",
+      answer: "Usamos isolamento WASM por agente (cada um em sandbox próprio), credenciais nunca expostas (apenas tokens temporários de 5 minutos), audit trail imutável via SHA-256 hash chain, e monitoramento em tempo real pelo agente SHIELD. Seguimos a LGPD e todo o código é auditável (open source)."
+    },
+    {
+      question: "Posso integrar com ferramentas que já uso (Notion, Airtable, Telegram)?",
+      answer: "Sim. O sistema suporta 20+ integrações nativas: Notion, Airtable, Telegram, WhatsApp, Google Drive, email, LinkedIn, Instagram, Slack, e mais. Todas as integrações são feitas pelo agente OpenClaw, que gerencia credenciais de forma segura."
+    },
+    {
+      question: "Como entro em contato?",
+      answer: "WhatsApp: +55 22 98832-4416. Email: calangoflux@calangoflux.xyz. Ou converse com o CalangoBot aqui no site — ele está disponível 24/7 e pode agendar uma conversa com nossa equipe."
     }
   ];
 
