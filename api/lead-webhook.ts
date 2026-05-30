@@ -15,10 +15,6 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'Content-Type',
 };
 
-// n8n webhook URL — configure in Vercel env vars
-// When a lead is saved, this endpoint is called to notify you
-const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL || '';
-
 export default async function handler(req: Request): Promise<Response> {
   if (req.method === 'OPTIONS') {
     return new Response(null, { status: 204, headers: CORS_HEADERS });
@@ -91,13 +87,15 @@ export default async function handler(req: Request): Promise<Response> {
     }
   }
 
-  // Forward to n8n webhook for notifications (WhatsApp + Telegram + Airtable)
-  if (N8N_WEBHOOK_URL) {
-    try {
-      await fetch(N8N_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+  // Forward to CalangoFlux Agentic OS for processing (replaces n8n)
+  const AGENTIC_OS_URL = process.env.AGENTIC_OS_URL || 'http://34.151.199.200:8080/api/tasks';
+  try {
+    await fetch(AGENTIC_OS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        task_type: 'action',
+        payload: JSON.stringify({
           event: 'new_lead',
           timestamp: new Date().toISOString(),
           lead: {
@@ -108,10 +106,10 @@ export default async function handler(req: Request): Promise<Response> {
             session_id: body.session_id || '',
           },
         }),
-      });
-    } catch {
-      // Don't fail if n8n is unreachable
-    }
+      }),
+    });
+  } catch {
+    // Don't fail if Agentic OS is unreachable
   }
 
   return new Response(JSON.stringify({ success: true }), {

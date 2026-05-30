@@ -24,12 +24,14 @@ const Layout = () => {
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <Navbar isScrolled={isScrolled} />
-      <main className="flex-grow">
+      <main className="flex-grow" role="main" aria-label="Conteúdo principal">
         <ErrorBoundary>
           <Outlet />
         </ErrorBoundary>
       </main>
-      <FooterSection />
+      <footer role="contentinfo">
+        <FooterSection />
+      </footer>
       <CalangoBot />
     </div>
   );

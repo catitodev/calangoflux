@@ -26,6 +26,8 @@ const LEAD_KEYWORDS = [
 
 const MAX_MESSAGES = 50;
 const STREAM_TIMEOUT_MS = 10_000;
+const AGENTIC_OS_API = 'http://34.151.199.200:8080/api/tasks';
+const ESCALATION_KEYWORDS = ['proposta', 'orçamento', 'contrato', 'detalhes técnicos', 'personalizado', 'complexo'];
 const SESSION_STORAGE_KEY = 'calangobot_session';
 
 function generateSessionId(): string {
@@ -279,6 +281,19 @@ export function useChatEngine() {
             ...prev,
             messages: [...prev.messages, { role: 'assistant', content: 'Desculpe, não consegui gerar uma resposta. Tente novamente.' }].slice(-MAX_MESSAGES),
           }));
+        }
+
+        // Escalation: if assistant response suggests deeper analysis needed, notify Agentic OS
+        const needsEscalation = ESCALATION_KEYWORDS.some(kw => content.toLowerCase().includes(kw));
+        if (needsEscalation && assistantContent) {
+          fetch(AGENTIC_OS_API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              task_type: 'conversation',
+              payload: JSON.stringify({ user_message: content, groq_response: assistantContent, session_id: state.sessionId }),
+            }),
+          }).catch(() => { /* silent - don't block UX */ });
         }
 
         setState((prev) => ({ ...prev, isStreaming: false }));
